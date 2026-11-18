@@ -1,0 +1,16 @@
+{
+  "name": "wikidex-speedsonic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "WikiSpeed — Enciclopedia interactiva de Sonic the Hedgehog",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -c server.js && node -c nav.js",
+    "lint": "node -c server.js && node -c nav.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_stack" name="shell-type"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html {
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: clip;
+        margin: 0;
+        padding: 0;
+        background-color: #041329;
+        color: #d6e3ff;
+        font-family: 'Inter', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        width: 100%;
+        overflow-x: clip;
+        overflow-y: visible;
+        margin: 0;
+        padding: 0;
+        min-height: 100dvh;
+        background-color: #041329;
+        color: #d6e3ff;
+        font-family: 'Inter', sans-serif;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#233148",
+            "on-error": "#690005",
+            "secondary": "#fff0c8",
+            "background": "#041329",
+            "surface-container-lowest": "#010e24",
+            "surface-variant": "#27354c",
+            "surface-container-high": "#1c2a41",
+            "on-primary": "#003548",
+            "secondary-container": "#fdd000",
+            "surface-bright": "#2c3951",
+            "on-tertiary-fixed": "#011d35",
+            "on-surface": "#d6e3ff",
+            "tertiary": "#cce2ff",
+            "on-secondary-fixed-variant": "#564500",
+            "outline-variant": "#3e484e",
+            "surface-container-low": "#0d1c32",
+            "on-secondary": "#3b2f00",
+            "primary-fixed-dim": "#73d1ff",
+            "on-primary-fixed": "#001e2b",
+            "inverse-primary": "#006687",
+            "tertiary-fixed": "#d1e4ff",
+            "on-secondary-container": "#6e5900",
+            "surface": "#041329",
+            "primary": "#bae6ff",
+            "secondary-fixed-dim": "#ecc200",
+            "surface-dim": "#041329",
+            "on-tertiary-fixed-variant": "#314863",
+            "on-background": "#d6e3ff",
+            "on-secondary-fixed": "#231b00",
+            "inverse-surface": "#d6e3ff",
+            "primary-fixed": "#c1e8ff",
+            "on-primary-container": "#005774",
+            "tertiary-container": "#aec6e6",
+            "tertiary-fixed-dim": "#b0c9e8",
+            "surface-container-highest": "#27354c",
+            "surface-tint": "#73d1ff",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#3b526d",
+            "on-surface-variant": "#bec8cf",
+            "on-tertiary": "#19324b",
+            "on-error-container": "#ffdad6",
+            "error": "#ffb4ab",
+            "primary-container": "#69cfff",
+            "on-primary-fixed-variant": "#004d67",
+            "secondary-fixed": "#ffe07c",
+            "outline": "#889299",
+            "surface-container": "#112036"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "margin-lg": "1.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "gutter-sm": "0.75rem"
+          },
+          fontFamily: {
+            "headline-md": ["Outfit"],
+            "label-sm": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "label-lg": ["Outfit"],
+            "label-md": ["Outfit"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-fixed">
+  <!-- Header -->
+  <header class="fixed top-0 inset-x-0 z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)] border-b border-outline-variant/20">
+    <div class="h-16 max-w-3xl mx-auto w-full px-4 sm:px-6 flex items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-space-xs min-w-0">
+        <button aria-label="Volver" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:text-primary-container active:scale-95 transition-transform shrink-0" onclick="history.back()" type="button">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col min-w-0">
+          <h1 class="font-headline-sm text-headline-sm text-primary-container truncate leading-tight" id="header-char-title">Ficha de Personaje</h1>
+          <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider truncate">WikiSpeed • Archivo Central</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-xs shrink-0">
+        <a aria-label="Buscar en la wiki" class="w-10 h-10 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container active:scale-95 transition-all" href="/buscar">
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </a>
+        <a aria-label="Perfil" class="w-9 h-9 rounded-full bg-primary flex items-center justify-center ml-1" href="/perfil">
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+    <div class="w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col gap-5 py-4">
+      <!-- Selector de Personajes con Imágenes y Nombres -->
+      <section class="flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed-dim">Selecciona un Personaje</span>
+          <a class="font-label-sm text-label-sm text-secondary-container hover:underline flex items-center gap-1" href="/buscar">
+            <span>Ver No canons &amp; Más</span>
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-3 gap-2.5" id="character-roster-switcher">
+          <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="sonic" type="button">
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
+              <img alt="Sonic the Hedgehog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/sonic_character_hero_1794933473360.jpg"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+              <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Sonic</span>
+            </div>
+            <div class="px-2 py-1.5 flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-primary-container">#001</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Speed</span>
+            </div>
+          </button>
+
+          <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="tails" type="button">
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
+              <img alt="Miles Tails Prower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/tails_character_hero_1794933474802.jpg"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+              <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Tails</span>
+            </div>
+            <div class="px-2 py-1.5 flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-secondary-container">#002</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Fly / Tech</span>
+            </div>
+          </button>
+
+          <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="shadow" type="button">
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
+              <img alt="Shadow the Hedgehog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/shadow_character_hero_1794933475500.jpg"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+              <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Shadow</span>
+            </div>
+            <div class="px-2 py-1.5 flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-error">#007</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Chaos</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Dynamic Character Profile Container -->
+      <div class="flex flex-col gap-5" id="character-sheet-root"></div>
+
+      <!-- Créditos Oficiales a los Creadores de Sonic y sus Amigos -->
+      <section class="rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-3 shadow-md">
+        <div class="flex items-center gap-2 text-secondary-container">
+          <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores de Sonic y sus Amigos</h2>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Todos los personajes oficiales del universo de Sonic pertenecen a <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Reconocimiento especial a sus creadores originales:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
+            <span class="font-label-lg text-label-lg text-primary-container">Yuji Naka, Naoto Ohshima &amp; Hirokazu Yasuhara</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Creadores originales de Sonic the Hedgehog y Dr. Eggman (1991).</span>
+          </div>
+          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
+            <span class="font-label-lg text-label-lg text-secondary-container">Yasushi Yamaguchi</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseñador original de Miles "Tails" Prower (Sonic 2, 1992).</span>
+          </div>
+          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
+            <span class="font-label-lg text-label-lg text-error">Takashi Iizuka &amp; Shiro Maekawa</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Creadores principales de Shadow the Hedgehog y guion de SA2 (2001).</span>
+          </div>
+          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
+            <span class="font-label-lg text-label-lg text-tertiary">Takashi Yuda &amp; Kazuyuki Hoshino</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseñadores originales de Knuckles the Echidna, Amy Rose y Metal Sonic.</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(0,0,0,0.4)]">
+    <div class="h-16 max-w-3xl mx-auto px-2 flex items-center justify-around">
+      <a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant hover:text-on-surface transition-all" data-path="inicio" href="/">
+        <span class="material-symbols-outlined text-[24px]">home</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Inicio</span>
+      </a>
+      <a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 text-primary-container transition-all" data-path="personajes" href="/personajes">
+        <span class="material-symbols-outlined text-[24px]">group</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Personajes</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-0.5 shadow-[0_0_8px_rgba(105,207,255,0.7)]"></span>
+      </a>
+      <a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant hover:text-on-surface transition-all" data-path="medios" href="/medios">
+        <span class="material-symbols-outlined text-[24px]">sports_esports</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Medios</span>
+      </a>
+      <a class="flex flex-col items-center justify-center w-16 h-12 text-on-surface-variant hover:text-on-surface transition-all" data-path="lore-y-mas" href="/lore-y-mas">
+        <span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+        <span class="font-label-sm text-label-sm mt-0.5">Lore &amp; Más</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    (function () {
+      const CHARACTERS = {
+        sonic: {
+          key: 'sonic',
+          code: '#001',
+          shortName: 'Sonic',
+          name: 'Sonic the Hedgehog',
+          jpName: 'ソニック・ザ・ヘッジホッグ',
+          alias: 'The Blue Blur / El Destello Azul',
+          canonBadge: 'Canon Principal',
+          eraBadge: '★ Era Clásica & Moderna',
+          debut: 'Debut: 1991',
+          accentClass: 'text-primary-container',
+          borderClass: 'border-primary-container',
+          pillMetricIcon: 'speed',
+          pillMetricText: 'MACH 1+',
+          bottomTagIcon: 'monetization_on',
+          bottomTagText: 'RING ENERGY: 100%',
+          heroImage: '/src/assets/images/sonic_character_hero_1794933473360.jpg',
+          gallery: [
+            {
+              img: '/src/assets/images/sonic_character_hero_1794933473360.jpg',
+              label: 'Sonic the Hedgehog — Carrera Hipersónica',
+              tag: 'Render Principal'
+            },
+            {
+              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-QxeCFnX3uUwTlyu_JFq1ZRdG_n5g9mYdNv_nMn7V2fWvYYKxUSBnwESVzKDF8VZpkbDRbeOVIeGti2AMhtsVXRhVVB-a7RXYunPdo4AMPZOp4YFbzMPVrTmoW4M5MDRjQvnSQb_OV2iU8nWL7myt-KQaz1zoGzMgvdL3KsC-sMWgMOOIKU6Z45nfu8ujfFhNQw76QsPDcJCkhXsa8FbZOG6iFQFhAmJB-1BKK4Q',
+              label: 'Sonic — Retrato Clásico de Victoria',
+              tag: 'Archivo #001'
+            }
+          ],
+          bio: 'Un erizo antropomórfico dotado del don de la velocidad supersónica. De espíritu libre, amante de la aventura y defensor intransigente de la paz contra los planes tiránicos del Dr. Ivo "Eggman" Robotnik.',
+          specs: {
+            species: 'Erizo común',
+            ageGender: '15 años / Masculino',
+            size: '100 cm | 35 kg',
+            alignment: 'Bien Neutral (Libertad)',
+            ability: 'Supervelocidad Hipersónica & Spin Attack',
+            creators: 'Naoto Ohshima, Yuji Naka, Hirokazu Yasuhara (SEGA / Sonic Team)'
+          },
+          rank: 'CLASE S+',
+          stats: [
+            { label: 'Velocidad', icon: 'bolt', valueText: '100 / MAX (Supersónica)', pct: 100, bar: 'bg-gradient-to-r from-primary-fixed-dim to-secondary-container' },
+            { label: 'Agilidad & Reflejos', icon: 'sync', valueText: '95%', pct: 95, bar: 'bg-primary-container' },
+            { label: 'Resistencia / Durabilidad', icon: 'shield', valueText: '80%', pct: 80, bar: 'bg-tertiary-container' },
+            { label: 'Potencia de Impacto', icon: 'fitness_center', valueText: '65%', pct: 65, bar: 'bg-outline' }
+          ],
+          moves: ['Spin Dash', 'Homing Attack', 'Boost Supersónico', 'Drop Dash', 'Light Speed Attack'],
+          games: [
+            { title: 'Sonic the Hedgehog (1991)', sub: 'Sega Mega Drive / Genesis • Debut histórico', tag: 'Génesis' },
+            { title: 'Sonic Adventure 2 (2001)', sub: 'Dreamcast / GameCube • Rivalidad con Shadow', tag: 'Era 3D' },
+            { title: 'Sonic Frontiers (2022)', sub: 'Multiplataforma • Islas Starfall & Zonas Abiertas', tag: 'Era Abierta' }
+          ],
+          voices: [
+            { lang: 'Japonés', actor: "Jun'ichi Kanemaru", note: '1998 — Presente' },
+            { lang: 'Inglés', actor: 'Roger Craig Smith', note: 'Ben Schwartz (Cine)' },
+            { lang: 'Español Latino', actor: 'Jorge Roig Jr. / Marc Winslow', note: 'Luisito Comunica (Cine)' },
+            { lang: 'Castellano', actor: 'Ángel de Gracia', note: 'Voz oficial en juegos' }
+          ],
+          transforms: [
+            { name: 'Super Sonic', req: '7 Esmeraldas Chaos', icon: 'electric_bolt', tone: 'text-secondary-container' },
+            { name: 'Hyper Sonic', req: 'Súper Esmeraldas', icon: 'flare', tone: 'text-primary' },
+            { name: 'Darkspine', req: 'Anillos del Secreto', icon: 'dark_mode', tone: 'text-tertiary' }
+          ]
+        },
+        tails: {
+          key: 'tails',
+          code: '#002',
+          shortName: 'Tails',
+          name: 'Miles "Tails" Prower',
+          jpName: 'マイルス "テイルス" パウアー',
+          alias: 'El Zorro de Dos Colas / Genio Mecánico',
+          canonBadge: 'Canon Principal',
+          eraBadge: '★ Coprotagonista Clásico & Moderno',
+          debut: 'Debut: 1992',
+          accentClass: 'text-secondary-container',
+          borderClass: 'border-secondary-container',
+          pillMetricIcon: 'psychology',
+          pillMetricText: 'IQ 300',
+          bottomTagIcon: 'flight',
+          bottomTagText: 'VUELO TWIN-TAIL ACTIVO',
+          heroImage: '/src/assets/images/tails_character_hero_1794933474802.jpg',
+          gallery: [
+            {
+              img: '/src/assets/images/tails_character_hero_1794933474802.jpg',
+              label: 'Miles "Tails" Prower — Taller del Tornado',
+              tag: 'Render Principal'
+            },
+            {
+              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB5jtv_sCE7g8NlLjYPRUXW8oFRv3t7lYIY-gZ462Do1LBq_DDAAeDxTacYMK2QklWkcC59U1lw6DKGcdLTyaPchFsyKpJvpwiKs1n1blIqxK8snGHmmsdIdsIQZ9oqjwn_KB4FcJ2EIwytgBBv7YQpo5_cAfpX0aJ98zf0vaVMqzHlIglGXv14bFRqMLOO3u1y5DRP8lhGm1LibDV6MBnpUS3f_q_mar57Zm4s_eI',
+              label: 'Tails — Ingeniero & Piloto Experto',
+              tag: 'Archivo #002'
+            }
+          ],
+          bio: 'Un joven zorro con dos colas que gira como hélices para volar. Posee un intelecto a la altura del Dr. Eggman (IQ 300), diseña aviones como el Tornado y el Cyclone, y es el mejor amigo leal e inseparable de Sonic.',
+          specs: {
+            species: 'Zorro de dos colas',
+            ageGender: '8 años / Masculino',
+            size: '80 cm | 20 kg',
+            alignment: 'Bien Legal (Héroe / Inventor)',
+            ability: 'Vuelo Propulsado por Colas & Ingeniería Avanzada',
+            creators: 'Yasushi Yamaguchi (SEGA / Sonic Team)'
+          },
+          rank: 'CLASE S (TECH)',
+          stats: [
+            { label: 'Inteligencia & Ingeniería', icon: 'memory', valueText: '100 / MAX (IQ 300)', pct: 100, bar: 'bg-gradient-to-r from-secondary-container to-primary-container' },
+            { label: 'Vuelo & Control Aéreo', icon: 'flight', valueText: '94%', pct: 94, bar: 'bg-secondary-container' },
+            { label: 'Velocidad de Carrera', icon: 'speed', valueText: '82%', pct: 82, bar: 'bg-primary-container' },
+            { label: 'Agilidad & Combate Tech', icon: 'precision_manufacturing', valueText: '88%', pct: 88, bar: 'bg-tertiary-container' },
+            { label: 'Potencia Física', icon: 'fitness_center', valueText: '58%', pct: 58, bar: 'bg-outline' }
+          ],
+          moves: ['Twin-Tail Flight', 'Tail Swipe', 'Tornado Biplane', 'Cyclone Mech', 'Dummy Ring Bomb'],
+          games: [
+            { title: 'Sonic the Hedgehog 2 (1992)', sub: 'Mega Drive • Debut oficial junto a Sonic', tag: 'Debut' },
+            { title: 'Tails Adventure (1995)', sub: 'Game Gear • Aventura propia con gadgets', tag: 'Protagonista' },
+            { title: 'Sonic Adventure 2 (2001)', sub: 'Pilota el Cyclone en batallas contra Eggman', tag: 'Mecha Tech' }
+          ],
+          voices: [
+            { lang: 'Japonés', actor: 'Ryō Hirohashi', note: '2003 — Presente' },
+            { lang: 'Inglés', actor: "Colleen O'Shaughnessey", note: 'Juegos y Películas' },
+            { lang: 'Español Latino', actor: 'Marisol Romero', note: 'Películas y Sonic Prime' },
+            { lang: 'Castellano', actor: 'Graciela Molina', note: 'Voz oficial en juegos' }
+          ],
+          transforms: [
+            { name: 'Super Tails', req: '7 Esmeraldas Chaos', icon: 'auto_awesome', tone: 'text-secondary-container' },
+            { name: 'Turbo Tails', req: 'Capa de Energía', icon: 'bolt', tone: 'text-primary' },
+            { name: 'Cyclone Walker', req: 'Transformación Mecha', icon: 'smart_toy', tone: 'text-tertiary' }
+          ]
+        },
+        shadow: {
+          key: 'shadow',
+          code: '#007',
+          shortName: 'Shadow',
+          name: 'Shadow the Hedgehog',
+          jpName: 'シャドウ・ザ・ヘッジホッグ',
+          alias: 'La Forma de Vida Suprema / Proyecto Shadow',
+          canonBadge: 'Canon Principal',
+          eraBadge: '★ Era Aventura & Moderna',
+          debut: 'Debut: 2001',
+          accentClass: 'text-error',
+          borderClass: 'border-error',
+          pillMetricIcon: 'offline_bolt',
+          pillMetricText: 'CHAOS CONTROL',
+          bottomTagIcon: 'bolt',
+          bottomTagText: 'INHIBITOR RINGS: ACTIVOS',
+          heroImage: '/src/assets/images/shadow_character_hero_1794933475500.jpg',
+          gallery: [
+            {
+              img: '/src/assets/images/shadow_character_hero_1794933475500.jpg',
+              label: 'Shadow the Hedgehog — Chaos Control en la ARK',
+              tag: 'Render Principal'
+            },
+            {
+              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAwXuRC2xkAVGd0IbmwQlcirhCKkU3igP5Faiz0L8TPNkn44Cs7Zzd1FgLvw4PQRiqsIDMggNVGPm8t4wZKCP2deLOYBcaw-C458JyKfK3w3jGQh3XGtKu1iIT1zAwiQhcqPJSe6YhMCRsB4ijuAkA1IYc22TNrZOg6BMlOnwxq9x8w5QgEBJ_zYUUGVVR2yqnQ_Id4QLtpCKJFijJoxOLbP-TBB_-8mDS4GGt4j8E',
+              label: 'Shadow — Forma de Vida Suprema',
+              tag: 'Archivo #007'
+            }
+          ],
+          bio: 'Creado por el profesor Gerald Robotnik en la Colonia Espacial ARK usando ADN de Black Doom. Inmortal, implacable y veloz gracias a sus Air Shoes, protege la Tierra para honrar la promesa hecha a su amiga María Robotnik.',
+          specs: {
+            species: 'Erizo híbrido (Black Arms)',
+            ageGender: 'Inmortal (+50 años) / Masculino',
+            size: '100 cm | 35 kg',
+            alignment: 'Antihéroe / Neutral',
+            ability: 'Manipulación de Energía Chaos & Velocidad Air Shoes',
+            creators: 'Takashi Iizuka, Shiro Maekawa & Yuji Uekawa (Sonic Team)'
+          },
+          rank: 'CLASE S+ (SUPREMA)',
+          stats: [
+            { label: 'Poder Chaos (Chaos Control)', icon: 'auto_fix_high', valueText: '100 / MAX (Espacio-Tiempo)', pct: 100, bar: 'bg-gradient-to-r from-error to-secondary-container' },
+            { label: 'Velocidad (Air Shoes)', icon: 'speed', valueText: '99%', pct: 99, bar: 'bg-primary-container' },
+            { label: 'Resistencia & Inmortalidad', icon: 'shield', valueText: '95%', pct: 95, bar: 'bg-tertiary-container' },
+            { label: 'Fuerza & Combate Directo', icon: 'fitness_center', valueText: '92%', pct: 92, bar: 'bg-error' }
+          ],
+          moves: ['Chaos Control', 'Chaos Spear', 'Chaos Blast', 'Homing Attack', 'Doom Wings'],
+          games: [
+            { title: 'Sonic Adventure 2 (2001)', sub: 'Dreamcast / GameCube • Debut y sacrificio en la ARK', tag: 'Debut' },
+            { title: 'Shadow the Hedgehog (2005)', sub: 'PS2 / GCN / Xbox • 10 finales contra Black Doom', tag: 'Protagonista' },
+            { title: 'Sonic X Shadow Generations (2024)', sub: 'Campaña propia de Shadow con Doom Powers', tag: 'Reciente' }
+          ],
+          voices: [
+            { lang: 'Japonés', actor: 'Kōji Yusa', note: '2001 — Presente' },
+            { lang: 'Inglés', actor: 'Kirk Thornton', note: 'Keanu Reeves (Sonic 3 Cine)' },
+            { lang: 'Español Latino', actor: 'René García', note: 'Sonic 3 Película / Prime' },
+            { lang: 'Castellano', actor: 'Manuel Gimeno', note: 'Voz oficial en juegos' }
+          ],
+          transforms: [
+            { name: 'Super Shadow', req: '7 Esmeraldas Chaos', icon: 'electric_bolt', tone: 'text-secondary-container' },
+            { name: 'Sin Inhibidores', req: 'Poder Máximo Desatado', icon: 'local_fire_department', tone: 'text-error' },
+            { name: 'Doom Wings', req: 'Energía Black Arms', icon: 'flare', tone: 'text-primary' }
+          ]
+        }
+      };
+
+      const root = document.getElementById('character-sheet-root');
+      const headerTitle = document.getElementById('header-char-title');
+      const rosterButtons = document.querySelectorAll('.roster-card');
+      const favorites = new Set();
+
+      function resolveInitialCharacter() {
+        const path = window.location.pathname.toLowerCase();
+        const q = new URLSearchParams(window.location.search).get('id');
+        const candidate = (q || path.split('/').pop() || '').toLowerCase();
+        if (CHARACTERS[candidate]) return candidate;
+        return 'sonic';
+      }
+
+      let currentKey = resolveInitialCharacter();
+
+      function renderCharacter(key, updateUrl) {
+        const c = CHARACTERS[key] || CHARACTERS.sonic;
+        currentKey = c.key;
+        headerTitle.textContent = `${c.shortName} — Ficha Técnica`;
+        document.title = `${c.name} — WikiSpeed`;
+
+        if (updateUrl) {
+          window.history.replaceState(null, '', `/personajes/${c.key}`);
+        }
+
+        rosterButtons.forEach((btn) => {
+          const active = btn.getAttribute('data-char') === c.key;
+          btn.classList.toggle('border-primary-container', active && c.key === 'sonic');
+          btn.classList.toggle('border-secondary-container', active && c.key === 'tails');
+          btn.classList.toggle('border-error', active && c.key === 'shadow');
+          btn.classList.toggle('border-transparent', !active);
+          btn.classList.toggle('shadow-[0_0_16px_rgba(105,207,255,0.28)]', active);
+        });
+
+        const isFav = favorites.has(c.key);
+
+        root.innerHTML = `
+          <!-- Sub-header & Favorite -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+              <span class="${c.accentClass} font-headline-sm text-headline-sm">${c.code}</span>
+              <span>•</span>
+              <span class="tracking-wider uppercase">Archivo Central Oficial</span>
+            </div>
+            <button aria-label="Marcar como favorito" class="h-10 px-3 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center gap-1.5 text-secondary-container active:scale-95 transition-all" id="fav-toggle-btn" type="button">
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' ${isFav ? 1 : 0};">favorite</span>
+              <span class="font-label-sm text-label-sm uppercase">${isFav ? 'Guardado' : 'Favorito'}</span>
+            </button>
+          </div>
+
+          <!-- Hero Profile Banner with Name + Main Image -->
+          <section class="relative w-full rounded-2xl bg-surface-container-high border ${c.borderClass}/30 overflow-hidden shadow-xl">
+            <div class="p-4 sm:p-5 flex flex-col gap-3">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-fixed font-label-sm text-label-sm uppercase">${c.canonBadge}</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-secondary-container font-label-sm text-label-sm">${c.eraBadge}</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">${c.debut}</span>
+              </div>
+
+              <div>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">${c.name}</h2>
+                <p class="font-label-md text-label-md ${c.accentClass} mt-0.5">${c.jpName} <span class="text-outline">•</span> ${c.alias}</p>
+              </div>
+
+              <!-- Main Portrait Image WITH Character Name Badge -->
+              <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/25">
+                <img alt="${c.name}" class="w-full h-full object-cover" referrerpolicy="no-referrer" src="${c.heroImage}"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/85 via-transparent to-transparent"></div>
+                <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 ${c.accentClass}">
+                  <span class="material-symbols-outlined text-[14px]">${c.pillMetricIcon}</span>
+                  <span class="font-label-sm text-label-sm font-bold">${c.pillMetricText}</span>
+                </div>
+                <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-end justify-between gap-2">
+                  <div class="px-3 py-1 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md border border-outline-variant/30">
+                    <span class="font-headline-sm text-headline-sm text-white block leading-tight">${c.name}</span>
+                  </div>
+                  <div class="px-2.5 py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 text-secondary-container">
+                    <span class="material-symbols-outlined text-[15px]">${c.bottomTagIcon}</span>
+                    <span class="font-label-sm text-label-sm font-bold">${c.bottomTagText}</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${c.bio}</p>
+            </div>
+          </section>
+
+          <!-- Galería de Imágenes del Personaje (con sus nombres) -->
+          <section class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined ${c.accentClass} text-[20px]">photo_library</span>
+                Galería Oficial de ${c.shortName}
+              </h3>
+              <span class="font-label-sm text-label-sm text-outline uppercase">${c.gallery.length} Imágenes</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              ${c.gallery.map((g) => `
+                <figure class="rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/25 flex flex-col">
+                  <div class="relative aspect-video w-full bg-surface-container-lowest overflow-hidden">
+                    <img alt="${g.label}" class="w-full h-full object-cover" referrerpolicy="no-referrer" src="${g.img}"/>
+                    <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm font-label-sm text-label-sm text-primary-container">${g.tag}</span>
+                  </div>
+                  <figcaption class="px-3 py-2 font-label-md text-label-md text-on-surface">${g.label}</figcaption>
+                </figure>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- Estadísticas / Parámetros de Rendimiento -->
+          <section class="rounded-2xl bg-surface-container-high border border-outline-variant/20 p-4 sm:p-5 flex flex-col gap-4 shadow-md">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined ${c.accentClass} text-[20px]">equalizer</span>
+                Estadísticas de ${c.shortName}
+              </h3>
+              <span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-secondary-container">${c.rank}</span>
+            </div>
+            <div class="flex flex-col gap-3">
+              ${c.stats.map((s) => `
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-center font-label-md text-label-md gap-2">
+                    <span class="text-on-surface-variant flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-[16px] ${c.accentClass}">${s.icon}</span>
+                      ${s.label}
+                    </span>
+                    <span class="text-on-surface font-bold shrink-0">${s.valueText}</span>
+                  </div>
+                  <div class="w-full h-3 rounded-full bg-surface-container-lowest overflow-hidden">
+                    <div class="h-full rounded-full ${s.bar}" style="width: ${s.pct}%"></div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="bg-surface-container-low p-3 rounded-xl">
+              <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2">Técnicas Insignia de ${c.shortName}</span>
+              <div class="flex flex-wrap gap-1.5">
+                ${c.moves.map((m) => `<span class="px-2.5 py-1 rounded-lg bg-surface-variant text-on-surface font-label-md text-label-md">${m}</span>`).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- Ficha Técnica Oficial -->
+          <section class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between bg-surface-container-high/60 px-3 py-2 rounded-lg">
+              <div class="flex items-center gap-2 text-primary-fixed">
+                <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                <span class="font-headline-sm text-headline-sm">Ficha Técnica Oficial</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">SEGA Archive</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Especie</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface">${c.specs.species}</span>
+              </div>
+              <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Edad / Género</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface">${c.specs.ageGender}</span>
+              </div>
+              <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Altura &amp; Peso</span>
+                <span class="font-body-md text-body-md font-semibold text-on-surface">${c.specs.size}</span>
+              </div>
+              <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Alineación</span>
+                <span class="font-body-md text-body-md font-semibold text-secondary-fixed">${c.specs.alignment}</span>
+              </div>
+              <div class="col-span-2 bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Habilidad Principal</span>
+                <span class="font-body-md text-body-md ${c.accentClass}">${c.specs.ability}</span>
+              </div>
+              <div class="col-span-2 bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">Creadores Originales</span>
+                <span class="font-body-md text-body-md text-on-surface">${c.specs.creators}</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Juegos Clave & Doblaje -->
+          <section class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-2.5">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary-container text-[18px]">sports_esports</span>
+                Juegos Clave
+              </h3>
+              ${c.games.map((g) => `
+                <div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-2">
+                  <div class="min-w-0">
+                    <div class="font-label-lg text-label-lg text-on-surface truncate">${g.title}</div>
+                    <div class="font-body-sm text-body-sm text-on-surface-variant">${g.sub}</div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded bg-surface-container-highest text-secondary-container font-label-sm text-label-sm shrink-0">${g.tag}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-2.5">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-secondary-container text-[18px]">record_voice_over</span>
+                Actores de Doblaje
+              </h3>
+              <div class="grid grid-cols-2 gap-2">
+                ${c.voices.map((v) => `
+                  <div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col">
+                    <span class="font-label-sm text-label-sm text-outline">${v.lang}</span>
+                    <span class="font-label-lg text-label-lg text-on-surface leading-snug">${v.actor}</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">${v.note}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- Transformaciones -->
+          <section class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-secondary-container text-[20px]">auto_awesome</span>
+                Transformaciones de ${c.shortName}
+              </h3>
+              <span class="font-label-sm text-label-sm text-outline uppercase">Chaos Energy</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              ${c.transforms.map((t) => `
+                <div class="p-3 rounded-xl bg-surface-container-high flex flex-col items-center text-center gap-1">
+                  <span class="material-symbols-outlined text-[24px] ${t.tone}">${t.icon}</span>
+                  <span class="font-label-lg text-label-lg ${t.tone}">${t.name}</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">${t.req}</span>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+        `;
+
+        const favBtn = document.getElementById('fav-toggle-btn');
+        if (favBtn) {
+          favBtn.addEventListener('click', () => {
+            if (favorites.has(c.key)) favorites.delete(c.key);
+            else favorites.add(c.key);
+            renderCharacter(c.key, false);
+          });
+        }
+      }
+
+      rosterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          renderCharacter(btn.getAttribute('data-char'), true);
+        });
+      });
+
+      renderCharacter(currentKey, false);
+    })();
+  </script>
+</body>
+</html>

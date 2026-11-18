@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_search" name="shell-type"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html {
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: clip;
+        margin: 0;
+        padding: 0;
+        background-color: #041329;
+        color: #d6e3ff;
+        font-family: 'Inter', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        width: 100%;
+        overflow-x: clip;
+        overflow-y: visible;
+        margin: 0;
+        padding: 0;
+        min-height: 100dvh;
+        background-color: #041329;
+        color: #d6e3ff;
+        font-family: 'Inter', sans-serif;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#233148",
+            "on-error": "#690005",
+            "secondary": "#fff0c8",
+            "background": "#041329",
+            "surface-container-lowest": "#010e24",
+            "surface-variant": "#27354c",
+            "surface-container-high": "#1c2a41",
+            "on-primary": "#003548",
+            "secondary-container": "#fdd000",
+            "surface-bright": "#2c3951",
+            "on-tertiary-fixed": "#011d35",
+            "on-surface": "#d6e3ff",
+            "tertiary": "#cce2ff",
+            "on-secondary-fixed-variant": "#564500",
+            "outline-variant": "#3e484e",
+            "surface-container-low": "#0d1c32",
+            "on-secondary": "#3b2f00",
+            "primary-fixed-dim": "#73d1ff",
+            "on-primary-fixed": "#001e2b",
+            "inverse-primary": "#006687",
+            "tertiary-fixed": "#d1e4ff",
+            "on-secondary-container": "#6e5900",
+            "surface": "#041329",
+            "primary": "#bae6ff",
+            "secondary-fixed-dim": "#ecc200",
+            "surface-dim": "#041329",
+            "on-tertiary-fixed-variant": "#314863",
+            "on-background": "#d6e3ff",
+            "on-secondary-fixed": "#231b00",
+            "inverse-surface": "#d6e3ff",
+            "primary-fixed": "#c1e8ff",
+            "on-primary-container": "#005774",
+            "tertiary-container": "#aec6e6",
+            "tertiary-fixed-dim": "#b0c9e8",
+            "surface-container-highest": "#27354c",
+            "surface-tint": "#73d1ff",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#3b526d",
+            "on-surface-variant": "#bec8cf",
+            "on-tertiary": "#19324b",
+            "on-error-container": "#ffdad6",
+            "error": "#ffb4ab",
+            "primary-container": "#69cfff",
+            "on-primary-fixed-variant": "#004d67",
+            "secondary-fixed": "#ffe07c",
+            "outline": "#889299",
+            "surface-container": "#112036"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "margin-lg": "1.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "gutter-sm": "0.75rem"
+          },
+          fontFamily: {
+            "headline-md": ["Outfit"],
+            "label-sm": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "label-lg": ["Outfit"],
+            "label-md": ["Outfit"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-fixed">
+  <!-- Sticky Top Search Header -->
+  <header class="fixed top-0 inset-x-0 z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_2px_12px_rgba(0,0,0,0.35)] border-b border-outline-variant/20">
+    <div class="h-16 max-w-3xl mx-auto w-full px-4 sm:px-6 flex items-center gap-2.5 sm:gap-3">
+      <button aria-label="Volver a inicio" class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-surface-container/60 text-on-surface hover:text-primary-container active:scale-95 transition-transform shrink-0" onclick="history.back()" type="button">
+        <span class="material-symbols-outlined text-[22px]">arrow_back</span>
+      </button>
+      <div class="flex-1 min-w-0 flex items-center bg-surface-container rounded-full pl-3.5 pr-1.5 py-1.5 gap-2 border border-outline-variant/30 focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/30 transition-all">
+        <span class="material-symbols-outlined text-primary-container text-[20px] shrink-0">search</span>
+        <input autocomplete="off" class="w-full min-w-0 bg-transparent text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md outline-none border-none py-0.5" id="omni-search-input" placeholder="Buscar personajes, juegos, cómics (ej. Tails, Amy, Shadow)..." type="search"/>
+        <button aria-label="Borrar texto de búsqueda" class="hidden w-8 h-8 items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high active:scale-90 transition-all shrink-0" id="clear-query-btn" title="Borrar texto de búsqueda" type="button">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen">
+    <div class="w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col pb-32">
+      <!-- Sub-header: Results Count + Sort Selector -->
+      <section class="pt-4 pb-3 flex flex-col gap-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse shrink-0"></span>
+            <span class="font-headline-sm text-headline-sm text-primary tracking-wide truncate" id="results-count-label">12 coincidencias encontradas</span>
+          </div>
+          <!-- Selector Ordenación -->
+          <div class="relative flex items-center bg-surface-container-high border border-outline-variant/30 rounded-full px-3 py-1.5 shrink-0">
+            <span class="material-symbols-outlined text-[16px] text-primary mr-1.5">sort</span>
+            <label class="sr-only" for="sort-select">Ordenar resultados</label>
+            <select class="bg-transparent font-label-md text-label-md text-on-surface outline-none appearance-none pr-5 cursor-pointer" id="sort-select">
+              <option class="bg-surface-container-high text-on-surface" value="rel">Relevancia</option>
+              <option class="bg-surface-container-high text-on-surface" value="crono">Más reciente</option>
+              <option class="bg-surface-container-high text-on-surface" value="alfa">Alfabético (A–Z)</option>
+            </select>
+            <span class="material-symbols-outlined text-[15px] text-on-surface-variant absolute right-2 pointer-events-none">expand_more</span>
+          </div>
+        </div>
+
+        <!-- Unified Active Filters Bar (single unambiguous reset action) -->
+        <div class="rounded-xl bg-surface-container-low/90 border border-outline-variant/25 p-3 flex flex-col gap-2.5" id="active-filters-panel">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-primary-container">filter_list</span>
+              <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" id="active-filters-heading">Filtros activos</span>
+              <span class="px-1.5 py-0.5 rounded-full bg-surface-container-highest text-primary-container font-label-sm text-label-sm" id="active-filters-count">0</span>
+            </div>
+            <button class="inline-flex items-center gap-1 text-secondary-container hover:text-secondary px-2 py-1 rounded-lg hover:bg-surface-container-high text-label-md font-label-md transition-colors shrink-0" id="reset-filters-btn" type="button">
+              <span class="material-symbols-outlined text-[15px]">filter_alt_off</span>
+              <span>Restablecer filtros</span>
+            </button>
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5" id="active-filter-chips"></div>
+        </div>
+      </section>
+
+      <!-- Collapsible Filters Accordion Panel -->
+      <section class="flex flex-col gap-3 mt-1">
+        <!-- Filtro 1: Categoría / Tipo de Archivo -->
+        <div class="bg-surface-container-low border border-outline-variant/20 p-3.5 sm:p-4 rounded-xl shadow-md">
+          <button aria-expanded="true" class="w-full flex items-center justify-between mb-3 cursor-pointer text-left" id="toggle-categories-btn" type="button">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">folder_special</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Tipo de Archivo</span>
+              <span class="bg-surface-container-highest text-on-surface-variant text-label-sm font-label-sm px-2 py-0.5 rounded-full">6</span>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant text-[20px] transition-transform" id="categories-chevron">expand_less</span>
+          </button>
+          <div class="flex flex-wrap gap-2" id="filter-categories">
+            <button class="cat-filter-btn font-label-md text-label-md px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all active:scale-95" data-category="No canons" type="button">
+              <span>No canons</span>
+              <span class="text-label-sm opacity-75" data-cat-count="No canons"></span>
+            </button>
+            <button class="cat-filter-btn font-label-md text-label-md px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all active:scale-95" data-category="Personajes" type="button">
+              <span>Personajes</span>
+              <span class="text-label-sm opacity-75" data-cat-count="Personajes"></span>
+            </button>
+            <button class="cat-filter-btn font-label-md text-label-md px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all active:scale-95" data-category="Videojuegos" type="button">
+              <span>Videojuegos</span>
+              <span class="text-label-sm opacity-75" data-cat-count="Videojuegos"></span>
+            </button>
+            <button class="cat-filter-btn font-label-md text-label-md px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all active:scale-95" data-category="Cómics" type="button">
+              <span>Cómics</span>
+              <span class="text-label-sm opacity-75" data-cat-count="Cómics"></span>
+            </button>
+            <button class="cat-filter-btn font-label-md text-label-md px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all active:scale-95" data-category="Series & Películas" type="button">
+              <span>Series &amp; Películas</span>
+              <span class="text-label-sm opacity-75" data-cat-count="Series & Películas"></span>
+            </button>
+            <button class="cat-filter-btn font-label-md text-label-md px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all active:scale-95" data-category="Minijuegos" type="button">
+              <span>Chao &amp; Minijuegos</span>
+              <span class="text-label-sm opacity-75" data-cat-count="Minijuegos"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filtro 2: Estatus Canónico & Eras (2 Columnas) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- Canon Filter -->
+          <div class="bg-surface-container-low border border-outline-variant/20 p-3.5 sm:p-4 rounded-xl flex flex-col gap-2 shadow-md">
+            <div class="flex items-center gap-1.5 mb-0.5">
+              <span class="material-symbols-outlined text-secondary-container text-[18px]">verified</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Estatus Canónico</span>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="canon-label flex items-center justify-between p-2.5 rounded-lg bg-surface-container cursor-pointer select-none transition-colors">
+                <span class="font-label-md text-label-md text-on-surface-variant">Canon Principal (SEGA)</span>
+                <input class="canon-checkbox w-4 h-4 accent-primary-container rounded bg-surface-container-highest cursor-pointer" data-canon="Canon Principal" type="checkbox"/>
+              </label>
+              <label class="canon-label flex items-center justify-between p-2.5 rounded-lg bg-surface-container cursor-pointer select-none transition-colors">
+                <span class="font-label-md text-label-md text-on-surface-variant">No canons (Comunidad Sonic)</span>
+                <input class="canon-checkbox w-4 h-4 accent-error rounded bg-surface-container-highest cursor-pointer" data-canon="No canons" type="checkbox"/>
+              </label>
+              <label class="canon-label flex items-center justify-between p-2.5 rounded-lg bg-surface-container cursor-pointer select-none transition-colors">
+                <span class="font-label-md text-label-md text-on-surface-variant">IDW Publishing Canon</span>
+                <input class="canon-checkbox w-4 h-4 accent-primary-container rounded bg-surface-container-highest cursor-pointer" data-canon="IDW Publishing" type="checkbox"/>
+              </label>
+              <label class="canon-label flex items-center justify-between p-2.5 rounded-lg bg-surface-container cursor-pointer select-none transition-colors">
+                <span class="font-label-md text-label-md text-on-surface-variant">Cine Paramount</span>
+                <input class="canon-checkbox w-4 h-4 accent-primary-container rounded bg-surface-container-highest cursor-pointer" data-canon="Paramount Cine" type="checkbox"/>
+              </label>
+            </div>
+          </div>
+
+          <!-- Era Histórica Filter -->
+          <div class="bg-surface-container-low border border-outline-variant/20 p-3.5 sm:p-4 rounded-xl flex flex-col gap-2 shadow-md">
+            <div class="flex items-center gap-1.5 mb-0.5">
+              <span class="material-symbols-outlined text-primary-container text-[18px]">history</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Línea Temporal / Era</span>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <button class="era-filter-btn w-full text-left p-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md flex justify-between items-center transition-colors" data-era="Era Clásica" type="button">
+                <span>Era Clásica (1991–1998)</span>
+                <span class="era-meta text-label-sm text-outline">Genesis</span>
+              </button>
+              <button class="era-filter-btn w-full text-left p-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md flex justify-between items-center transition-colors" data-era="Era Aventura" type="button">
+                <span>Era Aventura (1998–2005)</span>
+                <span class="era-meta text-label-sm text-outline">Dreamcast</span>
+              </button>
+              <button class="era-filter-btn w-full text-left p-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md flex justify-between items-center transition-colors" data-era="Era Moderna" type="button">
+                <span>Era Moderna / Boost (2006+)</span>
+                <span class="era-meta text-label-sm text-outline">Modern</span>
+              </button>
+              <button class="era-filter-btn w-full text-left p-2.5 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md flex justify-between items-center transition-colors" data-era="Era Abierta" type="button">
+                <span>Era Abierta (Frontiers)</span>
+                <span class="era-meta text-label-sm text-outline">Actual</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filtro 3: Tipo y Habilidades -->
+        <div class="bg-surface-container-low border border-outline-variant/20 p-3.5 sm:p-4 rounded-xl flex flex-col gap-3 shadow-md">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-secondary-container text-[18px]">bolt</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Atributos &amp; Habilidades</span>
+            </div>
+            <span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Metadatos</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-label-sm font-label-sm text-outline uppercase mr-0.5">Tipo:</span>
+            <button class="type-filter-btn bg-surface-container text-on-surface-variant font-label-md text-label-md px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all active:scale-95" data-type="Speed Type" type="button">
+              <span class="material-symbols-outlined text-[15px]">speed</span>
+              <span>Speed Type</span>
+            </button>
+            <button class="type-filter-btn bg-surface-container text-on-surface-variant font-label-md text-label-md px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all active:scale-95" data-type="Fly / Tech" type="button">
+              <span class="material-symbols-outlined text-[15px]">flight</span>
+              <span>Fly / Tech</span>
+            </button>
+            <button class="type-filter-btn bg-surface-container text-on-surface-variant font-label-md text-label-md px-3 py-1.5 rounded-full flex items-center gap-1.5 transition-all active:scale-95" data-type="Power Type" type="button">
+              <span class="material-symbols-outlined text-[15px]">fitness_center</span>
+              <span>Power Type</span>
+            </button>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 pt-0.5">
+            <span class="text-label-sm font-label-sm text-outline uppercase mr-0.5">Poder:</span>
+            <label class="power-label bg-surface-container px-2.5 py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant flex items-center gap-1.5 cursor-pointer transition-colors">
+              <input class="power-checkbox accent-primary-container w-3.5 h-3.5 rounded" data-power="Chaos Control" type="checkbox"/>
+              <span>Chaos Control</span>
+            </label>
+            <label class="power-label bg-surface-container px-2.5 py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant flex items-center gap-1.5 cursor-pointer transition-colors">
+              <input class="power-checkbox accent-secondary-container w-3.5 h-3.5 rounded" data-power="Super Forma" type="checkbox"/>
+              <span>Super Forma</span>
+            </label>
+            <label class="power-label bg-surface-container px-2.5 py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant flex items-center gap-1.5 cursor-pointer transition-colors">
+              <input class="power-checkbox accent-primary-container w-3.5 h-3.5 rounded" data-power="Spin Dash" type="checkbox"/>
+              <span>Spin Dash</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sonic.exe Secret Archive Trigger Banner (shown when typing "Exe") -->
+      <section class="hidden mt-4 rounded-2xl bg-error-container/35 border border-error/60 p-4 shadow-[0_0_24px_rgba(147,0,10,0.4)] flex-col sm:flex-row items-start sm:items-center justify-between gap-3" id="exe-archive-banner">
+        <div class="flex items-center gap-3 min-w-0">
+          <img alt="Sonic.exe" class="w-16 h-12 rounded-lg object-cover border border-error/50 shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/sonic_exe_archive_1794933476486.jpg"/>
+          <div class="min-w-0">
+            <span class="font-label-sm text-label-sm text-error uppercase tracking-widest block">Expediente Clasificado Detectado</span>
+            <h3 class="font-headline-sm text-headline-sm text-white truncate">Archivo Central de Sonic.exe y su Historia</h3>
+            <p class="font-body-sm text-body-sm text-on-error-container/85">Presiona Enter o haz clic para acceder al expediente completo.</p>
+          </div>
+        </div>
+        <a class="px-4 py-2.5 rounded-xl bg-error text-on-error font-label-md text-label-md font-extrabold uppercase tracking-wider flex items-center gap-1.5 shrink-0 active:scale-95 transition-transform" href="/archivo-exe">
+          <span>Abrir Archivo</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </section>
+
+      <!-- Live Results Section Header -->
+      <section class="pt-6 pb-3 flex flex-wrap items-center justify-between gap-2 scroll-mt-20" id="live-results-section">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary-container text-[20px]">travel_explore</span>
+          <h2 class="font-headline-md text-headline-md text-on-surface">Resultados en Tiempo Real</h2>
+        </div>
+        <span class="hidden bg-surface-container-highest text-primary font-label-md text-label-md px-3 py-1 rounded-full max-w-full truncate" id="query-pill"></span>
+      </section>
+
+      <!-- Dynamic Live Results Stream -->
+      <div class="flex flex-col gap-3" id="results-list"></div>
+
+      <!-- Empty State -->
+      <div class="hidden rounded-xl bg-surface-container-low border border-outline-variant/25 p-6 text-center flex-col items-center gap-3 mt-2" id="empty-state">
+        <div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+          <span class="material-symbols-outlined text-[24px]">search_off</span>
+        </div>
+        <div class="space-y-1">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface">Sin coincidencias para esta búsqueda</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Prueba con otro término (por ejemplo: Sonic, Tails, Shadow, Exe, Nazo, Seelkadoom) o restablece los filtros activos.</p>
+        </div>
+        <button class="mt-1 px-4 py-2 rounded-full bg-primary-container text-on-primary-fixed font-label-md text-label-md font-bold active:scale-95 transition-transform" id="empty-reset-btn" type="button">
+          Restablecer búsqueda y filtros
+        </button>
+      </div>
+
+      <!-- Créditos Oficiales a los Dueños y Creadores de Sonic y sus Amigos -->
+      <section class="mt-6 rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-2.5 shadow-md">
+        <div class="flex items-center gap-2 text-secondary-container">
+          <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores Oficiales de Sonic y sus Amigos</h3>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          <strong class="text-on-surface">Sonic, Tails, Knuckles, Amy Rose, Shadow y el universo oficial</strong> son propiedad de <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Créditos a sus creadores originales: <strong class="text-on-surface">Yuji Naka, Naoto Ohshima y Hirokazu Yasuhara</strong> (Sonic &amp; Eggman), <strong class="text-on-surface">Yasushi Yamaguchi</strong> (Tails), <strong class="text-on-surface">Takashi Yuda</strong> (Knuckles), <strong class="text-on-surface">Kazuyuki Hoshino</strong> (Amy Rose &amp; Metal Sonic) y <strong class="text-on-surface">Takashi Iizuka &amp; Shiro Maekawa</strong> (Shadow).
+        </p>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Los personajes en la categoría <strong class="text-error">No canons</strong> son creaciones sin fines de lucro hechas por artistas y desarrolladores de la comunidad fan de Sonic (MY5TCrimson, JoeDoughBoi, Chakra-X, MidNightMaren, BlackDevilX y Alvin-Earthworm).
+        </p>
+      </section>
+    </div>
+
+    <!-- Subtle Floating Toast Feedback -->
+    <div class="fixed bottom-24 inset-x-0 z-50 px-4 flex justify-center pointer-events-none opacity-0 translate-y-2 transition-all duration-200" id="search-toast">
+      <div class="bg-surface-container-high border border-primary-container/30 text-on-surface px-4 py-2 rounded-full shadow-xl flex items-center gap-2 text-label-md font-label-md">
+        <span class="material-symbols-outlined text-[16px] text-secondary-container">bookmark_added</span>
+        <span id="search-toast-text">Búsqueda guardada</span>
+      </div>
+    </div>
+
+    <!-- Responsive Centered Floating Action Bar (Guaranteed Margins on All Viewports) -->
+    <div class="fixed bottom-0 inset-x-0 z-40 px-4 sm:px-6 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] pt-2 bg-gradient-to-t from-surface via-surface/85 to-transparent pointer-events-none">
+      <div class="w-full max-w-3xl mx-auto pointer-events-auto bg-surface-container-lowest/95 backdrop-blur-xl border border-primary-container/25 p-2.5 sm:p-3 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.55)] flex items-center gap-2.5 sm:gap-3">
+        <!-- Botón Secundario Guardar Búsqueda -->
+        <button aria-label="Guardar búsqueda personalizada" class="h-12 w-12 shrink-0 rounded-xl bg-surface-container-high hover:bg-surface-bright border border-outline-variant/40 active:scale-95 transition-all flex items-center justify-center text-secondary-container" id="save-search-btn" title="Guardar búsqueda personalizada" type="button">
+          <span class="material-symbols-outlined text-[22px]" id="save-search-icon">bookmark_add</span>
+        </button>
+        <!-- Botón Principal "Sonic Dash" Acción de Resultados -->
+        <button class="flex-1 min-w-0 h-12 px-4 rounded-xl bg-primary-container hover:bg-primary-fixed-dim text-on-primary-fixed font-headline-sm text-headline-sm flex items-center justify-center gap-2 uppercase tracking-wide font-extrabold active:scale-[0.98] transition-all shadow-[0_0_16px_rgba(105,207,255,0.35)]" id="view-results-btn" type="button">
+          <span class="material-symbols-outlined text-[20px] shrink-0">bolt</span>
+          <span class="truncate" id="view-results-label">Ver Resultados</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const CATALOG = [
+        {
+          id: 'sonic',
+          code: '#001',
+          title: 'Sonic the Hedgehog',
+          subtitle: 'Canon Principal',
+          badgeRight: 'S+ Tier',
+          category: 'Personajes',
+          canon: 'Canon Principal',
+          era: 'Era Moderna',
+          type: 'Speed Type',
+          powers: ['Super Forma', 'Spin Dash', 'Chaos Control'],
+          year: 1991,
+          relevance: 100,
+          description: 'El erizo azul más rápido del mundo. Velocidad 100/MAX, Spin Dash, Super Sonic e imágenes y estadísticas completas.',
+          footerIcon: 'speed',
+          footerText: 'Ver Imágenes y Estadísticas de Sonic',
+          href: '/personajes/sonic',
+          keywords: 'sonic erizo blue blur destello azul protagonista velocidad super sonic hedgehogs',
+          image: '/src/assets/images/sonic_character_hero_1794933473360.jpg'
+        },
+        {
+          id: 'tails',
+          code: '#002',
+          title: 'Miles "Tails" Prower',
+          subtitle: 'Canon Principal',
+          badgeRight: 'IQ 300',
+          category: 'Personajes',
+          canon: 'Canon Principal',
+          era: 'Era Clásica',
+          type: 'Fly / Tech',
+          powers: ['Spin Dash', 'Super Forma'],
+          year: 1992,
+          relevance: 98,
+          description: 'Zorro de dos colas, genio mecánico, piloto del Tornado. Incluye galería de imágenes y estadísticas detalladas de Tails.',
+          footerIcon: 'flight',
+          footerText: 'Ver Imágenes y Estadísticas de Tails',
+          href: '/personajes/tails',
+          keywords: 'tails miles prower zorro colas vuelo mecanico tornado amigo sonic 2',
+          image: '/src/assets/images/tails_character_hero_1794933474802.jpg'
+        },
+        {
+          id: 'shadow',
+          code: '#007',
+          title: 'Shadow the Hedgehog',
+          subtitle: 'Canon Principal',
+          badgeRight: 'S+ Tier',
+          category: 'Personajes',
+          canon: 'Canon Principal',
+          era: 'Era Moderna',
+          type: 'Speed Type',
+          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
+          year: 2001,
+          relevance: 99,
+          description: 'La Forma de Vida Suprema creada en la Colonia Espacial ARK. Incluye imágenes, galería y estadísticas completas de Shadow.',
+          footerIcon: 'offline_bolt',
+          footerText: 'Ver Imágenes y Estadísticas de Shadow',
+          href: '/personajes/shadow',
+          keywords: 'shadow erizo negro forma de vida suprema ark chaos control maria hedgehogs',
+          image: '/src/assets/images/shadow_character_hero_1794933475500.jpg'
+        },
+        {
+          id: 'sonic-exe',
+          code: 'EXE-666',
+          title: 'Sonic.exe (Archivo Central)',
+          subtitle: 'No canons • Comunidad',
+          badgeRight: 'Creepypasta',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Moderna',
+          type: 'Speed Type',
+          powers: ['Chaos Control'],
+          year: 2011,
+          relevance: 97,
+          description: 'Entidad digital del creepypasta clásico de la comunidad Sonic (2011). Accede al Archivo Central con toda su historia, actos y variantes (Lord X / Xenophanes).',
+          footerIcon: 'warning',
+          footerText: 'Abrir Archivo Central de Sonic.exe',
+          href: '/archivo-exe',
+          keywords: 'exe sonic.exe sonic exe lord x xenophanes creepypasta no canon comunidad terror historia',
+          image: '/src/assets/images/sonic_exe_archive_1794933476486.jpg'
+        },
+        {
+          id: 'nazo',
+          code: 'FAN-01',
+          title: 'Nazo the Hedgehog',
+          subtitle: 'No canons • Comunidad',
+          badgeRight: 'Chakra-X',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Aventura',
+          type: 'Power Type',
+          powers: ['Super Forma', 'Chaos Control'],
+          year: 2006,
+          relevance: 90,
+          description: 'Personaje nacido de un misterioso fotograma beta de Sonic X y consagrado por la comunidad en la animación fan Nazo Unleashed (Chakra-X).',
+          footerIcon: 'auto_awesome',
+          footerText: 'No canons • Comunidad (Nazo Unleashed)',
+          href: '/lore-y-mas',
+          keywords: 'nazo hedgehog unleashed chakra x no canons comunidad fan personaje',
+          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+        },
+        {
+          id: 'seelkadoom',
+          code: 'FAN-02',
+          title: 'Seelkadoom the Hedgehog',
+          subtitle: 'No canons • Comunidad',
+          badgeRight: 'Sonic RPG',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Aventura',
+          type: 'Power Type',
+          powers: ['Chaos Control', 'Super Forma'],
+          year: 2005,
+          relevance: 89,
+          description: 'Clon híbrido creado con ADN de Sonic y Shadow por el Dr. Eggman en la clásica serie de fangames Sonic RPG (MidNightMaren).',
+          footerIcon: 'bolt',
+          footerText: 'No canons • Comunidad (Sonic RPG)',
+          href: '/lore-y-mas',
+          keywords: 'seelkadoom sonic rpg midnightmaren no canons comunidad fan personaje',
+          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+        },
+        {
+          id: 'shadic',
+          code: 'FAN-03',
+          title: 'Shadic the Hedgehog',
+          subtitle: 'No canons • Comunidad',
+          badgeRight: 'Fusión Fan',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Moderna',
+          type: 'Speed Type',
+          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
+          year: 2007,
+          relevance: 88,
+          description: 'Fusión definitiva creada por la comunidad entre Sonic y Shadow mediante Chaos Control para enfrentar a Hyper Perfect Nazo.',
+          footerIcon: 'flare',
+          footerText: 'No canons • Fusión Sonic + Shadow',
+          href: '/lore-y-mas',
+          keywords: 'shadic fusion sonic shadow nazo no canons comunidad fan personaje',
+          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+        },
+        {
+          id: 'aeon',
+          code: 'FAN-04',
+          title: 'Aeon the Hedgehog',
+          subtitle: 'No canons • Comunidad',
+          badgeRight: 'FF Sonic X',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Moderna',
+          type: 'Speed Type',
+          powers: ['Spin Dash', 'Super Forma'],
+          year: 2008,
+          relevance: 86,
+          description: 'Antagonista y guerrero icónico de la comunidad en la saga fan Final Fantasy Sonic X creada por BlackDevilX.',
+          footerIcon: 'swords',
+          footerText: 'No canons • Final Fantasy Sonic X',
+          href: '/lore-y-mas',
+          keywords: 'aeon final fantasy sonic x blackdevilx no canons comunidad fan personaje',
+          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+        },
+        {
+          id: 'knuckles',
+          code: '#003',
+          title: 'Knuckles the Echidna',
+          subtitle: 'Canon Principal',
+          badgeRight: 'Guardián',
+          category: 'Personajes',
+          canon: 'Canon Principal',
+          era: 'Era Clásica',
+          type: 'Power Type',
+          powers: ['Super Forma', 'Spin Dash'],
+          year: 1994,
+          relevance: 95,
+          description: 'Último guardián de la Master Emerald en Angel Island. Especialista en combate cuerpo a cuerpo, escalada y planeo.',
+          footerIcon: 'fitness_center',
+          footerText: 'Power Type • Master Emerald',
+          href: '/personajes/sonic',
+          keywords: 'knuckles equidna angel island master emerald fuerza poder rojo sonic 3',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCslLbEg1QGuRsM07DhrKwr1nDn2T7evpDiQMH8zM2zO_bS9h9k1navA7x5li6RR-3yEbtpnWMvdWMiOTCa2f5nXpQBgKqy-7DThJGQNuHiUgJARgG9LGd3EK6pi2_soi4fwlbne5FhAGHqLoDOZp_T52DBIQozFgLopIpQrz5voPNbAVOb_fEAXyPcfdC2QjN6EhqIpp1_PDLTByhhY0IUOcLnBeRWhz4zwU9Ovoc'
+        },
+        {
+          id: 'amy',
+          code: '#005',
+          title: 'Amy Rose',
+          subtitle: 'Canon Principal',
+          badgeRight: 'Piko Piko',
+          category: 'Personajes',
+          canon: 'Canon Principal',
+          era: 'Era Clásica',
+          type: 'Speed Type',
+          powers: ['Spin Dash'],
+          year: 1993,
+          relevance: 94,
+          description: 'Eriza rosa optimista y decidida, debutó en Sonic CD. Domina el martillo Piko Piko y las cartas del tarot con gran agilidad.',
+          footerIcon: 'favorite',
+          footerText: 'Speed / Hammer • Debut: Sonic CD',
+          href: '/personajes/sonic',
+          keywords: 'amy rose eriza rosa martillo piko piko tarot sonic cd hedgehogs team rose',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAIxgOjtyo7X4ZuBxjl49Rveo_RCdLKcZv-du-vhMcsE3FmMEfrRCcvzxMcQfrTMNmfM_P2wBGvIgaAyvzES9iS15W4_owcnl8_BxhCwVzbgGOp7vgrc4oMfE_xFtbmUGUGcSVTg5jw3xY-kdXEKLMOCfGOj7iRw4L2SfdLEjcPKezmIjKnPYKdzoh887qD5zlmKPMAL0MsMOgSOKFYr8ctiXTH4hv3K76K4IfuBNk'
+        },
+        {
+          id: 'sa2',
+          code: '2001',
+          title: 'Sonic Adventure 2 / Battle',
+          subtitle: 'Juego Canónico',
+          badgeRight: 'Dreamcast / GCN',
+          category: 'Videojuegos',
+          canon: 'Canon Principal',
+          era: 'Era Aventura',
+          type: 'Speed Type',
+          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
+          year: 2001,
+          relevance: 93,
+          description: 'Campañas Hero y Dark, debut de Shadow y Rouge, 180 emblemas, City Escape y el mítico Chao Garden con Chao Karate.',
+          footerIcon: 'sports_esports',
+          footerText: '180 Emblemas • Live & Learn',
+          href: '/juegos',
+          keywords: 'sonic adventure 2 battle sa2b dreamcast gamecube shadow rouge chao garden',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9bI2sUskuYNxSZVuuzPiiqJRpn1qJ1hidOFbY0C_TfjZYz_OIBk5WtYE86btp3w2TNIp0dc9KSN7vUgyRCBJv4fLEoXrCayVd2_rmi-XMvPJU825aYdCmK40YKXxa6bmTTaZYGWyNohPzsAmjT81ST-Iv5lp3bv-qxaZTUA3LgJhqcCLOUtIU1W5CE42oNWZNBB6b3ePVqd5K40-6Y-jQpUOiTdltFMhjVI8JlMc'
+        },
+        {
+          id: 'frontiers',
+          code: '2022',
+          title: 'Sonic Frontiers: Islas Starfall',
+          subtitle: 'Canon Principal',
+          badgeRight: 'Era Abierta',
+          category: 'Videojuegos',
+          canon: 'Canon Principal',
+          era: 'Era Abierta',
+          type: 'Speed Type',
+          powers: ['Super Forma', 'Spin Dash'],
+          year: 2022,
+          relevance: 96,
+          description: 'Zonas abiertas en las Islas Starfall, Ciberespacio, combates contra Titanes y la participación de Amy, Tails y Knuckles.',
+          footerIcon: 'public',
+          footerText: 'Open-Zone • Hedgehog Engine 2',
+          href: '/juegos',
+          keywords: 'sonic frontiers islas starfall ciberespacio open zone tails amy knuckles sage',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2v9sqaBiXryJuYWQAaUJ8-12kAMKCoafh_rmRxSqbkZ9Rt6r4C9w19JkFoOq3TF-bCwks6xMpU1rd0P6vaIFA0w3WcnWiUd1yioE0LLEHWoGCkGzq1YTnJa7tPBT0OXAevyTeLJZmAO-CEfwsN9M6tRwLe4flmh7tWGZWjLLorvNs0fq146iqIikqDTh3fs8RpSc51FYIS6bLerZxPYyakQIHJ8fzvSyE6aRGvSo'
+        },
+        {
+          id: 'idw-19',
+          code: 'IDW #19',
+          title: 'La Caída de Shadow: Crisis Zombot',
+          subtitle: 'IDW Publishing',
+          badgeRight: 'Metal Virus Saga',
+          category: 'Cómics',
+          canon: 'IDW Publishing',
+          era: 'Era Moderna',
+          type: 'Speed Type',
+          powers: ['Chaos Control'],
+          year: 2019,
+          relevance: 91,
+          description: 'Capítulo dramático de la saga Metal Virus donde Shadow y la Resistencia enfrentan la infección metálica del Dr. Eggman.',
+          footerIcon: 'auto_stories',
+          footerText: 'Guion: Ian Flynn • Arte: Tracy Yardley',
+          href: '/medios',
+          keywords: 'idw comic metal virus zombot shadow ian flynn tangle whisper',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzd4NTthw9ISPTrhWCPHt_rkSAogXo8Wb03m5puTllejZYaBg0rxkaGY2g_XDoP8UpyEn35SX5HvxQ9We5C4vQD4ykIzdkzfGoErH3-seGqu1a734Bss8phMDR5yOlGjh8Ehc5pBdZHtQQYX-_rnGviN8aRCwk8ySUUjoRUI_MVqresXtFAfzEaMutVuCXxuMVPnbZtXq2pjUn51RKd6kt0ioKdcbsem5AzrdgbZY'
+        },
+        {
+          id: 'sonic-3-movie',
+          code: 'DIC 2024',
+          title: 'Sonic the Hedgehog 3 (Película)',
+          subtitle: 'Paramount Cine',
+          badgeRight: 'Live-Action',
+          category: 'Series & Películas',
+          canon: 'Paramount Cine',
+          era: 'Era Abierta',
+          type: 'Speed Type',
+          powers: ['Chaos Control', 'Super Forma'],
+          year: 2024,
+          relevance: 92,
+          description: 'Debut de Shadow en la gran pantalla con la voz de Keanu Reeves frente a Team Sonic (Sonic, Tails y Knuckles) en Tokio y la ARK.',
+          footerIcon: 'movie',
+          footerText: 'Dir: Jeff Fowler • Paramount Pictures',
+          href: '/medios',
+          keywords: 'pelicula sonic 3 paramount cine shadow keanu reeves tails knuckles jim carrey',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCH4pA2J7vMqkt53znC0SJCNSqP3nkMjWIOEhCTgjVbyzyLvD8z3UfQYRA1ilY84tQ655reprg2najJpIlNu9WtZ7N89KwmW6LkGj5btEdrBk5NMyC8117PndNqnFH0myDaiKoIqSSZA5OBhXmTjodGfB9j4uEKr_2WROFkctEREU2ErvA6wtYHppqTtdffypOJt9jt2EYVTvW-ZVkPPGGESuYA0YBj_8e8IWpnJdQ'
+        },
+        {
+          id: 'chao-garden',
+          code: 'SA2B',
+          title: 'Chao Garden, Genética & Mercado Negro',
+          subtitle: 'Canon Principal',
+          badgeRight: 'Guía Técnica',
+          category: 'Minijuegos',
+          canon: 'Canon Principal',
+          era: 'Era Aventura',
+          type: 'Fly / Tech',
+          powers: [],
+          year: 2001,
+          relevance: 87,
+          description: 'Compendio de jardines Neutral, Hero y Dark, evolución a Chaos Chao, Chaos Drives, frutas y precios del Mercado Negro.',
+          footerIcon: 'pets',
+          footerText: 'Jardines • Karate & Carreras',
+          href: '/chao-garden',
+          keywords: 'chao garden minijuegos mercado negro frutas huevos calculadora stats sa2',
+          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAxHPLeB9bhxG5ONiSw3_rbrqsdPkXaHmzKRhyz50hdRZgalZV2y2lV-cIxsol7c7uiP9XKaAWYsLE1ZcftLLmdUfkkahbwyYPZrIzUVOaESML_DYTDX0ds-92J76GoqqO_7CbBYs452DFFsW0PYm8nOC5rf9rK6dhX6VMlTITN-Du7qn_l0b76V2Z5ZQrQEDEZHzoa3FCtqat8IA8tq8UIq9u4-TLIVCcjHIhQ95s'
+        }
+      ];
+
+      const state = {
+        query: '',
+        categories: new Set(),
+        canons: new Set(),
+        eras: new Set(),
+        types: new Set(),
+        powers: new Set(),
+        sort: 'rel',
+        saved: false
+      };
+
+      const searchInput = document.getElementById('omni-search-input');
+      const clearQueryBtn = document.getElementById('clear-query-btn');
+      const sortSelect = document.getElementById('sort-select');
+      const resultsCountLabel = document.getElementById('results-count-label');
+      const activeFiltersCount = document.getElementById('active-filters-count');
+      const activeFilterChips = document.getElementById('active-filter-chips');
+      const resetFiltersBtn = document.getElementById('reset-filters-btn');
+      const queryPill = document.getElementById('query-pill');
+      const resultsList = document.getElementById('results-list');
+      const emptyState = document.getElementById('empty-state');
+      const emptyResetBtn = document.getElementById('empty-reset-btn');
+      const viewResultsBtn = document.getElementById('view-results-btn');
+      const viewResultsLabel = document.getElementById('view-results-label');
+      const saveSearchBtn = document.getElementById('save-search-btn');
+      const saveSearchIcon = document.getElementById('save-search-icon');
+      const toggleCategoriesBtn = document.getElementById('toggle-categories-btn');
+      const filterCategoriesBox = document.getElementById('filter-categories');
+      const categoriesChevron = document.getElementById('categories-chevron');
+      const exeArchiveBanner = document.getElementById('exe-archive-banner');
+      const toastEl = document.getElementById('search-toast');
+      const toastText = document.getElementById('search-toast-text');
+
+      let toastTimer = null;
+      function showToast(msg) {
+        if (!toastEl || !toastText) return;
+        toastText.textContent = msg;
+        toastEl.classList.remove('opacity-0', 'translate-y-2');
+        toastEl.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.add('opacity-0', 'translate-y-2');
+          toastEl.classList.remove('opacity-100', 'translate-y-0');
+        }, 2200);
+      }
+
+      function isExeQuery(val) {
+        const q = (val || '').trim().toLowerCase();
+        return q === 'exe' || q === '.exe' || q === 'sonic.exe' || q === 'sonic exe';
+      }
+
+      // Initialize category counters from real catalog
+      document.querySelectorAll('[data-cat-count]').forEach((badge) => {
+        const cat = badge.getAttribute('data-cat-count');
+        const count = CATALOG.filter((item) => item.category === cat).length;
+        badge.textContent = `(${count})`;
+      });
+
+      // Read ?q= query param if navigated from Home
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialQuery = urlParams.get('q');
+      if (initialQuery) {
+        if (isExeQuery(initialQuery)) {
+          window.location.replace('/archivo-exe');
+          return;
+        }
+        state.query = initialQuery;
+        searchInput.value = initialQuery;
+      }
+
+      function matchesQuery(item, rawQuery) {
+        const cleaned = rawQuery.trim().toLowerCase();
+        if (!cleaned) return true;
+        const haystack = [
+          item.title,
+          item.description,
+          item.category,
+          item.canon,
+          item.era,
+          item.type,
+          item.code,
+          item.keywords,
+          item.powers.join(' ')
+        ].join(' ').toLowerCase();
+
+        const groups = cleaned.split(',').map((s) => s.trim()).filter(Boolean);
+        if (groups.length > 1) {
+          return groups.some((group) => {
+            const words = group.split(/\s+/).filter(Boolean);
+            return words.every((w) => haystack.includes(w));
+          });
+        }
+
+        const words = cleaned.split(/\s+/).filter(Boolean);
+        return words.every((w) => haystack.includes(w));
+      }
+
+      function getFilteredItems() {
+        const filtered = CATALOG.filter((item) => {
+          if (!matchesQuery(item, state.query)) return false;
+          if (state.categories.size > 0 && !state.categories.has(item.category)) return false;
+          if (state.canons.size > 0 && !state.canons.has(item.canon)) return false;
+          if (state.eras.size > 0 && !state.eras.has(item.era)) return false;
+          if (state.types.size > 0 && !state.types.has(item.type)) return false;
+          if (state.powers.size > 0) {
+            const hasAny = Array.from(state.powers).some((p) => item.powers.includes(p));
+            if (!hasAny) return false;
+          }
+          return true;
+        });
+
+        if (state.sort === 'crono') {
+          filtered.sort((a, b) => b.year - a.year || b.relevance - a.relevance);
+        } else if (state.sort === 'alfa') {
+          filtered.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+        } else {
+          filtered.sort((a, b) => b.relevance - a.relevance);
+        }
+        return filtered;
+      }
+
+      function syncControlStyles() {
+        document.querySelectorAll('.cat-filter-btn').forEach((btn) => {
+          const cat = btn.getAttribute('data-category');
+          const active = state.categories.has(cat);
+          const isNoCanon = cat === 'No canons';
+          btn.classList.toggle('bg-error', active && isNoCanon);
+          btn.classList.toggle('text-on-error', active && isNoCanon);
+          btn.classList.toggle('bg-primary-container', active && !isNoCanon);
+          btn.classList.toggle('text-on-primary-fixed', active && !isNoCanon);
+          btn.classList.toggle('font-bold', active);
+          btn.classList.toggle('shadow-sm', active);
+          btn.classList.toggle('bg-surface-container-high', !active);
+          btn.classList.toggle('text-on-surface-variant', !active);
+        });
+
+        document.querySelectorAll('.canon-checkbox').forEach((cb) => {
+          const active = state.canons.has(cb.getAttribute('data-canon'));
+          cb.checked = active;
+          const label = cb.closest('.canon-label');
+          if (label) {
+            label.classList.toggle('bg-surface-container-high', active);
+            label.classList.toggle('bg-surface-container', !active);
+            const span = label.querySelector('span');
+            if (span) {
+              span.classList.toggle('text-primary', active);
+              span.classList.toggle('font-semibold', active);
+              span.classList.toggle('text-on-surface-variant', !active);
+            }
+          }
+        });
+
+        document.querySelectorAll('.era-filter-btn').forEach((btn) => {
+          const active = state.eras.has(btn.getAttribute('data-era'));
+          btn.classList.toggle('bg-surface-container-high', active);
+          btn.classList.toggle('text-secondary-container', active);
+          btn.classList.toggle('font-bold', active);
+          btn.classList.toggle('bg-surface-container', !active);
+          btn.classList.toggle('text-on-surface-variant', !active);
+        });
+
+        document.querySelectorAll('.type-filter-btn').forEach((btn) => {
+          const active = state.types.has(btn.getAttribute('data-type'));
+          btn.classList.toggle('bg-primary-container', active);
+          btn.classList.toggle('text-on-primary-fixed', active);
+          btn.classList.toggle('font-bold', active);
+          btn.classList.toggle('bg-surface-container', !active);
+          btn.classList.toggle('text-on-surface-variant', !active);
+        });
+
+        document.querySelectorAll('.power-checkbox').forEach((cb) => {
+          const active = state.powers.has(cb.getAttribute('data-power'));
+          cb.checked = active;
+          const label = cb.closest('.power-label');
+          if (label) {
+            label.classList.toggle('bg-surface-container-high', active);
+            label.classList.toggle('text-primary-container', active);
+            label.classList.toggle('bg-surface-container', !active);
+            label.classList.toggle('text-on-surface-variant', !active);
+          }
+        });
+      }
+
+      function renderActiveChips() {
+        const chips = [];
+        state.categories.forEach((v) => chips.push({ group: 'categories', value: v, tone: v === 'No canons' ? 'text-error border-error/40' : 'text-primary-container border-primary-container/30' }));
+        state.canons.forEach((v) => chips.push({ group: 'canons', value: v, tone: v === 'No canons' ? 'text-error border-error/40' : 'text-primary border-primary/30' }));
+        state.eras.forEach((v) => chips.push({ group: 'eras', value: v, tone: 'text-secondary-container border-secondary-container/30' }));
+        state.types.forEach((v) => chips.push({ group: 'types', value: v, tone: 'text-tertiary border-tertiary/30' }));
+        state.powers.forEach((v) => chips.push({ group: 'powers', value: v, tone: 'text-secondary border-secondary/30' }));
+
+        activeFiltersCount.textContent = String(chips.length);
+        activeFilterChips.innerHTML = '';
+
+        if (chips.length === 0) {
+          resetFiltersBtn.classList.add('hidden');
+          activeFilterChips.innerHTML = '<span class="font-body-sm text-body-sm text-on-surface-variant/80">Mostrando todo el archivo. Prueba seleccionar "No canons" o escribir "Exe" en el buscador.</span>';
+          return;
+        }
+
+        resetFiltersBtn.classList.remove('hidden');
+        chips.forEach((chip) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `inline-flex items-center gap-1.5 bg-surface-container-highest border ${chip.tone} px-2.5 py-1 rounded-full text-label-md font-label-md active:scale-95 transition-all`;
+          btn.innerHTML = `<span>${chip.value}</span><span class="material-symbols-outlined text-[14px]">close</span>`;
+          btn.setAttribute('aria-label', `Quitar filtro ${chip.value}`);
+          btn.addEventListener('click', () => {
+            state[chip.group].delete(chip.value);
+            render();
+          });
+          activeFilterChips.appendChild(btn);
+        });
+      }
+
+      function renderResults(items) {
+        const count = items.length;
+        const exeMatched = isExeQuery(state.query);
+        if (exeArchiveBanner) {
+          exeArchiveBanner.classList.toggle('hidden', !exeMatched);
+          exeArchiveBanner.classList.toggle('flex', exeMatched);
+        }
+
+        resultsCountLabel.textContent = count === 1 ? '1 coincidencia encontrada' : `${count} coincidencias encontradas`;
+        viewResultsLabel.textContent = exeMatched
+          ? 'Abrir Archivo Central de Sonic.exe'
+          : (count === 1 ? 'Ver 1 Resultado' : `Ver ${count} Resultados`);
+
+        const trimmedQ = state.query.trim();
+        clearQueryBtn.classList.toggle('hidden', !trimmedQ);
+        clearQueryBtn.classList.toggle('flex', Boolean(trimmedQ));
+
+        if (trimmedQ) {
+          queryPill.textContent = `Búsqueda: "${trimmedQ}"`;
+          queryPill.classList.remove('hidden');
+        } else {
+          queryPill.classList.add('hidden');
+        }
+
+        resultsList.innerHTML = '';
+        if (count === 0) {
+          emptyState.classList.remove('hidden');
+          emptyState.classList.add('flex');
+          return;
+        }
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+
+        items.forEach((item) => {
+          const isNoCanon = item.category === 'No canons';
+          const article = document.createElement('article');
+          article.dataset.href = item.href;
+          article.className = `bg-surface-container-low border ${isNoCanon ? 'border-error/30 hover:border-error/60' : 'border-outline-variant/20 hover:border-primary-container/40'} rounded-xl overflow-hidden shadow-lg transition-all cursor-pointer`;
+          article.innerHTML = `
+            <div class="flex flex-row">
+              <div class="w-28 sm:w-36 shrink-0 relative bg-surface-container-lowest">
+                <img alt="${item.title}" class="w-full h-full object-cover object-center min-h-[136px]" referrerpolicy="no-referrer" src="${item.image}"/>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/60 to-transparent px-2 py-1">
+                  <span class="font-label-sm text-label-sm text-white block truncate">${item.title.split(' (')[0]}</span>
+                </div>
+                <div class="absolute top-2 left-2 bg-surface-container-lowest/85 backdrop-blur-md px-1.5 py-0.5 rounded text-label-sm font-label-sm ${isNoCanon ? 'text-error' : 'text-secondary-container'} font-mono">
+                  ${item.code}
+                </div>
+              </div>
+              <div class="flex-1 p-3 sm:p-3.5 flex flex-col justify-between min-w-0">
+                <div>
+                  <div class="flex items-center justify-between gap-1.5 mb-1 flex-wrap">
+                    <span class="${isNoCanon ? 'bg-error-container/50 text-error' : 'bg-primary/15 text-primary-container'} font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold uppercase">
+                      ${item.subtitle}
+                    </span>
+                    <span class="text-secondary-container flex items-center text-label-sm font-label-sm">
+                      ${item.badgeRight}
+                    </span>
+                  </div>
+                  <h3 class="font-headline-sm sm:font-headline-md text-headline-sm sm:text-headline-md text-on-surface truncate">${item.title}</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+                    ${item.description}
+                  </p>
+                </div>
+                <div class="flex items-center justify-between mt-2.5 pt-2 bg-surface-container-high/45 -mx-3 sm:-mx-3.5 -mb-3 sm:-mb-3.5 px-3 sm:px-3.5 py-1.5">
+                  <span class="text-label-sm font-label-sm ${isNoCanon ? 'text-error' : 'text-primary'} flex items-center gap-1 truncate">
+                    <span class="material-symbols-outlined text-[14px] shrink-0">${item.footerIcon}</span>
+                    <span class="truncate">${item.footerText}</span>
+                  </span>
+                  <span class="material-symbols-outlined text-[18px] text-on-surface-variant shrink-0">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          `;
+          article.addEventListener('click', () => {
+            window.location.href = item.href;
+          });
+          resultsList.appendChild(article);
+        });
+      }
+
+      function render() {
+        syncControlStyles();
+        renderActiveChips();
+        const items = getFilteredItems();
+        renderResults(items);
+      }
+
+      // Event Listeners
+      searchInput.addEventListener('input', () => {
+        state.query = searchInput.value;
+        render();
+      });
+
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && isExeQuery(searchInput.value)) {
+          e.preventDefault();
+          window.location.href = '/archivo-exe';
+        }
+      });
+
+      clearQueryBtn.addEventListener('click', () => {
+        state.query = '';
+        searchInput.value = '';
+        searchInput.focus();
+        render();
+      });
+
+      sortSelect.addEventListener('change', () => {
+        state.sort = sortSelect.value;
+        render();
+      });
+
+      document.querySelectorAll('.cat-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute('data-category');
+          if (state.categories.has(val)) state.categories.delete(val);
+          else state.categories.add(val);
+          render();
+        });
+      });
+
+      document.querySelectorAll('.canon-checkbox').forEach((cb) => {
+        cb.addEventListener('change', () => {
+          const val = cb.getAttribute('data-canon');
+          if (cb.checked) state.canons.add(val);
+          else state.canons.delete(val);
+          render();
+        });
+      });
+
+      document.querySelectorAll('.era-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute('data-era');
+          if (state.eras.has(val)) state.eras.delete(val);
+          else state.eras.add(val);
+          render();
+        });
+      });
+
+      document.querySelectorAll('.type-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute('data-type');
+          if (state.types.has(val)) state.types.delete(val);
+          else state.types.add(val);
+          render();
+        });
+      });
+
+      document.querySelectorAll('.power-checkbox').forEach((cb) => {
+        cb.addEventListener('change', () => {
+          const val = cb.getAttribute('data-power');
+          if (cb.checked) state.powers.add(val);
+          else state.powers.delete(val);
+          render();
+        });
+      });
+
+      resetFiltersBtn.addEventListener('click', () => {
+        state.categories.clear();
+        state.canons.clear();
+        state.eras.clear();
+        state.types.clear();
+        state.powers.clear();
+        render();
+        showToast('Filtros restablecidos');
+      });
+
+      emptyResetBtn.addEventListener('click', () => {
+        state.query = '';
+        searchInput.value = '';
+        state.categories.clear();
+        state.canons.clear();
+        state.eras.clear();
+        state.types.clear();
+        state.powers.clear();
+        render();
+      });
+
+      toggleCategoriesBtn.addEventListener('click', () => {
+        const collapsed = filterCategoriesBox.classList.toggle('hidden');
+        toggleCategoriesBtn.setAttribute('aria-expanded', String(!collapsed));
+        categoriesChevron.textContent = collapsed ? 'expand_more' : 'expand_less';
+      });
+
+      viewResultsBtn.addEventListener('click', () => {
+        if (isExeQuery(state.query)) {
+          window.location.href = '/archivo-exe';
+          return;
+        }
+        const target = document.getElementById('live-results-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      saveSearchBtn.addEventListener('click', () => {
+        state.saved = !state.saved;
+        saveSearchIcon.textContent = state.saved ? 'bookmark_added' : 'bookmark_add';
+        saveSearchBtn.classList.toggle('bg-secondary-container/20', state.saved);
+        saveSearchBtn.classList.toggle('border-secondary-container', state.saved);
+        showToast(state.saved ? 'Búsqueda guardada en tus marcadores' : 'Búsqueda eliminada de marcadores');
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
