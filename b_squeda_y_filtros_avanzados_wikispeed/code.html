@@ -162,6 +162,9 @@
           <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
       </div>
+      <button aria-label="Cambiar idioma" class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-surface-container/60 text-on-surface-variant hover:text-on-surface active:scale-95 transition-transform shrink-0" type="button">
+        <span class="material-symbols-outlined text-[20px]">translate</span>
+      </button>
     </div>
   </header>
 
@@ -387,13 +390,13 @@
       <section class="mt-6 rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-2.5 shadow-md">
         <div class="flex items-center gap-2 text-secondary-container">
           <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
-          <h3 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores Oficiales de Sonic y sus Amigos</h3>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores e Ilustradores de Sonic y sus Amigos</h3>
         </div>
         <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          <strong class="text-on-surface">Sonic, Tails, Knuckles, Amy Rose, Shadow y el universo oficial</strong> son propiedad de <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Créditos a sus creadores originales: <strong class="text-on-surface">Yuji Naka, Naoto Ohshima y Hirokazu Yasuhara</strong> (Sonic &amp; Eggman), <strong class="text-on-surface">Yasushi Yamaguchi</strong> (Tails), <strong class="text-on-surface">Takashi Yuda</strong> (Knuckles), <strong class="text-on-surface">Kazuyuki Hoshino</strong> (Amy Rose &amp; Metal Sonic) y <strong class="text-on-surface">Takashi Iizuka &amp; Shiro Maekawa</strong> (Shadow).
+          <strong class="text-on-surface">Sonic, Tails, Knuckles, Amy Rose, Shadow y el universo oficial</strong> son propiedad de <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Créditos a los creadores e ilustradores que dibujaron a Sonic y sus amigos: <strong class="text-on-surface">Naoto Ohshima, Yuji Naka y Hirokazu Yasuhara</strong> (Sonic &amp; Eggman), <strong class="text-on-surface">Yasushi Yamaguchi</strong> (Tails), <strong class="text-on-surface">Yuji Uekawa</strong> (Sonic Adventure / Sonic Channel), <strong class="text-on-surface">Takashi Yuda</strong> (Knuckles), <strong class="text-on-surface">Kazuyuki Hoshino</strong> (Amy Rose &amp; Metal Sonic), <strong class="text-on-surface">Takashi Iizuka &amp; Shiro Maekawa</strong> (Shadow), <strong class="text-on-surface">Tyson Hesse, Tracy Yardley, Evan Stanley y Adam Bryce Thomas</strong>.
         </p>
         <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Los personajes en la categoría <strong class="text-error">No canons</strong> son creaciones sin fines de lucro hechas por artistas y desarrolladores de la comunidad fan de Sonic (MY5TCrimson, JoeDoughBoi, Chakra-X, MidNightMaren, BlackDevilX y Alvin-Earthworm).
+          Los personajes en la categoría <strong class="text-error">No canons</strong> y las ilustraciones estilo fan-art 2D rinden homenaje a la comunidad de artistas, desarrolladores y fandubers de Sonic (MY5TCrimson, JoeDoughBoi, Mashed, Lipotras, TheGraberFD, Chakra-X, MidNightMaren y BlackDevilX).
         </p>
       </section>
     </div>
@@ -443,7 +446,7 @@
           footerText: 'Ver Imágenes y Estadísticas de Sonic',
           href: '/personajes/sonic',
           keywords: 'sonic erizo blue blur destello azul protagonista velocidad super sonic hedgehogs',
-          image: '/src/assets/images/sonic_character_hero_1794933473360.jpg'
+          image: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg'
         },
         {
           id: 'tails',
@@ -458,12 +461,12 @@
           powers: ['Spin Dash', 'Super Forma'],
           year: 1992,
           relevance: 98,
-          description: 'Zorro de dos colas, genio mecánico, piloto del Tornado. Incluye galería de imágenes y estadísticas detalladas de Tails.',
+          description: 'Zorro de dos colas, genio mecánico, piloto del Tornado. Su archivo oculta el Anillo Rojo (Tails Doll) y el Ojo Morado (El Primas).',
           footerIcon: 'flight',
           footerText: 'Ver Imágenes y Estadísticas de Tails',
           href: '/personajes/tails',
-          keywords: 'tails miles prower zorro colas vuelo mecanico tornado amigo sonic 2',
-          image: '/src/assets/images/tails_character_hero_1794933474802.jpg'
+          keywords: 'tails miles prower zorro colas vuelo mecanico tornado amigo sonic 2 anillo rojo ojo morado',
+          image: '/src/assets/images/fanart_tails_2d_1795018769917.jpg'
         },
         {
           id: 'shadow',
@@ -478,12 +481,12 @@
           powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
           year: 2001,
           relevance: 99,
-          description: 'La Forma de Vida Suprema creada en la Colonia Espacial ARK. Incluye imágenes, galería y estadísticas completas de Shadow.',
+          description: 'La Forma de Vida Suprema creada en la Colonia Espacial ARK. Incluye imágenes fan-art 2D y estadísticas completas de Shadow.',
           footerIcon: 'offline_bolt',
           footerText: 'Ver Imágenes y Estadísticas de Shadow',
           href: '/personajes/shadow',
           keywords: 'shadow erizo negro forma de vida suprema ark chaos control maria hedgehogs',
-          image: '/src/assets/images/shadow_character_hero_1794933475500.jpg'
+          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
         },
         {
           id: 'sonic-exe',
@@ -503,7 +506,47 @@
           footerText: 'Abrir Archivo Central de Sonic.exe',
           href: '/archivo-exe',
           keywords: 'exe sonic.exe sonic exe lord x xenophanes creepypasta no canon comunidad terror historia',
-          image: '/src/assets/images/sonic_exe_archive_1794933476486.jpg'
+          image: '/src/assets/images/fanart_sonic_exe_2d_1795018769799.jpg'
+        },
+        {
+          id: 'tails-doll',
+          code: 'TD-1997',
+          title: 'Tails Doll (Archivo Central)',
+          subtitle: 'No canons • Anillo Rojo',
+          badgeRight: 'Sonic R / Mito',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Clásica',
+          type: 'Fly / Tech',
+          powers: [],
+          year: 1997,
+          relevance: 96,
+          description: 'Muñeco mecánico de Eggman en Sonic R (1997) y leyenda urbana de la gema roja. También accesible desde el Anillo Rojo en el Archivo de Tails.',
+          footerIcon: 'album',
+          footerText: 'Abrir Archivo Central de Tails Doll',
+          href: '/archivo-tails-doll',
+          keywords: 'tails doll anillo rojo sonic r creepypasta can you feel the sunshine gema roja no canons',
+          image: '/src/assets/images/fanart_tails_doll_2d_1795018770221.jpg'
+        },
+        {
+          id: 'el-primas',
+          code: 'PR-FANDUB',
+          title: 'El Primas (Archivo Central)',
+          subtitle: 'No canons • Ojo Morado',
+          badgeRight: 'Fandub Meme',
+          category: 'No canons',
+          canon: 'No canons',
+          era: 'Era Moderna',
+          type: 'Fly / Tech',
+          powers: [],
+          year: 2022,
+          relevance: 95,
+          description: 'Fenómeno paródico y meme de fandub hispano basado en Secret History Tails (Mashed), con estadísticas, historia y créditos de doblaje (Lipotras y comunidad).',
+          footerIcon: 'visibility',
+          footerText: 'Abrir Archivo Central de El Primas',
+          href: '/archivo-el-primas',
+          keywords: 'el primas primas ojo morado tails loco mashed lipotras doblaje fandub meme no canons',
+          image: '/src/assets/images/fanart_el_primas_2d_1795018769993.jpg'
         },
         {
           id: 'nazo',
@@ -523,7 +566,7 @@
           footerText: 'No canons • Comunidad (Nazo Unleashed)',
           href: '/lore-y-mas',
           keywords: 'nazo hedgehog unleashed chakra x no canons comunidad fan personaje',
-          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
         },
         {
           id: 'seelkadoom',
@@ -543,7 +586,7 @@
           footerText: 'No canons • Comunidad (Sonic RPG)',
           href: '/lore-y-mas',
           keywords: 'seelkadoom sonic rpg midnightmaren no canons comunidad fan personaje',
-          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
         },
         {
           id: 'shadic',
@@ -563,7 +606,7 @@
           footerText: 'No canons • Fusión Sonic + Shadow',
           href: '/lore-y-mas',
           keywords: 'shadic fusion sonic shadow nazo no canons comunidad fan personaje',
-          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
         },
         {
           id: 'aeon',
@@ -583,7 +626,7 @@
           footerText: 'No canons • Final Fantasy Sonic X',
           href: '/lore-y-mas',
           keywords: 'aeon final fantasy sonic x blackdevilx no canons comunidad fan personaje',
-          image: '/src/assets/images/nocanon_community_heroes_1794933476658.jpg'
+          image: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg'
         },
         {
           id: 'knuckles',
@@ -603,7 +646,7 @@
           footerText: 'Power Type • Master Emerald',
           href: '/personajes/sonic',
           keywords: 'knuckles equidna angel island master emerald fuerza poder rojo sonic 3',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCslLbEg1QGuRsM07DhrKwr1nDn2T7evpDiQMH8zM2zO_bS9h9k1navA7x5li6RR-3yEbtpnWMvdWMiOTCa2f5nXpQBgKqy-7DThJGQNuHiUgJARgG9LGd3EK6pi2_soi4fwlbne5FhAGHqLoDOZp_T52DBIQozFgLopIpQrz5voPNbAVOb_fEAXyPcfdC2QjN6EhqIpp1_PDLTByhhY0IUOcLnBeRWhz4zwU9Ovoc'
+          image: '/src/assets/images/fanart_knuckles_2d_1795018770326.jpg'
         },
         {
           id: 'amy',
@@ -623,7 +666,7 @@
           footerText: 'Speed / Hammer • Debut: Sonic CD',
           href: '/personajes/sonic',
           keywords: 'amy rose eriza rosa martillo piko piko tarot sonic cd hedgehogs team rose',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAIxgOjtyo7X4ZuBxjl49Rveo_RCdLKcZv-du-vhMcsE3FmMEfrRCcvzxMcQfrTMNmfM_P2wBGvIgaAyvzES9iS15W4_owcnl8_BxhCwVzbgGOp7vgrc4oMfE_xFtbmUGUGcSVTg5jw3xY-kdXEKLMOCfGOj7iRw4L2SfdLEjcPKezmIjKnPYKdzoh887qD5zlmKPMAL0MsMOgSOKFYr8ctiXTH4hv3K76K4IfuBNk'
+          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
         },
         {
           id: 'sa2',
@@ -643,7 +686,7 @@
           footerText: '180 Emblemas • Live & Learn',
           href: '/juegos',
           keywords: 'sonic adventure 2 battle sa2b dreamcast gamecube shadow rouge chao garden',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9bI2sUskuYNxSZVuuzPiiqJRpn1qJ1hidOFbY0C_TfjZYz_OIBk5WtYE86btp3w2TNIp0dc9KSN7vUgyRCBJv4fLEoXrCayVd2_rmi-XMvPJU825aYdCmK40YKXxa6bmTTaZYGWyNohPzsAmjT81ST-Iv5lp3bv-qxaZTUA3LgJhqcCLOUtIU1W5CE42oNWZNBB6b3ePVqd5K40-6Y-jQpUOiTdltFMhjVI8JlMc'
+          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
         },
         {
           id: 'frontiers',
@@ -663,7 +706,7 @@
           footerText: 'Open-Zone • Hedgehog Engine 2',
           href: '/juegos',
           keywords: 'sonic frontiers islas starfall ciberespacio open zone tails amy knuckles sage',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2v9sqaBiXryJuYWQAaUJ8-12kAMKCoafh_rmRxSqbkZ9Rt6r4C9w19JkFoOq3TF-bCwks6xMpU1rd0P6vaIFA0w3WcnWiUd1yioE0LLEHWoGCkGzq1YTnJa7tPBT0OXAevyTeLJZmAO-CEfwsN9M6tRwLe4flmh7tWGZWjLLorvNs0fq146iqIikqDTh3fs8RpSc51FYIS6bLerZxPYyakQIHJ8fzvSyE6aRGvSo'
+          image: '/src/assets/images/fanart_cover_world_2d_1795018770009.jpg'
         },
         {
           id: 'idw-19',
@@ -683,7 +726,7 @@
           footerText: 'Guion: Ian Flynn • Arte: Tracy Yardley',
           href: '/medios',
           keywords: 'idw comic metal virus zombot shadow ian flynn tangle whisper',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzd4NTthw9ISPTrhWCPHt_rkSAogXo8Wb03m5puTllejZYaBg0rxkaGY2g_XDoP8UpyEn35SX5HvxQ9We5C4vQD4ykIzdkzfGoErH3-seGqu1a734Bss8phMDR5yOlGjh8Ehc5pBdZHtQQYX-_rnGviN8aRCwk8ySUUjoRUI_MVqresXtFAfzEaMutVuCXxuMVPnbZtXq2pjUn51RKd6kt0ioKdcbsem5AzrdgbZY'
+          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
         },
         {
           id: 'sonic-3-movie',
@@ -703,7 +746,7 @@
           footerText: 'Dir: Jeff Fowler • Paramount Pictures',
           href: '/medios',
           keywords: 'pelicula sonic 3 paramount cine shadow keanu reeves tails knuckles jim carrey',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCH4pA2J7vMqkt53znC0SJCNSqP3nkMjWIOEhCTgjVbyzyLvD8z3UfQYRA1ilY84tQ655reprg2najJpIlNu9WtZ7N89KwmW6LkGj5btEdrBk5NMyC8117PndNqnFH0myDaiKoIqSSZA5OBhXmTjodGfB9j4uEKr_2WROFkctEREU2ErvA6wtYHppqTtdffypOJt9jt2EYVTvW-ZVkPPGGESuYA0YBj_8e8IWpnJdQ'
+          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
         },
         {
           id: 'chao-garden',
@@ -723,7 +766,7 @@
           footerText: 'Jardines • Karate & Carreras',
           href: '/chao-garden',
           keywords: 'chao garden minijuegos mercado negro frutas huevos calculadora stats sa2',
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAxHPLeB9bhxG5ONiSw3_rbrqsdPkXaHmzKRhyz50hdRZgalZV2y2lV-cIxsol7c7uiP9XKaAWYsLE1ZcftLLmdUfkkahbwyYPZrIzUVOaESML_DYTDX0ds-92J76GoqqO_7CbBYs452DFFsW0PYm8nOC5rf9rK6dhX6VMlTITN-Du7qn_l0b76V2Z5ZQrQEDEZHzoa3FCtqat8IA8tq8UIq9u4-TLIVCcjHIhQ95s'
+          image: '/src/assets/images/fanart_cover_world_2d_1795018770009.jpg'
         }
       ];
 

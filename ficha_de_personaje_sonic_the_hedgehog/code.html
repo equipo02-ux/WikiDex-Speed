@@ -156,6 +156,9 @@
         <a aria-label="Buscar en la wiki" class="w-10 h-10 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container active:scale-95 transition-all" href="/buscar">
           <span class="material-symbols-outlined text-[22px]">search</span>
         </a>
+        <button aria-label="Cambiar idioma" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+          <span class="material-symbols-outlined text-[20px]">translate</span>
+        </button>
         <a aria-label="Perfil" class="w-9 h-9 rounded-full bg-primary flex items-center justify-center ml-1" href="/perfil">
           <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
         </a>
@@ -177,7 +180,7 @@
         <div class="grid grid-cols-3 gap-2.5" id="character-roster-switcher">
           <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="sonic" type="button">
             <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
-              <img alt="Sonic the Hedgehog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/sonic_character_hero_1794933473360.jpg"/>
+              <img alt="Sonic the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_2d_1795018769924.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
               <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Sonic</span>
             </div>
@@ -189,7 +192,7 @@
 
           <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="tails" type="button">
             <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
-              <img alt="Miles Tails Prower" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/tails_character_hero_1794933474802.jpg"/>
+              <img alt="Miles Tails Prower — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_2d_1795018769917.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
               <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Tails</span>
             </div>
@@ -201,7 +204,7 @@
 
           <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="shadow" type="button">
             <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
-              <img alt="Shadow the Hedgehog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/shadow_character_hero_1794933475500.jpg"/>
+              <img alt="Shadow the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_shadow_2d_1795018770546.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
               <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Shadow</span>
             </div>
@@ -216,31 +219,35 @@
       <!-- Dynamic Character Profile Container -->
       <div class="flex flex-col gap-5" id="character-sheet-root"></div>
 
-      <!-- Créditos Oficiales a los Creadores de Sonic y sus Amigos -->
+      <!-- Créditos Oficiales a los Creadores e Ilustradores de Sonic y sus Amigos -->
       <section class="rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-3 shadow-md">
         <div class="flex items-center gap-2 text-secondary-container">
           <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
-          <h2 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores de Sonic y sus Amigos</h2>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores e Ilustradores de Sonic y sus Amigos</h2>
         </div>
         <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Todos los personajes oficiales del universo de Sonic pertenecen a <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Reconocimiento especial a sus creadores originales:
+          Todos los personajes oficiales del universo de Sonic pertenecen a <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Esta enciclopedia rinde homenaje en estilo fan-art 2D a los artistas y creadores que dibujaron a Sonic y sus amigos:
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-primary-container">Yuji Naka, Naoto Ohshima &amp; Hirokazu Yasuhara</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Creadores originales de Sonic the Hedgehog y Dr. Eggman (1991).</span>
+            <span class="font-label-lg text-label-lg text-primary-container">Naoto Ohshima, Yuji Naka &amp; Hirokazu Yasuhara</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseño visual original y creación de Sonic the Hedgehog y Dr. Eggman (1991).</span>
           </div>
           <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
             <span class="font-label-lg text-label-lg text-secondary-container">Yasushi Yamaguchi</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseñador original de Miles "Tails" Prower (Sonic 2, 1992).</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Ilustrador y diseñador original de Miles "Tails" Prower (Sonic 2, 1992).</span>
           </div>
           <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-error">Takashi Iizuka &amp; Shiro Maekawa</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Creadores principales de Shadow the Hedgehog y guion de SA2 (2001).</span>
+            <span class="font-label-lg text-label-lg text-error">Yuji Uekawa, Takashi Iizuka &amp; Shiro Maekawa</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Estilo de ilustración icónico de Sonic Adventure / Sonic Channel y creación de Shadow (2001).</span>
           </div>
           <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-tertiary">Takashi Yuda &amp; Kazuyuki Hoshino</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseñadores originales de Knuckles the Echidna, Amy Rose y Metal Sonic.</span>
+            <span class="font-label-lg text-label-lg text-tertiary">Takashi Yuda, Kazuyuki Hoshino &amp; Tyson Hesse</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Dibujo y diseño de Knuckles, Amy Rose, Metal Sonic y el renacimiento 2D de Sonic Mania.</span>
+          </div>
+          <div class="p-3 rounded-xl bg-surface-container sm:col-span-2 flex flex-col gap-0.5">
+            <span class="font-label-lg text-label-lg text-secondary-fixed">Artistas de Cómics y Comunidad Fan-Art</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Reconocimiento a Tracy Yardley, Evan Stanley, Adam Bryce Thomas, Jennifer Hernandez (IDW/Archie) y a toda la comunidad de dibujantes fan-art de Sonic que inspiran estas ilustraciones tributo 2D.</span>
           </div>
         </div>
       </section>
@@ -289,27 +296,28 @@
           pillMetricText: 'MACH 1+',
           bottomTagIcon: 'monetization_on',
           bottomTagText: 'RING ENERGY: 100%',
-          heroImage: '/src/assets/images/sonic_character_hero_1794933473360.jpg',
+          heroImage: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg',
+          artCredit: 'Arte Fan 2D Tributo · Inspirado en Naoto Ohshima, Yuji Uekawa y Tyson Hesse',
           gallery: [
             {
-              img: '/src/assets/images/sonic_character_hero_1794933473360.jpg',
-              label: 'Sonic the Hedgehog — Carrera Hipersónica',
-              tag: 'Render Principal'
+              img: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg',
+              label: 'Sonic the Hedgehog — Ilustración Fan-Art 2D en Tinta',
+              tag: 'Fan-Art 2D'
             },
             {
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-QxeCFnX3uUwTlyu_JFq1ZRdG_n5g9mYdNv_nMn7V2fWvYYKxUSBnwESVzKDF8VZpkbDRbeOVIeGti2AMhtsVXRhVVB-a7RXYunPdo4AMPZOp4YFbzMPVrTmoW4M5MDRjQvnSQb_OV2iU8nWL7myt-KQaz1zoGzMgvdL3KsC-sMWgMOOIKU6Z45nfu8ujfFhNQw76QsPDcJCkhXsa8FbZOG6iFQFhAmJB-1BKK4Q',
-              label: 'Sonic — Retrato Clásico de Victoria',
-              tag: 'Archivo #001'
+              img: '/src/assets/images/fanart_cover_world_2d_1795018770009.jpg',
+              label: 'Sonic — Portada Fan-Art Green Hill & Ruinas',
+              tag: 'Portada Fan'
             }
           ],
-          bio: 'Un erizo antropomórfico dotado del don de la velocidad supersónica. De espíritu libre, amante de la aventura y defensor intransigente de la paz contra los planes tiránicos del Dr. Ivo "Eggman" Robotnik.',
+          bioHtml: 'Un erizo antropomórfico dotado del don de la velocidad supersónica. De espíritu libre, amante de la aventura y defensor intransigente de la paz contra los planes tiránicos del Dr. Ivo "Eggman" Robotnik.',
           specs: {
             species: 'Erizo común',
             ageGender: '15 años / Masculino',
             size: '100 cm | 35 kg',
             alignment: 'Bien Neutral (Libertad)',
             ability: 'Supervelocidad Hipersónica & Spin Attack',
-            creators: 'Naoto Ohshima, Yuji Naka, Hirokazu Yasuhara (SEGA / Sonic Team)'
+            creators: 'Naoto Ohshima (Diseño), Yuji Naka, Hirokazu Yasuhara & Yuji Uekawa (SEGA / Sonic Team)'
           },
           rank: 'CLASE S+',
           stats: [
@@ -352,27 +360,28 @@
           pillMetricText: 'IQ 300',
           bottomTagIcon: 'flight',
           bottomTagText: 'VUELO TWIN-TAIL ACTIVO',
-          heroImage: '/src/assets/images/tails_character_hero_1794933474802.jpg',
+          heroImage: '/src/assets/images/fanart_tails_2d_1795018769917.jpg',
+          artCredit: 'Arte Fan 2D Tributo · Inspirado en Yasushi Yamaguchi y Sonic Channel',
           gallery: [
             {
-              img: '/src/assets/images/tails_character_hero_1794933474802.jpg',
-              label: 'Miles "Tails" Prower — Taller del Tornado',
-              tag: 'Render Principal'
+              img: '/src/assets/images/fanart_tails_2d_1795018769917.jpg',
+              label: 'Miles "Tails" Prower — Ilustración Fan-Art 2D en Vuelo',
+              tag: 'Fan-Art 2D'
             },
             {
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB5jtv_sCE7g8NlLjYPRUXW8oFRv3t7lYIY-gZ462Do1LBq_DDAAeDxTacYMK2QklWkcC59U1lw6DKGcdLTyaPchFsyKpJvpwiKs1n1blIqxK8snGHmmsdIdsIQZ9oqjwn_KB4FcJ2EIwytgBBv7YQpo5_cAfpX0aJ98zf0vaVMqzHlIglGXv14bFRqMLOO3u1y5DRP8lhGm1LibDV6MBnpUS3f_q_mar57Zm4s_eI',
-              label: 'Tails — Ingeniero & Piloto Experto',
-              tag: 'Archivo #002'
+              img: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg',
+              label: 'Tails junto a Sonic, Knuckles y Shadow — Arte Fan',
+              tag: 'Grupo Fan'
             }
           ],
-          bio: 'Un joven zorro con dos colas que gira como hélices para volar. Posee un intelecto a la altura del Dr. Eggman (IQ 300), diseña aviones como el Tornado y el Cyclone, y es el mejor amigo leal e inseparable de Sonic.',
+          bioHtml: 'Un joven zorro con dos colas que gira como hélices para volar. Posee un intelecto a la altura del Dr. Eggman (IQ 300), diseña aviones como el Tornado y el Cyclone, y es el mejor amigo leal e inseparable de Sonic. <br/><br/>En las notas archivadas del taller de Tails existen dos registros ocultos por la comunidad: el legendario <a href="/archivo-tails-doll" title="Abrir Archivo Central de Tails Doll" class="inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-md bg-red-950/70 hover:bg-red-900/80 border border-red-500/60 text-red-300 font-semibold align-baseline transition-colors"><svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="#ef4444" stroke-width="3.4"/><circle cx="12" cy="12" r="8" stroke="#fecaca" stroke-width="1" stroke-dasharray="7 18"/></svg><span>Anillo Rojo</span></a> vinculado a las pistas nocturnas de <em>Sonic R</em>, y una anomalía paródica marcada por un misterioso <a href="/archivo-el-primas" title="Abrir Archivo Central de El Primas" class="inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-md bg-purple-950/70 hover:bg-purple-900/80 border border-purple-400/60 text-purple-200 font-semibold align-baseline transition-colors"><svg class="w-5 h-3.5 shrink-0" viewBox="0 0 30 20" fill="none" aria-hidden="true"><path d="M1.5 10 C6.5 2.5, 23.5 2.5, 28.5 10 C23.5 17.5, 6.5 17.5, 1.5 10 Z" fill="#1e1038" stroke="#c084fc" stroke-width="2"/><circle cx="15" cy="10" r="4.8" fill="#a855f7"/><circle cx="15" cy="10" r="2.1" fill="#090414"/><circle cx="16.5" cy="8.5" r="0.9" fill="#ffffff"/></svg><span>Ojo Morado</span></a> surgido de los fandubs más virales del fandom.',
           specs: {
             species: 'Zorro de dos colas',
             ageGender: '8 años / Masculino',
             size: '80 cm | 20 kg',
             alignment: 'Bien Legal (Héroe / Inventor)',
             ability: 'Vuelo Propulsado por Colas & Ingeniería Avanzada',
-            creators: 'Yasushi Yamaguchi (SEGA / Sonic Team)'
+            creators: 'Yasushi Yamaguchi (Dibujo y diseño original · SEGA / Sonic Team)'
           },
           rank: 'CLASE S (TECH)',
           stats: [
@@ -416,20 +425,21 @@
           pillMetricText: 'CHAOS CONTROL',
           bottomTagIcon: 'bolt',
           bottomTagText: 'INHIBITOR RINGS: ACTIVOS',
-          heroImage: '/src/assets/images/shadow_character_hero_1794933475500.jpg',
+          heroImage: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg',
+          artCredit: 'Arte Fan 2D Tributo · Inspirado en Yuji Uekawa y Sonic Adventure 2',
           gallery: [
             {
-              img: '/src/assets/images/shadow_character_hero_1794933475500.jpg',
-              label: 'Shadow the Hedgehog — Chaos Control en la ARK',
-              tag: 'Render Principal'
+              img: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg',
+              label: 'Shadow the Hedgehog — Ilustración Fan-Art 2D Chaos Control',
+              tag: 'Fan-Art 2D'
             },
             {
-              img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAwXuRC2xkAVGd0IbmwQlcirhCKkU3igP5Faiz0L8TPNkn44Cs7Zzd1FgLvw4PQRiqsIDMggNVGPm8t4wZKCP2deLOYBcaw-C458JyKfK3w3jGQh3XGtKu1iIT1zAwiQhcqPJSe6YhMCRsB4ijuAkA1IYc22TNrZOg6BMlOnwxq9x8w5QgEBJ_zYUUGVVR2yqnQ_Id4QLtpCKJFijJoxOLbP-TBB_-8mDS4GGt4j8E',
-              label: 'Shadow — Forma de Vida Suprema',
-              tag: 'Archivo #007'
+              img: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg',
+              label: 'Shadow junto a Sonic, Tails y Knuckles — Arte Fan',
+              tag: 'Grupo Fan'
             }
           ],
-          bio: 'Creado por el profesor Gerald Robotnik en la Colonia Espacial ARK usando ADN de Black Doom. Inmortal, implacable y veloz gracias a sus Air Shoes, protege la Tierra para honrar la promesa hecha a su amiga María Robotnik.',
+          bioHtml: 'Creado por el profesor Gerald Robotnik en la Colonia Espacial ARK usando ADN de Black Doom. Inmortal, implacable y veloz gracias a sus Air Shoes, protege la Tierra para honrar la promesa hecha a su amiga María Robotnik.',
           specs: {
             species: 'Erizo híbrido (Black Arms)',
             ageGender: 'Inmortal (+50 años) / Masculino',
@@ -540,6 +550,7 @@
                 <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-end justify-between gap-2">
                   <div class="px-3 py-1 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md border border-outline-variant/30">
                     <span class="font-headline-sm text-headline-sm text-white block leading-tight">${c.name}</span>
+                    <span class="font-body-sm text-body-sm text-primary/90 block leading-tight">${c.artCredit}</span>
                   </div>
                   <div class="px-2.5 py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 text-secondary-container">
                     <span class="material-symbols-outlined text-[15px]">${c.bottomTagIcon}</span>
@@ -548,18 +559,18 @@
                 </div>
               </div>
 
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${c.bio}</p>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${c.bioHtml}</p>
             </div>
           </section>
 
-          <!-- Galería de Imágenes del Personaje (con sus nombres) -->
+          <!-- Galería de Imágenes Fan-Art del Personaje (con sus nombres) -->
           <section class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-3">
             <div class="flex items-center justify-between">
               <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
-                <span class="material-symbols-outlined ${c.accentClass} text-[20px]">photo_library</span>
-                Galería Oficial de ${c.shortName}
+                <span class="material-symbols-outlined ${c.accentClass} text-[20px]">palette</span>
+                Galería Fan-Art de ${c.shortName}
               </h3>
-              <span class="font-label-sm text-label-sm text-outline uppercase">${c.gallery.length} Imágenes</span>
+              <span class="font-label-sm text-label-sm text-outline uppercase">${c.gallery.length} Ilustraciones</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               ${c.gallery.map((g) => `

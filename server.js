@@ -55,6 +55,22 @@ const ROUTES = {
     file: 'archivo_central_sonic_exe/code.html',
     title: `Archivo Central: Sonic.exe — ${APP_TITLE}`,
   },
+  '/archivo-tails-doll': {
+    file: 'archivo_central_tails_doll/code.html',
+    title: `Archivo Central: Tails Doll — ${APP_TITLE}`,
+  },
+  '/tails-doll': {
+    file: 'archivo_central_tails_doll/code.html',
+    title: `Archivo Central: Tails Doll — ${APP_TITLE}`,
+  },
+  '/archivo-el-primas': {
+    file: 'archivo_central_el_primas/code.html',
+    title: `Archivo Central: El Primas — ${APP_TITLE}`,
+  },
+  '/el-primas': {
+    file: 'archivo_central_el_primas/code.html',
+    title: `Archivo Central: El Primas — ${APP_TITLE}`,
+  },
   '/juegos': {
     file: 'cat_logo_de_videojuegos_por_eras_wikispeed/code.html',
     title: `Catálogo de Videojuegos — ${APP_TITLE}`,
