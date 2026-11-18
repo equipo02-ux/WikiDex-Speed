@@ -347,7 +347,7 @@
       <!-- Sonic.exe Secret Archive Trigger Banner (shown when typing "Exe") -->
       <section class="hidden mt-4 rounded-2xl bg-error-container/35 border border-error/60 p-4 shadow-[0_0_24px_rgba(147,0,10,0.4)] flex-col sm:flex-row items-start sm:items-center justify-between gap-3" id="exe-archive-banner">
         <div class="flex items-center gap-3 min-w-0">
-          <img alt="Sonic.exe" class="w-16 h-12 rounded-lg object-cover border border-error/50 shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/sonic_exe_archive_1794933476486.jpg"/>
+          <img alt="Sonic.exe" class="w-16 h-12 rounded-lg object-cover border border-error/50 shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_exe_2d_1795018769799.jpg"/>
           <div class="min-w-0">
             <span class="font-label-sm text-label-sm text-error uppercase tracking-widest block">Expediente Clasificado Detectado</span>
             <h3 class="font-headline-sm text-headline-sm text-white truncate">Archivo Central de Sonic.exe y su Historia</h3>
@@ -390,13 +390,10 @@
       <section class="mt-6 rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-2.5 shadow-md">
         <div class="flex items-center gap-2 text-secondary-container">
           <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
-          <h3 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores e Ilustradores de Sonic y sus Amigos</h3>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface" id="search-credits-heading">Créditos a los Creadores e Ilustradores de Sonic y sus Amigos</h3>
         </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          <strong class="text-on-surface">Sonic, Tails, Knuckles, Amy Rose, Shadow y el universo oficial</strong> son propiedad de <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Créditos a los creadores e ilustradores que dibujaron a Sonic y sus amigos: <strong class="text-on-surface">Naoto Ohshima, Yuji Naka y Hirokazu Yasuhara</strong> (Sonic &amp; Eggman), <strong class="text-on-surface">Yasushi Yamaguchi</strong> (Tails), <strong class="text-on-surface">Yuji Uekawa</strong> (Sonic Adventure / Sonic Channel), <strong class="text-on-surface">Takashi Yuda</strong> (Knuckles), <strong class="text-on-surface">Kazuyuki Hoshino</strong> (Amy Rose &amp; Metal Sonic), <strong class="text-on-surface">Takashi Iizuka &amp; Shiro Maekawa</strong> (Shadow), <strong class="text-on-surface">Tyson Hesse, Tracy Yardley, Evan Stanley y Adam Bryce Thomas</strong>.
-        </p>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Los personajes en la categoría <strong class="text-error">No canons</strong> y las ilustraciones estilo fan-art 2D rinden homenaje a la comunidad de artistas, desarrolladores y fandubers de Sonic (MY5TCrimson, JoeDoughBoi, Mashed, Lipotras, TheGraberFD, Chakra-X, MidNightMaren y BlackDevilX).
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="search-credits-body">
+          Sonic, Tails, Knuckles, Amy Rose, Shadow y el universo oficial son propiedad de SEGA Corporation y Sonic Team.
         </p>
       </section>
     </div>
@@ -427,348 +424,142 @@
 
   <script>
     (function () {
-      const CATALOG = [
+      const DATA = window.WIKISPEED_DATA;
+
+      const CHAR_META = {
+        sonic: { era: 'Era Moderna', type: 'Speed Type', powers: ['Super Forma', 'Spin Dash', 'Chaos Control'], year: 1991, relevance: 100, keywords: 'sonic erizo blue blur velocidad super sonic hedgehogs' },
+        tails: { era: 'Era Clásica', type: 'Fly / Tech', powers: ['Spin Dash', 'Super Forma'], year: 1992, relevance: 99, keywords: 'tails miles prower zorro colas vuelo tornado anillo rojo ojo morado' },
+        knuckles: { era: 'Era Clásica', type: 'Power Type', powers: ['Super Forma', 'Spin Dash'], year: 1994, relevance: 96, keywords: 'knuckles equidna angel island master emerald poder fuerza sonic 3' },
+        amy: { era: 'Era Clásica', type: 'Speed Type', powers: ['Spin Dash'], year: 1993, relevance: 95, keywords: 'amy rose eriza rosa martillo piko piko tarot sonic cd hedgehogs' },
+        shadow: { era: 'Era Moderna', type: 'Speed Type', powers: ['Chaos Control', 'Super Forma', 'Spin Dash'], year: 2001, relevance: 99, keywords: 'shadow erizo negro ark chaos control maria hedgehogs forma vida suprema' },
+        eggman: { era: 'Era Clásica', type: 'Fly / Tech', powers: [], year: 1991, relevance: 96, keywords: 'eggman ivo robotnik doctor villano death egg badniks iq 300' },
+        'metal-sonic': { era: 'Era Clásica', type: 'Speed Type', powers: ['Spin Dash'], year: 1993, relevance: 95, keywords: 'metal sonic neo metal overlord robot copia sonic cd stardust speedway' },
+        silver: { era: 'Era Moderna', type: 'Fly / Tech', powers: ['Chaos Control', 'Super Forma'], year: 2006, relevance: 94, keywords: 'silver erizo plateado futuro psicoquinesis telequinesis sonic 06 hedgehogs' },
+        blaze: { era: 'Era Moderna', type: 'Speed Type', powers: ['Super Forma'], year: 2005, relevance: 94, keywords: 'blaze gata princesa sol emeralds fuego piroquinesis burning sonic rush' },
+        'sonic-exe': { era: 'Era Moderna', type: 'Speed Type', powers: ['Chaos Control'], year: 2011, relevance: 98, keywords: 'exe sonic.exe sonic exe lord x xenophanes creepypasta no canon terror' },
+        'tails-doll': { era: 'Era Clásica', type: 'Fly / Tech', powers: [], year: 1997, relevance: 97, keywords: 'tails doll anillo rojo sonic r creepypasta can you feel the sunshine no canons' },
+        'el-primas': { era: 'Era Moderna', type: 'Fly / Tech', powers: [], year: 2022, relevance: 96, keywords: 'el primas primas ojo morado tails loco mashed lipotras doblaje fandub meme no canons' },
+        nazo: { era: 'Era Aventura', type: 'Power Type', powers: ['Super Forma', 'Chaos Control'], year: 2006, relevance: 93, keywords: 'nazo unleashed chakra x shadic no canons comunidad fan personaje' },
+        seelkadoom: { era: 'Era Aventura', type: 'Power Type', powers: ['Chaos Control', 'Super Forma'], year: 2005, relevance: 92, keywords: 'seelkadoom sonic rpg midnightmaren clon sonic shadow no canons comunidad' },
+        scourge: { era: 'Era Moderna', type: 'Speed Type', powers: ['Super Forma', 'Spin Dash'], year: 2006, relevance: 93, keywords: 'scourge moebius archie evil sonic verde rey no canons comunidad' },
+        'fleetway-super': { era: 'Era Clásica', type: 'Power Type', powers: ['Super Forma'], year: 1993, relevance: 92, keywords: 'fleetway super sonic comic uk espiral caos no canons comunidad' }
+      };
+
+      const EXTRA_ITEMS = [
         {
-          id: 'sonic',
-          code: '#001',
-          title: 'Sonic the Hedgehog',
-          subtitle: 'Canon Principal',
-          badgeRight: 'S+ Tier',
-          category: 'Personajes',
-          canon: 'Canon Principal',
-          era: 'Era Moderna',
-          type: 'Speed Type',
-          powers: ['Super Forma', 'Spin Dash', 'Chaos Control'],
-          year: 1991,
-          relevance: 100,
-          description: 'El erizo azul más rápido del mundo. Velocidad 100/MAX, Spin Dash, Super Sonic e imágenes y estadísticas completas.',
-          footerIcon: 'speed',
-          footerText: 'Ver Imágenes y Estadísticas de Sonic',
-          href: '/personajes/sonic',
-          keywords: 'sonic erizo blue blur destello azul protagonista velocidad super sonic hedgehogs',
-          image: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg'
-        },
-        {
-          id: 'tails',
-          code: '#002',
-          title: 'Miles "Tails" Prower',
-          subtitle: 'Canon Principal',
-          badgeRight: 'IQ 300',
-          category: 'Personajes',
-          canon: 'Canon Principal',
-          era: 'Era Clásica',
-          type: 'Fly / Tech',
-          powers: ['Spin Dash', 'Super Forma'],
-          year: 1992,
-          relevance: 98,
-          description: 'Zorro de dos colas, genio mecánico, piloto del Tornado. Su archivo oculta el Anillo Rojo (Tails Doll) y el Ojo Morado (El Primas).',
-          footerIcon: 'flight',
-          footerText: 'Ver Imágenes y Estadísticas de Tails',
-          href: '/personajes/tails',
-          keywords: 'tails miles prower zorro colas vuelo mecanico tornado amigo sonic 2 anillo rojo ojo morado',
-          image: '/src/assets/images/fanart_tails_2d_1795018769917.jpg'
-        },
-        {
-          id: 'shadow',
-          code: '#007',
-          title: 'Shadow the Hedgehog',
-          subtitle: 'Canon Principal',
-          badgeRight: 'S+ Tier',
-          category: 'Personajes',
-          canon: 'Canon Principal',
-          era: 'Era Moderna',
-          type: 'Speed Type',
-          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
-          year: 2001,
-          relevance: 99,
-          description: 'La Forma de Vida Suprema creada en la Colonia Espacial ARK. Incluye imágenes fan-art 2D y estadísticas completas de Shadow.',
-          footerIcon: 'offline_bolt',
-          footerText: 'Ver Imágenes y Estadísticas de Shadow',
-          href: '/personajes/shadow',
-          keywords: 'shadow erizo negro forma de vida suprema ark chaos control maria hedgehogs',
-          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
-        },
-        {
-          id: 'sonic-exe',
-          code: 'EXE-666',
-          title: 'Sonic.exe (Archivo Central)',
-          subtitle: 'No canons • Comunidad',
-          badgeRight: 'Creepypasta',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Moderna',
-          type: 'Speed Type',
-          powers: ['Chaos Control'],
-          year: 2011,
-          relevance: 97,
-          description: 'Entidad digital del creepypasta clásico de la comunidad Sonic (2011). Accede al Archivo Central con toda su historia, actos y variantes (Lord X / Xenophanes).',
-          footerIcon: 'warning',
-          footerText: 'Abrir Archivo Central de Sonic.exe',
-          href: '/archivo-exe',
-          keywords: 'exe sonic.exe sonic exe lord x xenophanes creepypasta no canon comunidad terror historia',
-          image: '/src/assets/images/fanart_sonic_exe_2d_1795018769799.jpg'
-        },
-        {
-          id: 'tails-doll',
-          code: 'TD-1997',
-          title: 'Tails Doll (Archivo Central)',
-          subtitle: 'No canons • Anillo Rojo',
-          badgeRight: 'Sonic R / Mito',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Clásica',
-          type: 'Fly / Tech',
-          powers: [],
-          year: 1997,
-          relevance: 96,
-          description: 'Muñeco mecánico de Eggman en Sonic R (1997) y leyenda urbana de la gema roja. También accesible desde el Anillo Rojo en el Archivo de Tails.',
-          footerIcon: 'album',
-          footerText: 'Abrir Archivo Central de Tails Doll',
-          href: '/archivo-tails-doll',
-          keywords: 'tails doll anillo rojo sonic r creepypasta can you feel the sunshine gema roja no canons',
-          image: '/src/assets/images/fanart_tails_doll_2d_1795018770221.jpg'
-        },
-        {
-          id: 'el-primas',
-          code: 'PR-FANDUB',
-          title: 'El Primas (Archivo Central)',
-          subtitle: 'No canons • Ojo Morado',
-          badgeRight: 'Fandub Meme',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Moderna',
-          type: 'Fly / Tech',
-          powers: [],
-          year: 2022,
-          relevance: 95,
-          description: 'Fenómeno paródico y meme de fandub hispano basado en Secret History Tails (Mashed), con estadísticas, historia y créditos de doblaje (Lipotras y comunidad).',
-          footerIcon: 'visibility',
-          footerText: 'Abrir Archivo Central de El Primas',
-          href: '/archivo-el-primas',
-          keywords: 'el primas primas ojo morado tails loco mashed lipotras doblaje fandub meme no canons',
-          image: '/src/assets/images/fanart_el_primas_2d_1795018769993.jpg'
-        },
-        {
-          id: 'nazo',
-          code: 'FAN-01',
-          title: 'Nazo the Hedgehog',
-          subtitle: 'No canons • Comunidad',
-          badgeRight: 'Chakra-X',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Aventura',
-          type: 'Power Type',
-          powers: ['Super Forma', 'Chaos Control'],
-          year: 2006,
-          relevance: 90,
-          description: 'Personaje nacido de un misterioso fotograma beta de Sonic X y consagrado por la comunidad en la animación fan Nazo Unleashed (Chakra-X).',
-          footerIcon: 'auto_awesome',
-          footerText: 'No canons • Comunidad (Nazo Unleashed)',
-          href: '/lore-y-mas',
-          keywords: 'nazo hedgehog unleashed chakra x no canons comunidad fan personaje',
-          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
-        },
-        {
-          id: 'seelkadoom',
-          code: 'FAN-02',
-          title: 'Seelkadoom the Hedgehog',
-          subtitle: 'No canons • Comunidad',
-          badgeRight: 'Sonic RPG',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Aventura',
-          type: 'Power Type',
-          powers: ['Chaos Control', 'Super Forma'],
-          year: 2005,
-          relevance: 89,
-          description: 'Clon híbrido creado con ADN de Sonic y Shadow por el Dr. Eggman en la clásica serie de fangames Sonic RPG (MidNightMaren).',
-          footerIcon: 'bolt',
-          footerText: 'No canons • Comunidad (Sonic RPG)',
-          href: '/lore-y-mas',
-          keywords: 'seelkadoom sonic rpg midnightmaren no canons comunidad fan personaje',
-          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
-        },
-        {
-          id: 'shadic',
-          code: 'FAN-03',
-          title: 'Shadic the Hedgehog',
-          subtitle: 'No canons • Comunidad',
-          badgeRight: 'Fusión Fan',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Moderna',
-          type: 'Speed Type',
-          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
-          year: 2007,
-          relevance: 88,
-          description: 'Fusión definitiva creada por la comunidad entre Sonic y Shadow mediante Chaos Control para enfrentar a Hyper Perfect Nazo.',
-          footerIcon: 'flare',
-          footerText: 'No canons • Fusión Sonic + Shadow',
-          href: '/lore-y-mas',
-          keywords: 'shadic fusion sonic shadow nazo no canons comunidad fan personaje',
-          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
-        },
-        {
-          id: 'aeon',
-          code: 'FAN-04',
-          title: 'Aeon the Hedgehog',
-          subtitle: 'No canons • Comunidad',
-          badgeRight: 'FF Sonic X',
-          category: 'No canons',
-          canon: 'No canons',
-          era: 'Era Moderna',
-          type: 'Speed Type',
-          powers: ['Spin Dash', 'Super Forma'],
-          year: 2008,
-          relevance: 86,
-          description: 'Antagonista y guerrero icónico de la comunidad en la saga fan Final Fantasy Sonic X creada por BlackDevilX.',
-          footerIcon: 'swords',
-          footerText: 'No canons • Final Fantasy Sonic X',
-          href: '/lore-y-mas',
-          keywords: 'aeon final fantasy sonic x blackdevilx no canons comunidad fan personaje',
-          image: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg'
-        },
-        {
-          id: 'knuckles',
-          code: '#003',
-          title: 'Knuckles the Echidna',
-          subtitle: 'Canon Principal',
-          badgeRight: 'Guardián',
-          category: 'Personajes',
-          canon: 'Canon Principal',
-          era: 'Era Clásica',
-          type: 'Power Type',
-          powers: ['Super Forma', 'Spin Dash'],
-          year: 1994,
-          relevance: 95,
-          description: 'Último guardián de la Master Emerald en Angel Island. Especialista en combate cuerpo a cuerpo, escalada y planeo.',
-          footerIcon: 'fitness_center',
-          footerText: 'Power Type • Master Emerald',
-          href: '/personajes/sonic',
-          keywords: 'knuckles equidna angel island master emerald fuerza poder rojo sonic 3',
-          image: '/src/assets/images/fanart_knuckles_2d_1795018770326.jpg'
-        },
-        {
-          id: 'amy',
-          code: '#005',
-          title: 'Amy Rose',
-          subtitle: 'Canon Principal',
-          badgeRight: 'Piko Piko',
-          category: 'Personajes',
-          canon: 'Canon Principal',
-          era: 'Era Clásica',
-          type: 'Speed Type',
-          powers: ['Spin Dash'],
-          year: 1993,
-          relevance: 94,
-          description: 'Eriza rosa optimista y decidida, debutó en Sonic CD. Domina el martillo Piko Piko y las cartas del tarot con gran agilidad.',
-          footerIcon: 'favorite',
-          footerText: 'Speed / Hammer • Debut: Sonic CD',
-          href: '/personajes/sonic',
-          keywords: 'amy rose eriza rosa martillo piko piko tarot sonic cd hedgehogs team rose',
-          image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
-        },
-        {
-          id: 'sa2',
-          code: '2001',
-          title: 'Sonic Adventure 2 / Battle',
-          subtitle: 'Juego Canónico',
-          badgeRight: 'Dreamcast / GCN',
-          category: 'Videojuegos',
-          canon: 'Canon Principal',
-          era: 'Era Aventura',
-          type: 'Speed Type',
-          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'],
-          year: 2001,
-          relevance: 93,
-          description: 'Campañas Hero y Dark, debut de Shadow y Rouge, 180 emblemas, City Escape y el mítico Chao Garden con Chao Karate.',
-          footerIcon: 'sports_esports',
-          footerText: '180 Emblemas • Live & Learn',
-          href: '/juegos',
+          id: 'sa2', code: '2001', title: 'Sonic Adventure 2 / Battle',
+          category: 'Videojuegos', canon: 'Canon Principal', era: 'Era Aventura', type: 'Speed Type',
+          powers: ['Chaos Control', 'Super Forma', 'Spin Dash'], year: 2001, relevance: 91,
+          descByLang: {
+            'es-LA': 'Campañas Hero y Dark, debut de Shadow y Rouge, 180 emblemas, City Escape y el Chao Garden.',
+            'es-ES': 'Campañas Hero y Dark, debut de Shadow y Rouge, 180 emblemas y Chao Garden.',
+            fr: 'Campagnes Hero et Dark, débuts de Shadow et Rouge, 180 emblèmes et Chao Garden.',
+            'ja-zh': 'ヒーロー＆ダーク編、シャドウ初登場、チャオガーデン搭載の名作。(双阵营剧情与查欧花园经典。)',
+            'en-US': 'Hero & Dark stories, debut of Shadow and Rouge, 180 emblems, City Escape, and Chao Garden.'
+          },
+          footerIcon: 'sports_esports', footerText: 'Dreamcast / GCN', href: '/juegos',
           keywords: 'sonic adventure 2 battle sa2b dreamcast gamecube shadow rouge chao garden',
           image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
         },
         {
-          id: 'frontiers',
-          code: '2022',
-          title: 'Sonic Frontiers: Islas Starfall',
-          subtitle: 'Canon Principal',
-          badgeRight: 'Era Abierta',
-          category: 'Videojuegos',
-          canon: 'Canon Principal',
-          era: 'Era Abierta',
-          type: 'Speed Type',
-          powers: ['Super Forma', 'Spin Dash'],
-          year: 2022,
-          relevance: 96,
-          description: 'Zonas abiertas en las Islas Starfall, Ciberespacio, combates contra Titanes y la participación de Amy, Tails y Knuckles.',
-          footerIcon: 'public',
-          footerText: 'Open-Zone • Hedgehog Engine 2',
-          href: '/juegos',
+          id: 'frontiers', code: '2022', title: 'Sonic Frontiers: Islas Starfall',
+          category: 'Videojuegos', canon: 'Canon Principal', era: 'Era Abierta', type: 'Speed Type',
+          powers: ['Super Forma', 'Spin Dash'], year: 2022, relevance: 92,
+          descByLang: {
+            'es-LA': 'Zonas abiertas en las Islas Starfall, Ciberespacio, combates contra Titanes y la historia de los Ancestros.',
+            'es-ES': 'Zonas abiertas en las Islas Starfall, Ciberespacio y combates contra Titanes.',
+            fr: 'Zones ouvertes des Îles Starfall, Cyberespace et combats contre les Titans.',
+            'ja-zh': 'スターフォール諸島のオープンゾーンと電脳空間。(星坠群岛开放区域与泰坦巨神战。)',
+            'en-US': 'Open-Zone exploration across the Starfall Islands, Cyberspace, and Titan boss battles.'
+          },
+          footerIcon: 'public', footerText: 'Open-Zone · 2022', href: '/juegos',
           keywords: 'sonic frontiers islas starfall ciberespacio open zone tails amy knuckles sage',
           image: '/src/assets/images/fanart_cover_world_2d_1795018770009.jpg'
         },
         {
-          id: 'idw-19',
-          code: 'IDW #19',
-          title: 'La Caída de Shadow: Crisis Zombot',
-          subtitle: 'IDW Publishing',
-          badgeRight: 'Metal Virus Saga',
-          category: 'Cómics',
-          canon: 'IDW Publishing',
-          era: 'Era Moderna',
-          type: 'Speed Type',
-          powers: ['Chaos Control'],
-          year: 2019,
-          relevance: 91,
-          description: 'Capítulo dramático de la saga Metal Virus donde Shadow y la Resistencia enfrentan la infección metálica del Dr. Eggman.',
-          footerIcon: 'auto_stories',
-          footerText: 'Guion: Ian Flynn • Arte: Tracy Yardley',
-          href: '/medios',
-          keywords: 'idw comic metal virus zombot shadow ian flynn tangle whisper',
-          image: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg'
+          id: 'idw-19', code: 'IDW #19', title: 'Sonic IDW: Saga Metal Virus',
+          category: 'Cómics', canon: 'IDW Publishing', era: 'Era Moderna', type: 'Speed Type',
+          powers: ['Chaos Control'], year: 2019, relevance: 89,
+          descByLang: {
+            'es-LA': 'Arco dramático de los cómics IDW donde Sonic, Silver, Shadow y la Resistencia enfrentan la infección del Metal Virus.',
+            'es-ES': 'Arco de los cómics IDW frente a la plaga del Metal Virus creada por Eggman.',
+            fr: 'Arc majeur des comics IDW où Sonic et la Résistance affrontent le Metal Virus.',
+            'ja-zh': 'IDWコミックの名編・メタルウイルス編。(IDW漫画经典“金属病毒”篇章。)',
+            'en-US': 'Acclaimed IDW Comics story arc where Sonic, Silver, and the Resistance battle Eggman’s Metal Virus.'
+          },
+          footerIcon: 'auto_stories', footerText: 'IDW Publishing', href: '/medios',
+          keywords: 'idw comic metal virus zombot shadow silver ian flynn tracy yardley',
+          image: '/src/assets/images/fanart_silver_2d_1795019788542.jpg'
         },
         {
-          id: 'sonic-3-movie',
-          code: 'DIC 2024',
-          title: 'Sonic the Hedgehog 3 (Película)',
-          subtitle: 'Paramount Cine',
-          badgeRight: 'Live-Action',
-          category: 'Series & Películas',
-          canon: 'Paramount Cine',
-          era: 'Era Abierta',
-          type: 'Speed Type',
-          powers: ['Chaos Control', 'Super Forma'],
-          year: 2024,
-          relevance: 92,
-          description: 'Debut de Shadow en la gran pantalla con la voz de Keanu Reeves frente a Team Sonic (Sonic, Tails y Knuckles) en Tokio y la ARK.',
-          footerIcon: 'movie',
-          footerText: 'Dir: Jeff Fowler • Paramount Pictures',
-          href: '/medios',
-          keywords: 'pelicula sonic 3 paramount cine shadow keanu reeves tails knuckles jim carrey',
+          id: 'sonic-3-movie', code: '2024', title: 'Sonic the Hedgehog 3 (Cine)',
+          category: 'Series & Películas', canon: 'Paramount Cine', era: 'Era Abierta', type: 'Speed Type',
+          powers: ['Chaos Control', 'Super Forma'], year: 2024, relevance: 90,
+          descByLang: {
+            'es-LA': 'Debut cinematográfico de Shadow frente a Team Sonic (Sonic, Tails y Knuckles) y los Robotnik.',
+            'es-ES': 'Estreno de Shadow en cine frente a Sonic, Tails y Knuckles.',
+            fr: 'Arrivée de Shadow au cinéma face à la Team Sonic et aux Robotnik.',
+            'ja-zh': 'シャドウが劇場版に登場するソニック映画第3作。(《刺猬索尼克3》大银幕夏特登场。)',
+            'en-US': 'Shadow’s big-screen debut against Team Sonic (Sonic, Tails, and Knuckles) and the Robotniks.'
+          },
+          footerIcon: 'movie', footerText: 'Paramount Pictures', href: '/medios',
+          keywords: 'pelicula sonic 3 paramount cine shadow keanu reeves tails knuckles eggman',
           image: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg'
         },
         {
-          id: 'chao-garden',
-          code: 'SA2B',
-          title: 'Chao Garden, Genética & Mercado Negro',
-          subtitle: 'Canon Principal',
-          badgeRight: 'Guía Técnica',
-          category: 'Minijuegos',
-          canon: 'Canon Principal',
-          era: 'Era Aventura',
-          type: 'Fly / Tech',
-          powers: [],
-          year: 2001,
-          relevance: 87,
-          description: 'Compendio de jardines Neutral, Hero y Dark, evolución a Chaos Chao, Chaos Drives, frutas y precios del Mercado Negro.',
-          footerIcon: 'pets',
-          footerText: 'Jardines • Karate & Carreras',
-          href: '/chao-garden',
+          id: 'chao-garden', code: 'SA2B', title: 'Chao Garden & Mercado Negro',
+          category: 'Minijuegos', canon: 'Canon Principal', era: 'Era Aventura', type: 'Fly / Tech',
+          powers: [], year: 2001, relevance: 87,
+          descByLang: {
+            'es-LA': 'Guía de jardines Neutral, Hero y Dark, evolución Chaos Chao, frutas y calculadora de estadísticas.',
+            'es-ES': 'Guía completa de jardines Chao, evolución, frutas y Mercado Negro.',
+            fr: 'Guide des jardins Chao, évolutions Chaos Chao, fruits et Marché Noir.',
+            'ja-zh': 'チャオガーデン育成・カオスチャオ進化・闇市場ガイド。(查欧花园养成与黑市指南。)',
+            'en-US': 'Complete guide to Neutral, Hero, and Dark Chao Gardens, Chaos Chao evolution, and Black Market.'
+          },
+          footerIcon: 'pets', footerText: 'Chao Garden', href: '/chao-garden',
           keywords: 'chao garden minijuegos mercado negro frutas huevos calculadora stats sa2',
           image: '/src/assets/images/fanart_cover_world_2d_1795018770009.jpg'
         }
       ];
+
+      function buildCatalog(lang) {
+        const ui = (DATA && DATA.UI[lang]) || { canonBadge: 'Canon Principal', noCanonBadge: 'No Canon · Comunidad', statsTitle: 'Estadísticas de', historyTitle: 'Historia Completa de' };
+        const charItems = DATA ? DATA.ORDER.map((key) => {
+          const c = DATA.CHARACTERS[key];
+          const meta = CHAR_META[key] || { era: 'Era Moderna', type: 'Speed Type', powers: [], year: 2000, relevance: 90, keywords: '' };
+          const isNoCanon = c.canonType === 'nocanon';
+          return {
+            id: c.key,
+            code: c.code,
+            title: c.name,
+            subtitle: isNoCanon ? ui.noCanonBadge : ui.canonBadge,
+            badgeRight: c.rank,
+            category: isNoCanon ? 'No canons' : 'Personajes',
+            canon: isNoCanon ? 'No canons' : 'Canon Principal',
+            era: meta.era,
+            type: meta.type,
+            powers: meta.powers,
+            year: meta.year,
+            relevance: meta.relevance,
+            description: DATA.pick(c.bio, lang),
+            footerIcon: c.metricIcon || 'person',
+            footerText: `${ui.statsTitle} ${c.shortName} · ${ui.historyTitle.replace(/ de$/i, '')}`,
+            href: c.dedicatedUrl || `/personajes/${c.key}`,
+            keywords: `${c.key} ${c.shortName} ${c.name} ${c.jpName} ${DATA.pick(c.alias, lang)} ${meta.keywords}`.toLowerCase(),
+            image: c.heroImage
+          };
+        }) : [];
+
+        const extras = EXTRA_ITEMS.map((ex) => ({
+          ...ex,
+          subtitle: ex.canon,
+          badgeRight: ex.code,
+          description: (ex.descByLang && (ex.descByLang[lang] || ex.descByLang['es-LA'])) || ''
+        }));
+
+        return [...charItems, ...extras];
+      }
 
       const state = {
         query: '',
@@ -802,6 +593,8 @@
       const exeArchiveBanner = document.getElementById('exe-archive-banner');
       const toastEl = document.getElementById('search-toast');
       const toastText = document.getElementById('search-toast-text');
+      const searchCreditsHeading = document.getElementById('search-credits-heading');
+      const searchCreditsBody = document.getElementById('search-credits-body');
 
       let toastTimer = null;
       function showToast(msg) {
@@ -821,14 +614,6 @@
         return q === 'exe' || q === '.exe' || q === 'sonic.exe' || q === 'sonic exe';
       }
 
-      // Initialize category counters from real catalog
-      document.querySelectorAll('[data-cat-count]').forEach((badge) => {
-        const cat = badge.getAttribute('data-cat-count');
-        const count = CATALOG.filter((item) => item.category === cat).length;
-        badge.textContent = `(${count})`;
-      });
-
-      // Read ?q= query param if navigated from Home
       const urlParams = new URLSearchParams(window.location.search);
       const initialQuery = urlParams.get('q');
       if (initialQuery) {
@@ -862,13 +647,12 @@
             return words.every((w) => haystack.includes(w));
           });
         }
-
         const words = cleaned.split(/\s+/).filter(Boolean);
         return words.every((w) => haystack.includes(w));
       }
 
-      function getFilteredItems() {
-        const filtered = CATALOG.filter((item) => {
+      function getFilteredItems(catalog) {
+        const filtered = catalog.filter((item) => {
           if (!matchesQuery(item, state.query)) return false;
           if (state.categories.size > 0 && !state.categories.has(item.category)) return false;
           if (state.canons.size > 0 && !state.canons.has(item.canon)) return false;
@@ -884,7 +668,7 @@
         if (state.sort === 'crono') {
           filtered.sort((a, b) => b.year - a.year || b.relevance - a.relevance);
         } else if (state.sort === 'alfa') {
-          filtered.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+          filtered.sort((a, b) => a.title.localeCompare(b.title));
         } else {
           filtered.sort((a, b) => b.relevance - a.relevance);
         }
@@ -953,7 +737,7 @@
         });
       }
 
-      function renderActiveChips() {
+      function renderActiveChips(ui) {
         const chips = [];
         state.categories.forEach((v) => chips.push({ group: 'categories', value: v, tone: v === 'No canons' ? 'text-error border-error/40' : 'text-primary-container border-primary-container/30' }));
         state.canons.forEach((v) => chips.push({ group: 'canons', value: v, tone: v === 'No canons' ? 'text-error border-error/40' : 'text-primary border-primary/30' }));
@@ -966,7 +750,7 @@
 
         if (chips.length === 0) {
           resetFiltersBtn.classList.add('hidden');
-          activeFilterChips.innerHTML = '<span class="font-body-sm text-body-sm text-on-surface-variant/80">Mostrando todo el archivo. Prueba seleccionar "No canons" o escribir "Exe" en el buscador.</span>';
+          activeFilterChips.innerHTML = `<span class="font-body-sm text-body-sm text-on-surface-variant/80">${ui.searchPlaceholder}</span>`;
           return;
         }
 
@@ -976,7 +760,6 @@
           btn.type = 'button';
           btn.className = `inline-flex items-center gap-1.5 bg-surface-container-highest border ${chip.tone} px-2.5 py-1 rounded-full text-label-md font-label-md active:scale-95 transition-all`;
           btn.innerHTML = `<span>${chip.value}</span><span class="material-symbols-outlined text-[14px]">close</span>`;
-          btn.setAttribute('aria-label', `Quitar filtro ${chip.value}`);
           btn.addEventListener('click', () => {
             state[chip.group].delete(chip.value);
             render();
@@ -985,7 +768,7 @@
         });
       }
 
-      function renderResults(items) {
+      function renderResults(items, ui) {
         const count = items.length;
         const exeMatched = isExeQuery(state.query);
         if (exeArchiveBanner) {
@@ -993,17 +776,17 @@
           exeArchiveBanner.classList.toggle('flex', exeMatched);
         }
 
-        resultsCountLabel.textContent = count === 1 ? '1 coincidencia encontrada' : `${count} coincidencias encontradas`;
+        resultsCountLabel.textContent = `${count} ${ui.matchesFound}`;
         viewResultsLabel.textContent = exeMatched
-          ? 'Abrir Archivo Central de Sonic.exe'
-          : (count === 1 ? 'Ver 1 Resultado' : `Ver ${count} Resultados`);
+          ? ui.openExeArchive
+          : `${ui.viewResults} (${count})`;
 
         const trimmedQ = state.query.trim();
         clearQueryBtn.classList.toggle('hidden', !trimmedQ);
         clearQueryBtn.classList.toggle('flex', Boolean(trimmedQ));
 
         if (trimmedQ) {
-          queryPill.textContent = `Búsqueda: "${trimmedQ}"`;
+          queryPill.textContent = `"${trimmedQ}"`;
           queryPill.classList.remove('hidden');
         } else {
           queryPill.classList.add('hidden');
@@ -1013,6 +796,10 @@
         if (count === 0) {
           emptyState.classList.remove('hidden');
           emptyState.classList.add('flex');
+          const emptyH3 = emptyState.querySelector('h3');
+          const emptyP = emptyState.querySelector('p');
+          if (emptyH3) emptyH3.textContent = ui.noResultsTitle;
+          if (emptyP) emptyP.textContent = ui.noResultsBody;
           return;
         }
         emptyState.classList.add('hidden');
@@ -1067,13 +854,40 @@
       }
 
       function render() {
+        const lang = DATA ? DATA.getLang() : 'es-LA';
+        const ui = (DATA && DATA.UI[lang]) || {
+          searchPlaceholder: 'Buscar personajes canon, no canons, juegos...',
+          matchesFound: 'coincidencias encontradas',
+          resetFilters: 'Restablecer filtros',
+          viewResults: 'Ver Resultados',
+          openExeArchive: 'Abrir Archivo Central de Sonic.exe',
+          noResultsTitle: 'Sin coincidencias exactas',
+          noResultsBody: 'Intenta cambiar el término de búsqueda.',
+          creditsHeading: 'Créditos a los Creadores e Ilustradores de Sonic y sus Amigos',
+          creditsBody: ''
+        };
+        const catalog = buildCatalog(lang);
+
+        if (searchInput) searchInput.placeholder = ui.searchPlaceholder;
+        if (resetFiltersBtn) {
+          const sp = resetFiltersBtn.querySelector('span:last-child');
+          if (sp) sp.textContent = ui.resetFilters;
+        }
+        if (searchCreditsHeading) searchCreditsHeading.textContent = ui.creditsHeading;
+        if (searchCreditsBody && ui.creditsBody) searchCreditsBody.textContent = ui.creditsBody;
+
+        document.querySelectorAll('[data-cat-count]').forEach((badge) => {
+          const cat = badge.getAttribute('data-cat-count');
+          const count = catalog.filter((item) => item.category === cat).length;
+          badge.textContent = `(${count})`;
+        });
+
         syncControlStyles();
-        renderActiveChips();
-        const items = getFilteredItems();
-        renderResults(items);
+        renderActiveChips(ui);
+        const items = getFilteredItems(catalog);
+        renderResults(items, ui);
       }
 
-      // Event Listeners
       searchInput.addEventListener('input', () => {
         state.query = searchInput.value;
         render();
@@ -1150,7 +964,7 @@
         state.types.clear();
         state.powers.clear();
         render();
-        showToast('Filtros restablecidos');
+        showToast('OK');
       });
 
       emptyResetBtn.addEventListener('click', () => {
@@ -1176,9 +990,7 @@
           return;
         }
         const target = document.getElementById('live-results-section');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
 
       saveSearchBtn.addEventListener('click', () => {
@@ -1186,9 +998,10 @@
         saveSearchIcon.textContent = state.saved ? 'bookmark_added' : 'bookmark_add';
         saveSearchBtn.classList.toggle('bg-secondary-container/20', state.saved);
         saveSearchBtn.classList.toggle('border-secondary-container', state.saved);
-        showToast(state.saved ? 'Búsqueda guardada en tus marcadores' : 'Búsqueda eliminada de marcadores');
+        showToast(state.saved ? '★' : 'OK');
       });
 
+      window.addEventListener('wikispeed:langchange', render);
       render();
     })();
   </script>

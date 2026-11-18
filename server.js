@@ -29,7 +29,7 @@ const ROUTES = {
   },
   '/personajes': {
     file: 'ficha_de_personaje_sonic_the_hedgehog/code.html',
-    title: `Personajes — Sonic, Tails & Shadow — ${APP_TITLE}`,
+    title: `Personajes Canon y No canons — ${APP_TITLE}`,
   },
   '/personajes/sonic': {
     file: 'ficha_de_personaje_sonic_the_hedgehog/code.html',
@@ -113,6 +113,7 @@ async function renderPage(routeConfig, res) {
   ].join('\n');
 
   const scrollFixStyle = `<style id="wikispeed-scroll-fix">html{width:100%;overflow-y:auto!important;overflow-x:clip!important;}body{width:100%;overflow-y:visible!important;overflow-x:clip!important;overscroll-behavior-y:auto!important;}</style>`;
+  const dataScriptTag = `<script src="/characters-data.js"></script>`;
 
   if (!/<title>/i.test(html)) {
     html = html.replace(/<head([^>]*)>/i, `<head$1>\n${metaTags}`);
@@ -121,7 +122,7 @@ async function renderPage(routeConfig, res) {
   html = html.replace(/width:100vw;?/g, 'width:100%;');
 
   if (/<\/head>/i.test(html)) {
-    html = html.replace(/<\/head>/i, `${scrollFixStyle}\n</head>`);
+    html = html.replace(/<\/head>/i, `${scrollFixStyle}\n${dataScriptTag}\n</head>`);
   }
 
   if (html.includes('</body>')) {
@@ -142,6 +143,18 @@ for (const [routePath, config] of Object.entries(ROUTES)) {
     }
   });
 }
+
+app.get('/personajes/:slug', async (_req, res, next) => {
+  try {
+    await renderPage(ROUTES['/personajes'], res);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get('/characters-data.js', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'characters-data.js'));
+});
 
 app.get('/nav.js', (_req, res) => {
   res.sendFile(path.join(__dirname, 'nav.js'));

@@ -134,10 +134,8 @@
           <circle cx="16" cy="16" r="11" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="10 24"/>
         </svg>
         <div class="flex flex-col gap-0.5">
-          <span class="font-label-md text-label-md text-red-300">Expediente Secreto Desbloqueado · Anillo Rojo</span>
-          <p class="font-body-sm text-body-sm text-red-100/90 leading-relaxed">
-            Accediste desde el Anillo Rojo oculto en el Archivo Central de Tails. Tails Doll debutó oficialmente en <em>Sonic R</em> (SEGA, 1997) y posteriormente inspiró una de las leyendas urbanas más célebres de internet.
-          </p>
+          <span class="font-label-md text-label-md text-red-300" id="td-notice-title">Anillo Rojo · Expediente Secreto</span>
+          <p class="font-body-sm text-body-sm text-red-100/90 leading-relaxed" id="td-notice-body"></p>
         </div>
       </div>
 
@@ -147,13 +145,11 @@
           <div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-variant font-label-md">
             <span class="text-red-400 font-bold">Expediente #TD-1997</span>
             <span aria-hidden="true">·</span>
-            <span>Sonic R (SEGA Saturn)</span>
-            <span aria-hidden="true">·</span>
-            <span>Mito de la Comunidad</span>
+            <span id="td-era-badge">Sonic R (1997)</span>
           </div>
           <div>
-            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" style="text-wrap: balance;">Tails Doll (El Muñeco de Trapo de Eggman)</h1>
-            <p class="font-label-md text-label-md text-red-300 mt-0.5">テイルス・ドール · Autómata Flotante &amp; Leyenda de la Gema Roja</p>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" style="text-wrap: balance;">Tails Doll</h1>
+            <p class="font-label-md text-label-md text-red-300 mt-0.5" id="td-alias">テイルス・ドール</p>
           </div>
           <div class="relative w-full aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-red-500/30">
             <img alt="Tails Doll — Ilustración fan-art 2D con gema roja flotante" class="w-full h-full object-cover" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_doll_2d_1795018770221.jpg"/>
@@ -161,135 +157,59 @@
             <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-end justify-between gap-2">
               <div class="flex flex-col">
                 <span class="font-headline-md text-headline-md text-white drop-shadow">Tails Doll</span>
-                <span class="font-body-sm text-body-sm text-red-300">Ilustración estilo Fan-Art 2D · "Can You Feel the Sunshine?"</span>
+                <span class="font-body-sm text-body-sm text-red-300" id="td-art-credit">Arte Fan 2D</span>
               </div>
-              <span class="font-label-md text-label-md text-red-200 bg-black/65 px-2.5 py-1 rounded-lg border border-red-500/40">Gema Roja Activa</span>
+              <span class="font-label-md text-label-md text-red-200 bg-black/65 px-2.5 py-1 rounded-lg border border-red-500/40">Can You Feel the Sunshine?</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Historia Completa -->
+      <!-- Historia Completa (Translated in 5 Languages) -->
       <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-4">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-red-400 text-[22px]">menu_book</span>
-          <h2 class="font-headline-md text-headline-md text-on-surface">Historia Completa de Tails Doll</h2>
+          <h2 class="font-headline-md text-headline-md text-on-surface" id="td-history-heading">Historia Completa de Tails Doll</h2>
         </div>
-
-        <div class="space-y-4 font-body-md text-body-md text-on-surface-variant leading-relaxed">
-          <p>
-            <strong class="text-on-surface">01. Origen Oficial en Sonic R (1997):</strong> Tails Doll fue creado oficialmente por <strong class="text-primary-container">Traveller's Tales</strong> y <strong class="text-primary-container">Sonic Team</strong> para <em>Sonic R</em> en SEGA Saturn (y PC). Dentro del lore del juego, es una contraparte mecánica de Miles "Tails" Prower construida por el Dr. Ivo "Eggman" Robotnik, diseñada como un peluche cosido a mano que levita gracias a una antena metálica coronada por una gema roja. Para desbloquearlo, el jugador debía reunir las 5 fichas de Sonic en la pista <em>Radical City</em> y terminar entre los tres primeros lugares.
-          </p>
-          <p>
-            <strong class="text-on-surface">02. El Fenómeno Creepypasta y el Mito de la Maldición:</strong> Debido a su apariencia estática, ojos oscuros sin expresión y su movimiento flotante silencioso en los gráficos poligonales de 1997, Tails Doll se volvió protagonista de una de las leyendas urbanas más famosas de internet a inicios de los años 2000. El relato cuenta que, al desbloquearlo en el modo <em>Tag 4</em> y reproducir al revés la alegre canción <em>"Can You Feel the Sunshine?"</em>, la gema roja supuestamente brillaba en la oscuridad de la habitación del jugador. Aunque es 100% ficción comunitaria, la historia marcó a toda una generación de fans.
-          </p>
-          <p>
-            <strong class="text-on-surface">03. Regreso en Cómics y Legado Fan:</strong> En los cómics oficiales de <strong>Archie Sonic</strong> (escritos por Ian Flynn y dibujados por artistas como Tracy Yardley), Tails Doll regresó como un espía silencioso del Dr. Eggman capaz de transformarse en una criatura monstruosa hecha de costura y metal, haciendo un guiño directo a su fama en internet. Además, aparece en múltiples homenajes, fan-games y música de la comunidad de Sonic.
-          </p>
-        </div>
+        <div class="flex flex-col gap-3" id="td-history-list"></div>
       </section>
 
-      <!-- Estadísticas de Tails Doll -->
+      <!-- Estadísticas de Tails Doll (Translated in 5 Languages) -->
       <section class="rounded-2xl bg-surface-container-high border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-4">
         <div class="flex items-center justify-between gap-2">
           <h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
             <span class="material-symbols-outlined text-red-400 text-[20px]">equalizer</span>
-            Estadísticas de Tails Doll
+            <span id="td-stats-heading">Estadísticas de Tails Doll</span>
           </h2>
-          <span class="font-label-md text-label-md text-red-300 tabular-nums">Clase R / Leyenda</span>
+          <span class="font-label-md text-label-md text-red-300 tabular-nums">R / MITO</span>
         </div>
 
-        <div class="flex flex-col gap-3 tabular-nums">
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Flotación &amp; Planeo Continuo (Sonic R)</span>
-              <span class="text-secondary-container font-bold">95 / 100</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-secondary-container" style="width: 95%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Desplazamiento sobre Agua</span>
-              <span class="text-primary-container font-bold">92 / 100</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-primary-container" style="width: 92%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Aura Paranormal / Factor Leyenda Urbana</span>
-              <span class="text-red-400 font-bold">100 / MAX</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-gradient-to-r from-red-700 to-red-400" style="width: 100%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Velocidad Punta Terrestre</span>
-              <span class="text-on-surface font-bold">62 / 100</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-tertiary-container" style="width: 62%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Resistencia Incorpórea / Sigilo</span>
-              <span class="text-red-300 font-bold">88 / 100</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-red-500" style="width: 88%"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-outline-variant/20 text-xs">
-          <div class="p-2.5 rounded-lg bg-surface-container-low">
-            <span class="text-outline block">Debut</span>
-            <span class="font-semibold text-on-surface">Sonic R (1997)</span>
-          </div>
-          <div class="p-2.5 rounded-lg bg-surface-container-low">
-            <span class="text-outline block">Creador Lore</span>
-            <span class="font-semibold text-on-surface">Dr. Eggman</span>
-          </div>
-          <div class="p-2.5 rounded-lg bg-surface-container-low">
-            <span class="text-outline block">Núcleo</span>
-            <span class="font-semibold text-red-400">Gema Roja Antena</span>
-          </div>
-          <div class="p-2.5 rounded-lg bg-surface-container-low">
-            <span class="text-outline block">Pista Clave</span>
-            <span class="font-semibold text-secondary-fixed">Radical City</span>
-          </div>
-        </div>
+        <div class="flex flex-col gap-3 tabular-nums" id="td-stats-list"></div>
       </section>
 
       <!-- Archivos Relacionados -->
       <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-3">
-        <h2 class="font-headline-sm text-headline-sm text-on-surface">Archivos Relacionados</h2>
+        <h2 class="font-headline-sm text-headline-sm text-on-surface" id="td-related-heading">Archivos Relacionados</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-outline-variant/25 flex items-center gap-3 transition-colors" href="/personajes/tails">
             <img alt="Tails" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_2d_1795018769917.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-secondary-container truncate">Tails</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Archivo Central</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate" data-official-sheet-label>Ficha Oficial</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-purple-500/30 flex items-center gap-3 transition-colors" href="/archivo-el-primas">
             <img alt="El Primas" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_el_primas_2d_1795018769993.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-purple-300 truncate">El Primas</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Ojo Morado · Fandub</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Fandub</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-error/30 flex items-center gap-3 transition-colors" href="/archivo-exe">
             <img alt="Sonic.exe" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_exe_2d_1795018769799.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-error truncate">Sonic.exe</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Archivo Central</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">No Canon</div>
             </div>
           </a>
         </div>
@@ -297,10 +217,8 @@
 
       <!-- Créditos Oficiales y Artistas -->
       <section class="rounded-2xl bg-surface-container-low border border-secondary-container/25 p-4 sm:p-5 flex flex-col gap-2">
-        <h2 class="font-headline-sm text-headline-sm text-secondary-container">Créditos a los Creadores e Ilustradores</h2>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Tails Doll y Miles "Tails" Prower pertenecen a <strong class="text-primary-container">SEGA Corporation</strong>, <strong class="text-primary-container">Sonic Team</strong> y <strong class="text-primary-container">Traveller's Tales</strong>. Reconocimiento a los ilustradores y diseñadores que dibujaron a Sonic y sus amigos: <strong class="text-on-surface">Naoto Ohshima, Yasushi Yamaguchi, Yuji Uekawa, Takashi Yuda, Kazuyuki Hoshino, Tyson Hesse y Tracy Yardley</strong>, así como a la comunidad de artistas fan-art que mantiene viva esta leyenda.
-        </p>
+        <h2 class="font-headline-sm text-headline-sm text-secondary-container" id="td-credits-heading">Créditos a los Creadores e Ilustradores</h2>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="td-credits-body"></p>
       </section>
     </div>
   </main>
@@ -325,5 +243,58 @@
       </a>
     </div>
   </nav>
+  <script>
+    (function () {
+      const DATA = window.WIKISPEED_DATA;
+      if (!DATA) return;
+      const c = DATA.CHARACTERS['tails-doll'];
+
+      function hydrate() {
+        const lang = DATA.getLang();
+        const ui = DATA.UI[lang] || DATA.UI['es-LA'];
+        document.getElementById('td-notice-title').textContent = `${ui.redRingLabel} · ${ui.communityArchive}`;
+        document.getElementById('td-notice-body').textContent = DATA.pick(c.bio, lang);
+        document.getElementById('td-era-badge').textContent = DATA.pick(c.eraBadge, lang);
+        document.getElementById('td-alias').textContent = `${c.jpName} · ${DATA.pick(c.alias, lang)}`;
+        document.getElementById('td-art-credit').textContent = DATA.pick(c.artCredit, lang);
+        document.getElementById('td-history-heading').textContent = `${ui.historyTitle} ${c.shortName}`;
+        document.getElementById('td-stats-heading').textContent = `${ui.statsTitle} ${c.shortName}`;
+        document.getElementById('td-related-heading').textContent = ui.relatedArchives;
+        document.getElementById('td-credits-heading').textContent = ui.creditsHeading;
+        document.getElementById('td-credits-body').textContent = ui.creditsBody;
+        document.querySelectorAll('[data-official-sheet-label]').forEach((el) => {
+          el.textContent = ui.officialSheet;
+        });
+
+        const historyArr = DATA.pick(c.history, lang) || [];
+        document.getElementById('td-history-list').innerHTML = historyArr.map((chapter) => {
+          const idx = chapter.indexOf(':');
+          const head = idx > 0 ? chapter.slice(0, idx) : '';
+          const body = idx > 0 ? chapter.slice(idx + 1).trim() : chapter;
+          return `
+            <div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+              ${head ? `<div class="font-label-lg text-label-lg text-red-300 mb-1">${head}</div>` : ''}
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${body}</p>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('td-stats-list').innerHTML = c.stats.map((s) => `
+          <div>
+            <div class="flex justify-between font-label-md text-label-md mb-1 gap-2">
+              <span class="text-on-surface-variant">${DATA.statLabel(s.statKey, lang)}</span>
+              <span class="text-red-300 font-bold shrink-0">${s.suffix}</span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
+              <div class="h-full rounded-full ${s.bar}" style="width: ${s.pct}%"></div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.addEventListener('wikispeed:langchange', hydrate);
+      hydrate();
+    })();
+  </script>
 </body>
 </html>

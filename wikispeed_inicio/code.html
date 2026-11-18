@@ -200,15 +200,15 @@
 <span class="w-1.5 h-4 rounded-full bg-primary"></span>
 <h2 class="font-headline-sm text-headline-sm text-on-surface">Personajes Populares</h2>
 </div>
-<a class="font-label-sm text-label-sm text-primary-container hover:text-primary uppercase tracking-wider flex items-center" href="#">
-        Ver Roster
+<a class="font-label-sm text-label-sm text-primary-container hover:text-primary uppercase tracking-wider flex items-center" href="/personajes/sonic">
+        <span id="home-view-roster-label">Ver Todos (16)</span>
         <span class="material-symbols-outlined text-[14px] ml-0.5">chevron_right</span>
 </a>
 </div>
 <!-- Scroller -->
 <div class="flex gap-3 overflow-x-auto px-gutter no-scrollbar snap-x snap-mandatory">
 <!-- 1. Sonic -->
-<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform">
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/sonic">
 <div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
 <img alt="Sonic the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_2d_1795018769924.jpg"/>
 <div class="absolute bottom-1 left-1 flex items-center gap-1">
@@ -217,15 +217,15 @@
 </div>
 <div class="mt-2 flex flex-col">
 <span class="font-label-lg text-label-lg text-on-surface truncate">Sonic</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">El Erizo Más Rápido</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="sonic">El Erizo Más Rápido</span>
 <div class="mt-1 flex items-center gap-1 text-secondary-container">
 <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">speed</span>
-<span class="font-label-sm text-label-sm">Velocidad S+</span>
+<span class="font-label-sm text-label-sm">Canon · S+</span>
 </div>
 </div>
 </div>
 <!-- 2. Tails -->
-<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform">
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/tails">
 <div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
 <img alt="Miles Tails Prower — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_2d_1795018769917.jpg"/>
 <div class="absolute bottom-1 left-1 flex items-center gap-1">
@@ -234,15 +234,15 @@
 </div>
 <div class="mt-2 flex flex-col">
 <span class="font-label-lg text-label-lg text-on-surface truncate">Miles 'Tails'</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Genio Mecánico</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="tails">Genio Mecánico</span>
 <div class="mt-1 flex items-center gap-1 text-primary-container">
 <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
-<span class="font-label-sm text-label-sm">Vuelo / Tech</span>
+<span class="font-label-sm text-label-sm">Canon · IQ 300</span>
 </div>
 </div>
 </div>
 <!-- 3. Knuckles -->
-<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform">
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/knuckles">
 <div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
 <img alt="Knuckles the Echidna — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_knuckles_2d_1795018770326.jpg"/>
 <div class="absolute bottom-1 left-1">
@@ -251,15 +251,32 @@
 </div>
 <div class="mt-2 flex flex-col">
 <span class="font-label-lg text-label-lg text-on-surface truncate">Knuckles</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Guardián Sagrado</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="knuckles">Guardián Sagrado</span>
 <div class="mt-1 flex items-center gap-1 text-secondary-container">
 <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
-<span class="font-label-sm text-label-sm">Fuerza Bruta</span>
+<span class="font-label-sm text-label-sm">Canon · Power</span>
 </div>
 </div>
 </div>
-<!-- 4. Shadow -->
-<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform">
+<!-- 4. Amy Rose -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/amy">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Amy Rose — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_amy_2d_1795019788273.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-pink-300 font-label-sm text-label-sm">#004 Amy</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Amy Rose</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="amy">Martillo Piko Piko</span>
+<div class="mt-1 flex items-center gap-1 text-pink-300">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm text-label-sm">Canon · Piko</span>
+</div>
+</div>
+</div>
+<!-- 5. Shadow -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/shadow">
 <div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
 <img alt="Shadow the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_shadow_2d_1795018770546.jpg"/>
 <div class="absolute bottom-1 left-1 flex items-center gap-1">
@@ -268,10 +285,129 @@
 </div>
 <div class="mt-2 flex flex-col">
 <span class="font-label-lg text-label-lg text-on-surface truncate">Shadow</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Forma de Vida Suprema</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="shadow">Forma de Vida Suprema</span>
 <div class="mt-1 flex items-center gap-1 text-tertiary">
 <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
-<span class="font-label-sm text-label-sm">Chaos Control</span>
+<span class="font-label-sm text-label-sm">Canon · Chaos</span>
+</div>
+</div>
+</div>
+<!-- 6. Dr. Eggman -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/eggman">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Dr. Eggman — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_eggman_solo_2d_1795019805370.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-error font-label-sm text-label-sm">#008 Eggman</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Dr. Eggman</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="eggman">Genio Científico</span>
+<div class="mt-1 flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<span class="font-label-sm text-label-sm">Canon · IQ 300</span>
+</div>
+</div>
+</div>
+<!-- 7. Metal Sonic -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/metal-sonic">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Metal Sonic — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_metal_sonic_2d_1795019788231.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-primary-container font-label-sm text-label-sm">#009 Metal</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Metal Sonic</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="metal-sonic">Copia Robótica</span>
+<div class="mt-1 flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="font-label-sm text-label-sm">Canon · Overdrive</span>
+</div>
+</div>
+</div>
+<!-- 8. Silver -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/silver">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Silver the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_silver_2d_1795019788542.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-cyan-300 font-label-sm text-label-sm">#010 Silver</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Silver</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="silver">Viajero Psicoquinético</span>
+<div class="mt-1 flex items-center gap-1 text-cyan-300">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">flare</span>
+<span class="font-label-sm text-label-sm">Canon · Psi</span>
+</div>
+</div>
+</div>
+<!-- 9. Blaze -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform" data-char-href="/personajes/blaze">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Blaze the Cat — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_blaze_2d_1795019788373.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-orange-300 font-label-sm text-label-sm">#011 Blaze</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Blaze</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="blaze">Princesa Sol</span>
+<div class="mt-1 flex items-center gap-1 text-orange-300">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm">Canon · Sol</span>
+</div>
+</div>
+</div>
+<!-- 10. Nazo (No Canon) -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform border border-error/25" data-char-href="/personajes/nazo">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Nazo the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_nazo_2d_1795019788242.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-error font-label-sm text-label-sm">No Canon</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Nazo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="nazo">Nazo Unleashed</span>
+<div class="mt-1 flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm">No Canon · Fan</span>
+</div>
+</div>
+</div>
+<!-- 11. Scourge (No Canon) -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform border border-error/25" data-char-href="/personajes/scourge">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Scourge the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_scourge_2d_1795019789297.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-error font-label-sm text-label-sm">No Canon</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Scourge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="scourge">Rey de Moebius</span>
+<div class="mt-1 flex items-center gap-1 text-emerald-400">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">speed</span>
+<span class="font-label-sm text-label-sm">No Canon · Archie</span>
+</div>
+</div>
+</div>
+<!-- 12. Fleetway Super Sonic (No Canon) -->
+<div class="snap-start shrink-0 w-36 rounded-xl bg-surface-container overflow-hidden p-2 flex flex-col group active:scale-95 transition-transform border border-error/25" data-char-href="/personajes/fleetway-super">
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Fleetway Super Sonic — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_fleetway_super_2d_1795019788088.jpg"/>
+<div class="absolute bottom-1 left-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/85 backdrop-blur-sm text-error font-label-sm text-label-sm">No Canon</span>
+</div>
+</div>
+<div class="mt-2 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Fleetway Super</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" data-home-char-sub="fleetway-super">Super Caótico UK</span>
+<div class="mt-1 flex items-center gap-1 text-secondary-container">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">electric_bolt</span>
+<span class="font-label-sm text-label-sm">No Canon · UK</span>
 </div>
 </div>
 </div>
@@ -347,10 +483,10 @@
 <section class="px-gutter pt-1">
 <div class="p-space-md rounded-xl bg-surface-container-low border border-secondary-container/25 flex flex-col gap-2">
 <div class="flex items-center justify-between gap-2 flex-wrap">
-<span class="font-label-md text-label-md text-secondary-container uppercase tracking-wider">Créditos a los Creadores e Ilustradores</span>
+<span class="font-label-md text-label-md text-secondary-container uppercase tracking-wider" id="home-credits-title">Créditos a los Creadores e Ilustradores</span>
 <button class="text-xs font-semibold text-primary-container hover:underline cursor-pointer" id="replay-welcome-btn" type="button">Ver aviso de bienvenida</button>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="home-credits-body">
           Esta app <strong class="text-on-surface">no es oficial de SEGA; fue hecha por fans</strong>. Sonic, Tails, Knuckles, Shadow y sus amigos pertenecen a <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Créditos a los creadores y artistas que dibujaron a los personajes de Sonic: <strong class="text-on-surface">Naoto Ohshima, Yuji Naka, Hirokazu Yasuhara, Yasushi Yamaguchi, Yuji Uekawa, Takashi Yuda, Kazuyuki Hoshino, Tyson Hesse, Tracy Yardley, Evan Stanley y Adam Bryce Thomas</strong>, junto con la comunidad de artistas fan-art 2D.
         </p>
 </div>

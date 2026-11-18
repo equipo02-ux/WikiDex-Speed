@@ -122,8 +122,8 @@
       <div class="rounded-xl bg-error-container/35 border border-error/40 px-4 py-3 flex items-start gap-3">
         <span class="material-symbols-outlined text-error text-[22px] shrink-0 mt-0.5">warning</span>
         <div class="flex flex-col gap-0.5">
-          <span class="font-label-md text-label-md text-error uppercase tracking-wider">Archivo No Canónico • Leyenda de la Comunidad</span>
-          <p class="font-body-sm text-body-sm text-on-error-container/90">
+          <span class="font-label-md text-label-md text-error uppercase tracking-wider" id="archive-notice-title">Archivo No Canónico · Leyenda de la Comunidad</span>
+          <p class="font-body-sm text-body-sm text-on-error-container/90" id="archive-notice-body">
             Sonic.exe es una obra de terror digital (creepypasta) creada por la comunidad de internet. No forma parte del canon oficial de SEGA ni de Sonic Team.
           </p>
         </div>
@@ -133,14 +133,16 @@
       <section class="relative rounded-2xl bg-surface-container-high border border-error/30 overflow-hidden shadow-xl">
         <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-error-container/30 blur-3xl pointer-events-none"></div>
         <div class="p-4 sm:p-5 flex flex-col gap-4 relative z-10">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm uppercase">ARCHIVO #EXE-666</span>
-            <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-error font-label-sm text-label-sm uppercase">NO CANON • COMUNIDAD</span>
-            <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Origen: Agosto 2011</span>
+          <div class="flex flex-wrap items-center gap-2 text-xs font-label-md text-on-surface-variant">
+            <span class="text-error font-bold">ARCHIVO #EXE-666</span>
+            <span aria-hidden="true">·</span>
+            <span id="archive-era-badge">NO CANON · COMUNIDAD</span>
+            <span aria-hidden="true">·</span>
+            <span>2011</span>
           </div>
           <div>
-            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Sonic.exe (X / Entidad del Disco)</h1>
-            <p class="font-label-md text-label-md text-error mt-0.5">Creepypasta Clásico • Universo Alterno de Terror Digital</p>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="archive-hero-name">Sonic.exe (X / Entidad del Disco)</h1>
+            <p class="font-label-md text-label-md text-error mt-0.5" id="archive-hero-alias">Creepypasta Clásico · Entidad Digital</p>
           </div>
           <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-error/30">
             <img alt="Sonic.exe — Ilustración Fan-Art 2D" class="w-full h-full object-cover" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_exe_2d_1795018769799.jpg"/>
@@ -148,117 +150,59 @@
             <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2">
               <div class="flex flex-col">
                 <span class="font-headline-md text-headline-md text-white drop-shadow">Sonic.exe</span>
-                <span class="font-label-sm text-label-sm text-error uppercase tracking-wider">"I AM GOD" • Archivo Corrompido</span>
+                <span class="font-body-sm text-body-sm text-error" id="archive-art-credit">"I AM GOD" · Archivo Corrompido</span>
               </div>
-              <span class="px-2.5 py-1 rounded-full bg-error-container/90 text-on-error-container font-label-sm text-label-sm">CLASE ANÓMALA</span>
+              <span class="px-2.5 py-1 rounded-lg bg-error-container/90 text-on-error-container font-label-sm text-label-sm">CLASE ANÓMALA</span>
             </div>
           </div>
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" id="archive-bio"></p>
         </div>
       </section>
 
-      <!-- Historia Completa -->
+      <!-- Historia Completa (Translated in 5 Languages) -->
       <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-4">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-error text-[22px]">menu_book</span>
-          <h2 class="font-headline-md text-headline-md text-on-surface">Historia Completa del Expediente</h2>
+          <h2 class="font-headline-md text-headline-md text-on-surface" id="archive-history-heading">Historia Completa de Sonic.exe</h2>
         </div>
-
-        <div class="space-y-3 font-body-md text-body-md text-on-surface-variant leading-relaxed">
-          <p>
-            <strong class="text-on-surface">1. El Origen del Disco Maldito (2011):</strong> La historia comienza con <strong class="text-primary">Tom</strong>, un fanático de Sonic que recibe un paquete sin remitente enviado por su amigo <strong class="text-primary">Kyle</strong>. Dentro había un CD-R con la inscripción <em>"SONIC.EXE"</em> escrita con marcador negro y una nota desesperada pidiéndole que destruyera el disco antes de que "él" lo encontrara.
-          </p>
-          <p>
-            <strong class="text-on-surface">2. La Pantalla de Título Alterada:</strong> Ignorando la advertencia, Tom ejecuta el archivo en su PC. Aunque inicia como el clásico <em>Sonic the Hedgehog</em> de 1991, al instante la pantalla parpadea revelando un cielo sombrío, el emblema oxidado y a Sonic con ojos completamente negros y pupilas rojo carmesí. En lugar del menú habitual, aparece una pantalla de selección estilo <em>Sonic 3</em> con únicamente tres personajes jugables: <strong class="text-secondary-fixed">Tails</strong>, <strong class="text-error">Knuckles</strong> y el <strong class="text-on-surface">Dr. Robotnik (Eggman)</strong>.
-          </p>
-          <p>
-            <strong class="text-on-surface">3. Los Tres Actos del Juego Corrompido:</strong>
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-            <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/25 flex flex-col gap-1">
-              <span class="font-label-sm text-label-sm text-secondary-container uppercase">Acto I • Tails</span>
-              <span class="font-headline-sm text-headline-sm text-on-surface">Hill Act 1 &amp; Hide and Seek</span>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">Tails recorre una Green Hill vacía y silenciosa hasta encontrar a la entidad inmóvil. Al intentar huir por un bosque en llamas, la pantalla se tiñe de estática bajo el mensaje: <em>"Too slow, want to try again?"</em></p>
-            </div>
-            <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/25 flex flex-col gap-1">
-              <span class="font-label-sm text-label-sm text-error uppercase">Acto II • Knuckles</span>
-              <span class="font-headline-sm text-headline-sm text-on-surface">You Can't Run</span>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">Knuckles aparece en una pasarela metálica interminable rodeada de niebla rojiza. Aunque intenta defenderse con sus puños, la entidad se teletransporta entre glitches imposibles de golpear.</p>
-            </div>
-            <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/25 flex flex-col gap-1">
-              <span class="font-label-sm text-label-sm text-primary uppercase">Acto III • Dr. Eggman</span>
-              <span class="font-headline-sm text-headline-sm text-on-surface">Nivel "..."</span>
-              <p class="font-body-sm text-body-sm text-on-surface-variant">Robotnik desciende por una escalera oscura en un corredor distorsionado hasta que la entidad aparece directamente frente a él, cerrando el juego con la famosa pantalla estática de <em>"I AM GOD"</em>.</p>
-            </div>
-          </div>
-          <p>
-            <strong class="text-on-surface">4. Evolución en la Comunidad:</strong> En 2012, el desarrollador <strong class="text-primary">MY5TCrimson</strong> adaptó el relato a un fangame jugable gratuito que se volvió viral en todo el mundo. Años después, la comunidad creó versiones mucho más elaboradas y narrativas como <strong class="text-secondary-fixed">Lord X</strong> (<em>Sonic PC Port</em> de JoeDoughBoi), <strong class="text-error">Xenophanes</strong> y el exitoso juego multijugador <strong class="text-primary-container">Sonic.exe: The Disaster</strong>.
-          </p>
-        </div>
+        <div class="flex flex-col gap-3" id="archive-history-list"></div>
       </section>
 
-      <!-- Estadísticas de la Entidad -->
+      <!-- Estadísticas de la Entidad (Translated Stat Labels + tabular-nums) -->
       <section class="rounded-2xl bg-surface-container-high border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-4">
         <div class="flex items-center justify-between">
           <h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
             <span class="material-symbols-outlined text-error text-[20px]">equalizer</span>
-            Parámetros de la Entidad (Lore Fan)
+            <span id="archive-stats-heading">Estadísticas de Sonic.exe</span>
           </h2>
           <span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">NO-CANON</span>
         </div>
-        <div class="flex flex-col gap-3">
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Manipulación Digital / Glitch</span>
-              <span class="text-error font-bold">100%</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-gradient-to-r from-error-container to-error w-full"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Teletransportación &amp; Velocidad</span>
-              <span class="text-primary-container font-bold">96%</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-primary-container w-[96%]"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Ilusión y Control de Entorno</span>
-              <span class="text-secondary-container font-bold">92%</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-secondary-container w-[92%]"></div>
-            </div>
-          </div>
-        </div>
+        <div class="flex flex-col gap-3 tabular-nums" id="archive-stats-list"></div>
       </section>
 
       <!-- Accesos rápidos a personajes oficiales involucrados -->
       <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-3">
-        <h2 class="font-headline-sm text-headline-sm text-on-surface">Fichas Oficiales Relacionadas</h2>
+        <h2 class="font-headline-sm text-headline-sm text-on-surface" id="archive-related-heading">Archivos Relacionados</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-outline-variant/25 flex items-center gap-3 transition-colors" href="/personajes/sonic">
             <img alt="Sonic" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_2d_1795018769924.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-primary-container truncate">Sonic</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Ficha Oficial</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate" data-official-sheet-label>Ficha Oficial</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-outline-variant/25 flex items-center gap-3 transition-colors" href="/personajes/tails">
             <img alt="Tails" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_2d_1795018769917.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-secondary-container truncate">Tails</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Ficha Oficial</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate" data-official-sheet-label>Ficha Oficial</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-outline-variant/25 flex items-center gap-3 transition-colors" href="/personajes/shadow">
             <img alt="Shadow" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_shadow_2d_1795018770546.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-error truncate">Shadow</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Ficha Oficial</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate" data-official-sheet-label>Ficha Oficial</div>
             </div>
           </a>
         </div>
@@ -267,14 +211,14 @@
             <img alt="Tails Doll" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_doll_2d_1795018770221.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-red-400 truncate">Tails Doll</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Anillo Rojo · Sonic R</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Sonic R</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-purple-400/30 flex items-center gap-3 transition-colors" href="/archivo-el-primas">
             <img alt="El Primas" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_el_primas_2d_1795018769993.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-purple-300 truncate">El Primas</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Ojo Morado · Fandub</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Fandub</div>
             </div>
           </a>
         </div>
@@ -284,14 +228,9 @@
       <section class="rounded-2xl bg-surface-container-low border border-secondary-container/25 p-4 sm:p-5 flex flex-col gap-2">
         <div class="flex items-center gap-2 text-secondary-container">
           <span class="material-symbols-outlined text-[20px]">verified</span>
-          <h2 class="font-headline-sm text-headline-sm">Créditos a Creadores, Ilustradores y Comunidad</h2>
+          <h2 class="font-headline-sm text-headline-sm" id="archive-credits-heading">Créditos a Creadores, Ilustradores y Comunidad</h2>
         </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          <strong class="text-on-surface">Sonic the Hedgehog, Miles "Tails" Prower, Knuckles, Shadow y Dr. Eggman</strong> son propiedad intelectual oficial de <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>, creados y dibujados originalmente por <strong class="text-on-surface">Naoto Ohshima, Yuji Naka, Hirokazu Yasuhara, Yasushi Yamaguchi, Yuji Uekawa, Takashi Iizuka, Shiro Maekawa y Tyson Hesse</strong>.
-        </p>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          El relato no canónico de <em>Sonic.exe</em> pertenece a la cultura creepypasta de la comunidad (adaptación jugable original por MY5TCrimson, reinterpretaciones como Lord X por JoeDoughBoi e ilustraciones tributo en estilo fan-art 2D).
-        </p>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="archive-credits-body"></p>
       </section>
     </div>
   </main>
@@ -316,5 +255,59 @@
       </a>
     </div>
   </nav>
+  <script>
+    (function () {
+      const DATA = window.WIKISPEED_DATA;
+      if (!DATA) return;
+      const c = DATA.CHARACTERS['sonic-exe'];
+
+      function hydrate() {
+        const lang = DATA.getLang();
+        const ui = DATA.UI[lang] || DATA.UI['es-LA'];
+        document.getElementById('archive-notice-title').textContent = ui.communityArchive;
+        document.getElementById('archive-notice-body').textContent = DATA.pick(c.bio, lang);
+        document.getElementById('archive-era-badge').textContent = DATA.pick(c.eraBadge, lang);
+        document.getElementById('archive-hero-alias').textContent = DATA.pick(c.alias, lang);
+        document.getElementById('archive-art-credit').textContent = DATA.pick(c.artCredit, lang);
+        document.getElementById('archive-bio').textContent = DATA.pick(c.bio, lang);
+        document.getElementById('archive-history-heading').textContent = `${ui.historyTitle} ${c.shortName}`;
+        document.getElementById('archive-stats-heading').textContent = `${ui.statsTitle} ${c.shortName}`;
+        document.getElementById('archive-related-heading').textContent = ui.relatedArchives;
+        document.getElementById('archive-credits-heading').textContent = ui.creditsHeading;
+        document.getElementById('archive-credits-body').textContent = ui.creditsBody;
+        document.querySelectorAll('[data-official-sheet-label]').forEach((el) => {
+          el.textContent = ui.officialSheet;
+        });
+
+        const historyArr = DATA.pick(c.history, lang) || [];
+        document.getElementById('archive-history-list').innerHTML = historyArr.map((chapter) => {
+          const idx = chapter.indexOf(':');
+          const head = idx > 0 ? chapter.slice(0, idx) : '';
+          const body = idx > 0 ? chapter.slice(idx + 1).trim() : chapter;
+          return `
+            <div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+              ${head ? `<div class="font-label-lg text-label-lg text-error mb-1">${head}</div>` : ''}
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${body}</p>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('archive-stats-list').innerHTML = c.stats.map((s) => `
+          <div>
+            <div class="flex justify-between font-label-md text-label-md mb-1 gap-2">
+              <span class="text-on-surface-variant">${DATA.statLabel(s.statKey, lang)}</span>
+              <span class="text-error font-bold shrink-0">${s.suffix}</span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
+              <div class="h-full rounded-full ${s.bar}" style="width: ${s.pct}%"></div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.addEventListener('wikispeed:langchange', hydrate);
+      hydrate();
+    })();
+  </script>
 </body>
 </html>

@@ -35,6 +35,7 @@
       .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
     }
     ::-webkit-scrollbar { display: none; }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
@@ -149,7 +150,7 @@
         </button>
         <div class="flex flex-col min-w-0">
           <h1 class="font-headline-sm text-headline-sm text-primary-container truncate leading-tight" id="header-char-title">Ficha de Personaje</h1>
-          <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider truncate">WikiSpeed • Archivo Central</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider truncate" id="header-char-subtitle">WikiSpeed · Archivo Central</span>
         </div>
       </div>
       <div class="flex items-center gap-space-xs shrink-0">
@@ -168,88 +169,33 @@
 
   <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
     <div class="w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col gap-5 py-4">
-      <!-- Selector de Personajes con Imágenes y Nombres -->
-      <section class="flex flex-col gap-2">
-        <div class="flex items-center justify-between">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed-dim">Selecciona un Personaje</span>
+      <!-- Roster Selector (Canon & No-Canon) -->
+      <section class="flex flex-col gap-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed-dim" id="roster-heading">Selecciona un Personaje</span>
           <a class="font-label-sm text-label-sm text-secondary-container hover:underline flex items-center gap-1" href="/buscar">
-            <span>Ver No canons &amp; Más</span>
+            <span id="roster-search-link">Búsqueda y Filtros</span>
             <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-2.5" id="character-roster-switcher">
-          <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="sonic" type="button">
-            <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
-              <img alt="Sonic the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_2d_1795018769924.jpg"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
-              <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Sonic</span>
-            </div>
-            <div class="px-2 py-1.5 flex items-center justify-between">
-              <span class="font-label-sm text-label-sm text-primary-container">#001</span>
-              <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Speed</span>
-            </div>
-          </button>
 
-          <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="tails" type="button">
-            <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
-              <img alt="Miles Tails Prower — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_2d_1795018769917.jpg"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
-              <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Tails</span>
-            </div>
-            <div class="px-2 py-1.5 flex items-center justify-between">
-              <span class="font-label-sm text-label-sm text-secondary-container">#002</span>
-              <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Fly / Tech</span>
-            </div>
-          </button>
+        <!-- Canon / No-Canon Filter Bar -->
+        <div class="flex items-center gap-2 flex-wrap" id="roster-filter-bar" role="tablist"></div>
 
-          <button class="roster-card group relative rounded-xl overflow-hidden bg-surface-container border-2 border-transparent text-left transition-all active:scale-[0.98]" data-char="shadow" type="button">
-            <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
-              <img alt="Shadow the Hedgehog — Fan-Art 2D" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="/src/assets/images/fanart_shadow_2d_1795018770546.jpg"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
-              <span class="absolute bottom-1.5 left-2 font-headline-sm text-headline-sm text-white drop-shadow">Shadow</span>
-            </div>
-            <div class="px-2 py-1.5 flex items-center justify-between">
-              <span class="font-label-sm text-label-sm text-error">#007</span>
-              <span class="font-label-sm text-label-sm text-on-surface-variant truncate">Chaos</span>
-            </div>
-          </button>
-        </div>
+        <!-- Scrollable / Grid Character Roster Cards -->
+        <div class="flex gap-2.5 overflow-x-auto pb-1 snap-x snap-mandatory" id="character-roster-switcher"></div>
       </section>
 
       <!-- Dynamic Character Profile Container -->
       <div class="flex flex-col gap-5" id="character-sheet-root"></div>
 
-      <!-- Créditos Oficiales a los Creadores e Ilustradores de Sonic y sus Amigos -->
-      <section class="rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-3 shadow-md">
+      <!-- Localized Credits Section -->
+      <section class="rounded-2xl bg-surface-container-low border border-secondary-container/30 p-4 sm:p-5 flex flex-col gap-3 shadow-md" id="credits-section">
         <div class="flex items-center gap-2 text-secondary-container">
           <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
-          <h2 class="font-headline-sm text-headline-sm text-on-surface">Créditos a los Creadores e Ilustradores de Sonic y sus Amigos</h2>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface" id="credits-heading">Créditos a los Creadores e Ilustradores de Sonic y sus Amigos</h2>
         </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Todos los personajes oficiales del universo de Sonic pertenecen a <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>. Esta enciclopedia rinde homenaje en estilo fan-art 2D a los artistas y creadores que dibujaron a Sonic y sus amigos:
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-primary-container">Naoto Ohshima, Yuji Naka &amp; Hirokazu Yasuhara</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Diseño visual original y creación de Sonic the Hedgehog y Dr. Eggman (1991).</span>
-          </div>
-          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-secondary-container">Yasushi Yamaguchi</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Ilustrador y diseñador original de Miles "Tails" Prower (Sonic 2, 1992).</span>
-          </div>
-          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-error">Yuji Uekawa, Takashi Iizuka &amp; Shiro Maekawa</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Estilo de ilustración icónico de Sonic Adventure / Sonic Channel y creación de Shadow (2001).</span>
-          </div>
-          <div class="p-3 rounded-xl bg-surface-container flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-tertiary">Takashi Yuda, Kazuyuki Hoshino &amp; Tyson Hesse</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Dibujo y diseño de Knuckles, Amy Rose, Metal Sonic y el renacimiento 2D de Sonic Mania.</span>
-          </div>
-          <div class="p-3 rounded-xl bg-surface-container sm:col-span-2 flex flex-col gap-0.5">
-            <span class="font-label-lg text-label-lg text-secondary-fixed">Artistas de Cómics y Comunidad Fan-Art</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Reconocimiento a Tracy Yardley, Evan Stanley, Adam Bryce Thomas, Jennifer Hernandez (IDW/Archie) y a toda la comunidad de dibujantes fan-art de Sonic que inspiran estas ilustraciones tributo 2D.</span>
-          </div>
-        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="credits-body"></p>
       </section>
     </div>
   </main>
@@ -279,298 +225,299 @@
 
   <script>
     (function () {
-      const CHARACTERS = {
-        sonic: {
-          key: 'sonic',
-          code: '#001',
-          shortName: 'Sonic',
-          name: 'Sonic the Hedgehog',
-          jpName: 'ソニック・ザ・ヘッジホッグ',
-          alias: 'The Blue Blur / El Destello Azul',
-          canonBadge: 'Canon Principal',
-          eraBadge: '★ Era Clásica & Moderna',
-          debut: 'Debut: 1991',
-          accentClass: 'text-primary-container',
-          borderClass: 'border-primary-container',
-          pillMetricIcon: 'speed',
-          pillMetricText: 'MACH 1+',
-          bottomTagIcon: 'monetization_on',
-          bottomTagText: 'RING ENERGY: 100%',
-          heroImage: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg',
-          artCredit: 'Arte Fan 2D Tributo · Inspirado en Naoto Ohshima, Yuji Uekawa y Tyson Hesse',
-          gallery: [
-            {
-              img: '/src/assets/images/fanart_sonic_2d_1795018769924.jpg',
-              label: 'Sonic the Hedgehog — Ilustración Fan-Art 2D en Tinta',
-              tag: 'Fan-Art 2D'
-            },
-            {
-              img: '/src/assets/images/fanart_cover_world_2d_1795018770009.jpg',
-              label: 'Sonic — Portada Fan-Art Green Hill & Ruinas',
-              tag: 'Portada Fan'
-            }
-          ],
-          bioHtml: 'Un erizo antropomórfico dotado del don de la velocidad supersónica. De espíritu libre, amante de la aventura y defensor intransigente de la paz contra los planes tiránicos del Dr. Ivo "Eggman" Robotnik.',
-          specs: {
-            species: 'Erizo común',
-            ageGender: '15 años / Masculino',
-            size: '100 cm | 35 kg',
-            alignment: 'Bien Neutral (Libertad)',
-            ability: 'Supervelocidad Hipersónica & Spin Attack',
-            creators: 'Naoto Ohshima (Diseño), Yuji Naka, Hirokazu Yasuhara & Yuji Uekawa (SEGA / Sonic Team)'
-          },
-          rank: 'CLASE S+',
-          stats: [
-            { label: 'Velocidad', icon: 'bolt', valueText: '100 / MAX (Supersónica)', pct: 100, bar: 'bg-gradient-to-r from-primary-fixed-dim to-secondary-container' },
-            { label: 'Agilidad & Reflejos', icon: 'sync', valueText: '95%', pct: 95, bar: 'bg-primary-container' },
-            { label: 'Resistencia / Durabilidad', icon: 'shield', valueText: '80%', pct: 80, bar: 'bg-tertiary-container' },
-            { label: 'Potencia de Impacto', icon: 'fitness_center', valueText: '65%', pct: 65, bar: 'bg-outline' }
-          ],
-          moves: ['Spin Dash', 'Homing Attack', 'Boost Supersónico', 'Drop Dash', 'Light Speed Attack'],
-          games: [
-            { title: 'Sonic the Hedgehog (1991)', sub: 'Sega Mega Drive / Genesis • Debut histórico', tag: 'Génesis' },
-            { title: 'Sonic Adventure 2 (2001)', sub: 'Dreamcast / GameCube • Rivalidad con Shadow', tag: 'Era 3D' },
-            { title: 'Sonic Frontiers (2022)', sub: 'Multiplataforma • Islas Starfall & Zonas Abiertas', tag: 'Era Abierta' }
-          ],
-          voices: [
-            { lang: 'Japonés', actor: "Jun'ichi Kanemaru", note: '1998 — Presente' },
-            { lang: 'Inglés', actor: 'Roger Craig Smith', note: 'Ben Schwartz (Cine)' },
-            { lang: 'Español Latino', actor: 'Jorge Roig Jr. / Marc Winslow', note: 'Luisito Comunica (Cine)' },
-            { lang: 'Castellano', actor: 'Ángel de Gracia', note: 'Voz oficial en juegos' }
-          ],
-          transforms: [
-            { name: 'Super Sonic', req: '7 Esmeraldas Chaos', icon: 'electric_bolt', tone: 'text-secondary-container' },
-            { name: 'Hyper Sonic', req: 'Súper Esmeraldas', icon: 'flare', tone: 'text-primary' },
-            { name: 'Darkspine', req: 'Anillos del Secreto', icon: 'dark_mode', tone: 'text-tertiary' }
-          ]
-        },
-        tails: {
-          key: 'tails',
-          code: '#002',
-          shortName: 'Tails',
-          name: 'Miles "Tails" Prower',
-          jpName: 'マイルス "テイルス" パウアー',
-          alias: 'El Zorro de Dos Colas / Genio Mecánico',
-          canonBadge: 'Canon Principal',
-          eraBadge: '★ Coprotagonista Clásico & Moderno',
-          debut: 'Debut: 1992',
-          accentClass: 'text-secondary-container',
-          borderClass: 'border-secondary-container',
-          pillMetricIcon: 'psychology',
-          pillMetricText: 'IQ 300',
-          bottomTagIcon: 'flight',
-          bottomTagText: 'VUELO TWIN-TAIL ACTIVO',
-          heroImage: '/src/assets/images/fanart_tails_2d_1795018769917.jpg',
-          artCredit: 'Arte Fan 2D Tributo · Inspirado en Yasushi Yamaguchi y Sonic Channel',
-          gallery: [
-            {
-              img: '/src/assets/images/fanart_tails_2d_1795018769917.jpg',
-              label: 'Miles "Tails" Prower — Ilustración Fan-Art 2D en Vuelo',
-              tag: 'Fan-Art 2D'
-            },
-            {
-              img: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg',
-              label: 'Tails junto a Sonic, Knuckles y Shadow — Arte Fan',
-              tag: 'Grupo Fan'
-            }
-          ],
-          bioHtml: 'Un joven zorro con dos colas que gira como hélices para volar. Posee un intelecto a la altura del Dr. Eggman (IQ 300), diseña aviones como el Tornado y el Cyclone, y es el mejor amigo leal e inseparable de Sonic. <br/><br/>En las notas archivadas del taller de Tails existen dos registros ocultos por la comunidad: el legendario <a href="/archivo-tails-doll" title="Abrir Archivo Central de Tails Doll" class="inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-md bg-red-950/70 hover:bg-red-900/80 border border-red-500/60 text-red-300 font-semibold align-baseline transition-colors"><svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="#ef4444" stroke-width="3.4"/><circle cx="12" cy="12" r="8" stroke="#fecaca" stroke-width="1" stroke-dasharray="7 18"/></svg><span>Anillo Rojo</span></a> vinculado a las pistas nocturnas de <em>Sonic R</em>, y una anomalía paródica marcada por un misterioso <a href="/archivo-el-primas" title="Abrir Archivo Central de El Primas" class="inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-md bg-purple-950/70 hover:bg-purple-900/80 border border-purple-400/60 text-purple-200 font-semibold align-baseline transition-colors"><svg class="w-5 h-3.5 shrink-0" viewBox="0 0 30 20" fill="none" aria-hidden="true"><path d="M1.5 10 C6.5 2.5, 23.5 2.5, 28.5 10 C23.5 17.5, 6.5 17.5, 1.5 10 Z" fill="#1e1038" stroke="#c084fc" stroke-width="2"/><circle cx="15" cy="10" r="4.8" fill="#a855f7"/><circle cx="15" cy="10" r="2.1" fill="#090414"/><circle cx="16.5" cy="8.5" r="0.9" fill="#ffffff"/></svg><span>Ojo Morado</span></a> surgido de los fandubs más virales del fandom.',
-          specs: {
-            species: 'Zorro de dos colas',
-            ageGender: '8 años / Masculino',
-            size: '80 cm | 20 kg',
-            alignment: 'Bien Legal (Héroe / Inventor)',
-            ability: 'Vuelo Propulsado por Colas & Ingeniería Avanzada',
-            creators: 'Yasushi Yamaguchi (Dibujo y diseño original · SEGA / Sonic Team)'
-          },
-          rank: 'CLASE S (TECH)',
-          stats: [
-            { label: 'Inteligencia & Ingeniería', icon: 'memory', valueText: '100 / MAX (IQ 300)', pct: 100, bar: 'bg-gradient-to-r from-secondary-container to-primary-container' },
-            { label: 'Vuelo & Control Aéreo', icon: 'flight', valueText: '94%', pct: 94, bar: 'bg-secondary-container' },
-            { label: 'Velocidad de Carrera', icon: 'speed', valueText: '82%', pct: 82, bar: 'bg-primary-container' },
-            { label: 'Agilidad & Combate Tech', icon: 'precision_manufacturing', valueText: '88%', pct: 88, bar: 'bg-tertiary-container' },
-            { label: 'Potencia Física', icon: 'fitness_center', valueText: '58%', pct: 58, bar: 'bg-outline' }
-          ],
-          moves: ['Twin-Tail Flight', 'Tail Swipe', 'Tornado Biplane', 'Cyclone Mech', 'Dummy Ring Bomb'],
-          games: [
-            { title: 'Sonic the Hedgehog 2 (1992)', sub: 'Mega Drive • Debut oficial junto a Sonic', tag: 'Debut' },
-            { title: 'Tails Adventure (1995)', sub: 'Game Gear • Aventura propia con gadgets', tag: 'Protagonista' },
-            { title: 'Sonic Adventure 2 (2001)', sub: 'Pilota el Cyclone en batallas contra Eggman', tag: 'Mecha Tech' }
-          ],
-          voices: [
-            { lang: 'Japonés', actor: 'Ryō Hirohashi', note: '2003 — Presente' },
-            { lang: 'Inglés', actor: "Colleen O'Shaughnessey", note: 'Juegos y Películas' },
-            { lang: 'Español Latino', actor: 'Marisol Romero', note: 'Películas y Sonic Prime' },
-            { lang: 'Castellano', actor: 'Graciela Molina', note: 'Voz oficial en juegos' }
-          ],
-          transforms: [
-            { name: 'Super Tails', req: '7 Esmeraldas Chaos', icon: 'auto_awesome', tone: 'text-secondary-container' },
-            { name: 'Turbo Tails', req: 'Capa de Energía', icon: 'bolt', tone: 'text-primary' },
-            { name: 'Cyclone Walker', req: 'Transformación Mecha', icon: 'smart_toy', tone: 'text-tertiary' }
-          ]
-        },
-        shadow: {
-          key: 'shadow',
-          code: '#007',
-          shortName: 'Shadow',
-          name: 'Shadow the Hedgehog',
-          jpName: 'シャドウ・ザ・ヘッジホッグ',
-          alias: 'La Forma de Vida Suprema / Proyecto Shadow',
-          canonBadge: 'Canon Principal',
-          eraBadge: '★ Era Aventura & Moderna',
-          debut: 'Debut: 2001',
-          accentClass: 'text-error',
-          borderClass: 'border-error',
-          pillMetricIcon: 'offline_bolt',
-          pillMetricText: 'CHAOS CONTROL',
-          bottomTagIcon: 'bolt',
-          bottomTagText: 'INHIBITOR RINGS: ACTIVOS',
-          heroImage: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg',
-          artCredit: 'Arte Fan 2D Tributo · Inspirado en Yuji Uekawa y Sonic Adventure 2',
-          gallery: [
-            {
-              img: '/src/assets/images/fanart_shadow_2d_1795018770546.jpg',
-              label: 'Shadow the Hedgehog — Ilustración Fan-Art 2D Chaos Control',
-              tag: 'Fan-Art 2D'
-            },
-            {
-              img: '/src/assets/images/fanart_welcome_squad_2d_1795018770283.jpg',
-              label: 'Shadow junto a Sonic, Tails y Knuckles — Arte Fan',
-              tag: 'Grupo Fan'
-            }
-          ],
-          bioHtml: 'Creado por el profesor Gerald Robotnik en la Colonia Espacial ARK usando ADN de Black Doom. Inmortal, implacable y veloz gracias a sus Air Shoes, protege la Tierra para honrar la promesa hecha a su amiga María Robotnik.',
-          specs: {
-            species: 'Erizo híbrido (Black Arms)',
-            ageGender: 'Inmortal (+50 años) / Masculino',
-            size: '100 cm | 35 kg',
-            alignment: 'Antihéroe / Neutral',
-            ability: 'Manipulación de Energía Chaos & Velocidad Air Shoes',
-            creators: 'Takashi Iizuka, Shiro Maekawa & Yuji Uekawa (Sonic Team)'
-          },
-          rank: 'CLASE S+ (SUPREMA)',
-          stats: [
-            { label: 'Poder Chaos (Chaos Control)', icon: 'auto_fix_high', valueText: '100 / MAX (Espacio-Tiempo)', pct: 100, bar: 'bg-gradient-to-r from-error to-secondary-container' },
-            { label: 'Velocidad (Air Shoes)', icon: 'speed', valueText: '99%', pct: 99, bar: 'bg-primary-container' },
-            { label: 'Resistencia & Inmortalidad', icon: 'shield', valueText: '95%', pct: 95, bar: 'bg-tertiary-container' },
-            { label: 'Fuerza & Combate Directo', icon: 'fitness_center', valueText: '92%', pct: 92, bar: 'bg-error' }
-          ],
-          moves: ['Chaos Control', 'Chaos Spear', 'Chaos Blast', 'Homing Attack', 'Doom Wings'],
-          games: [
-            { title: 'Sonic Adventure 2 (2001)', sub: 'Dreamcast / GameCube • Debut y sacrificio en la ARK', tag: 'Debut' },
-            { title: 'Shadow the Hedgehog (2005)', sub: 'PS2 / GCN / Xbox • 10 finales contra Black Doom', tag: 'Protagonista' },
-            { title: 'Sonic X Shadow Generations (2024)', sub: 'Campaña propia de Shadow con Doom Powers', tag: 'Reciente' }
-          ],
-          voices: [
-            { lang: 'Japonés', actor: 'Kōji Yusa', note: '2001 — Presente' },
-            { lang: 'Inglés', actor: 'Kirk Thornton', note: 'Keanu Reeves (Sonic 3 Cine)' },
-            { lang: 'Español Latino', actor: 'René García', note: 'Sonic 3 Película / Prime' },
-            { lang: 'Castellano', actor: 'Manuel Gimeno', note: 'Voz oficial en juegos' }
-          ],
-          transforms: [
-            { name: 'Super Shadow', req: '7 Esmeraldas Chaos', icon: 'electric_bolt', tone: 'text-secondary-container' },
-            { name: 'Sin Inhibidores', req: 'Poder Máximo Desatado', icon: 'local_fire_department', tone: 'text-error' },
-            { name: 'Doom Wings', req: 'Energía Black Arms', icon: 'flare', tone: 'text-primary' }
-          ]
-        }
-      };
+      const DATA = window.WIKISPEED_DATA;
+      if (!DATA) return;
 
       const root = document.getElementById('character-sheet-root');
       const headerTitle = document.getElementById('header-char-title');
-      const rosterButtons = document.querySelectorAll('.roster-card');
+      const headerSubtitle = document.getElementById('header-char-subtitle');
+      const rosterHeading = document.getElementById('roster-heading');
+      const rosterSearchLink = document.getElementById('roster-search-link');
+      const rosterFilterBar = document.getElementById('roster-filter-bar');
+      const rosterContainer = document.getElementById('character-roster-switcher');
+      const creditsHeading = document.getElementById('credits-heading');
+      const creditsBody = document.getElementById('credits-body');
+
       const favorites = new Set();
+      let activeFilter = 'all'; // 'all' | 'canon' | 'nocanon'
 
       function resolveInitialCharacter() {
-        const path = window.location.pathname.toLowerCase();
+        const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
         const q = new URLSearchParams(window.location.search).get('id');
-        const candidate = (q || path.split('/').pop() || '').toLowerCase();
-        if (CHARACTERS[candidate]) return candidate;
+        const slug = (q || path.split('/').pop() || '').toLowerCase();
+        if (DATA.CHARACTERS[slug]) return slug;
         return 'sonic';
       }
 
       let currentKey = resolveInitialCharacter();
+      if (DATA.CHARACTERS[currentKey] && DATA.CHARACTERS[currentKey].canonType === 'nocanon') {
+        activeFilter = 'all';
+      }
+
+      function getLang() {
+        return DATA.getLang();
+      }
+
+      function getUI(lang) {
+        return DATA.UI[lang] || DATA.UI['es-LA'];
+      }
+
+      function renderFilterBar(lang) {
+        const ui = getUI(lang);
+        const total = DATA.ORDER.length;
+        const canonCount = DATA.ORDER.filter((k) => DATA.CHARACTERS[k].canonType === 'canon').length;
+        const noCanonCount = DATA.ORDER.filter((k) => DATA.CHARACTERS[k].canonType === 'nocanon').length;
+
+        const tabs = [
+          { id: 'all', label: `${ui.filterAll} (${total})`, activeClass: 'bg-primary-container text-on-primary-fixed font-bold' },
+          { id: 'canon', label: `${ui.filterCanon} (${canonCount})`, activeClass: 'bg-secondary-container text-on-secondary-fixed font-bold' },
+          { id: 'nocanon', label: `${ui.filterNoCanon} (${noCanonCount})`, activeClass: 'bg-error text-on-error font-bold' }
+        ];
+
+        rosterFilterBar.innerHTML = tabs.map((t) => {
+          const isActive = activeFilter === t.id;
+          return `
+            <button type="button" role="tab" aria-selected="${isActive}" data-roster-filter="${t.id}"
+              class="px-3 py-1.5 rounded-lg text-label-md font-label-md transition-all active:scale-95 tabular-nums ${isActive ? t.activeClass : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}">
+              ${t.label}
+            </button>
+          `;
+        }).join('');
+
+        rosterFilterBar.querySelectorAll('[data-roster-filter]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            activeFilter = btn.getAttribute('data-roster-filter');
+            renderRoster(getLang());
+            renderFilterBar(getLang());
+          });
+        });
+      }
+
+      function renderRoster(lang) {
+        const ui = getUI(lang);
+        const visibleKeys = DATA.ORDER.filter((k) => {
+          const c = DATA.CHARACTERS[k];
+          if (activeFilter === 'canon') return c.canonType === 'canon';
+          if (activeFilter === 'nocanon') return c.canonType === 'nocanon';
+          return true;
+        });
+
+        rosterContainer.innerHTML = visibleKeys.map((k) => {
+          const c = DATA.CHARACTERS[k];
+          const active = c.key === currentKey;
+          const isNoCanon = c.canonType === 'nocanon';
+          const ringClass = active
+            ? (isNoCanon ? 'border-error shadow-[0_0_16px_rgba(255,180,171,0.3)]' : 'border-primary-container shadow-[0_0_16px_rgba(105,207,255,0.3)]')
+            : 'border-outline-variant/25 hover:border-outline-variant/60';
+          return `
+            <button type="button" data-char="${c.key}"
+              class="roster-card snap-start shrink-0 w-32 sm:w-36 group relative rounded-xl overflow-hidden bg-surface-container border-2 ${ringClass} text-left transition-all active:scale-[0.98]">
+              <div class="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-lowest">
+                <img alt="${c.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" referrerpolicy="no-referrer" src="${c.heroImage}"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-transparent to-transparent"></div>
+                <span class="absolute bottom-1.5 left-2 right-2 font-headline-sm text-headline-sm text-white drop-shadow truncate">${c.shortName}</span>
+              </div>
+              <div class="px-2 py-1.5 flex items-center justify-between gap-1">
+                <span class="font-label-sm text-label-sm ${c.accentClass} truncate">${c.code}</span>
+                <span class="font-label-sm text-label-sm ${isNoCanon ? 'text-error' : 'text-on-surface-variant'} truncate">${isNoCanon ? ui.filterNoCanon : ui.filterCanon}</span>
+              </div>
+            </button>
+          `;
+        }).join('');
+
+        rosterContainer.querySelectorAll('.roster-card').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-char');
+            renderCharacter(key, true);
+            renderRoster(getLang());
+          });
+        });
+
+        const activeCard = rosterContainer.querySelector(`[data-char="${currentKey}"]`);
+        if (activeCard && typeof activeCard.scrollIntoView === 'function') {
+          activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
+
+      function buildTailsSecretsHtml(ui) {
+        return `
+          <div class="mt-3 p-3.5 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            ${ui.tailsSecretsPrefix}
+            <a href="/archivo-tails-doll" title="${ui.redRingHint}" class="inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-md bg-red-950/75 hover:bg-red-900/85 border border-red-500/60 text-red-300 font-semibold align-baseline transition-colors">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" stroke="#ef4444" stroke-width="3.4"/>
+                <circle cx="12" cy="12" r="8" stroke="#fecaca" stroke-width="1" stroke-dasharray="7 18"/>
+              </svg>
+              <span>${ui.redRingLabel}</span>
+            </a>
+            ${ui.tailsSecretsMid}
+            <a href="/archivo-el-primas" title="${ui.purpleEyeHint}" class="inline-flex items-center gap-1 px-2 py-0.5 mx-0.5 rounded-md bg-purple-950/75 hover:bg-purple-900/85 border border-purple-400/60 text-purple-200 font-semibold align-baseline transition-colors">
+              <svg class="w-5 h-3.5 shrink-0" viewBox="0 0 30 20" fill="none" aria-hidden="true">
+                <path d="M1.5 10 C6.5 2.5, 23.5 2.5, 28.5 10 C23.5 17.5, 6.5 17.5, 1.5 10 Z" fill="#1e1038" stroke="#c084fc" stroke-width="2"/>
+                <circle cx="15" cy="10" r="4.8" fill="#a855f7"/>
+                <circle cx="15" cy="10" r="2.1" fill="#090414"/>
+                <circle cx="16.5" cy="8.5" r="0.9" fill="#ffffff"/>
+              </svg>
+              <span>${ui.purpleEyeLabel}</span>
+            </a>
+            ${ui.tailsSecretsSuffix}
+          </div>
+        `;
+      }
 
       function renderCharacter(key, updateUrl) {
-        const c = CHARACTERS[key] || CHARACTERS.sonic;
+        const lang = getLang();
+        const ui = getUI(lang);
+        const c = DATA.CHARACTERS[key] || DATA.CHARACTERS.sonic;
         currentKey = c.key;
-        headerTitle.textContent = `${c.shortName} — Ficha Técnica`;
+
+        const isNoCanon = c.canonType === 'nocanon';
+        const alias = DATA.pick(c.alias, lang);
+        const eraBadge = DATA.pick(c.eraBadge, lang);
+        const artCredit = DATA.pick(c.artCredit, lang);
+        const bio = DATA.pick(c.bio, lang);
+        const historyArr = DATA.pick(c.history, lang) || [];
+
+        headerTitle.textContent = `${c.shortName} — ${ui.techSheetTitle}`;
+        headerSubtitle.textContent = ui.archiveSubtitle;
+        rosterHeading.textContent = ui.selectChar;
+        rosterSearchLink.textContent = ui.viewSearch;
+        creditsHeading.textContent = ui.creditsHeading;
+        creditsBody.textContent = ui.creditsBody;
         document.title = `${c.name} — WikiSpeed`;
 
         if (updateUrl) {
           window.history.replaceState(null, '', `/personajes/${c.key}`);
         }
 
-        rosterButtons.forEach((btn) => {
-          const active = btn.getAttribute('data-char') === c.key;
-          btn.classList.toggle('border-primary-container', active && c.key === 'sonic');
-          btn.classList.toggle('border-secondary-container', active && c.key === 'tails');
-          btn.classList.toggle('border-error', active && c.key === 'shadow');
-          btn.classList.toggle('border-transparent', !active);
-          btn.classList.toggle('shadow-[0_0_16px_rgba(105,207,255,0.28)]', active);
-        });
-
         const isFav = favorites.has(c.key);
 
         root.innerHTML = `
           <!-- Sub-header & Favorite -->
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
-              <span class="${c.accentClass} font-headline-sm text-headline-sm">${c.code}</span>
-              <span>•</span>
-              <span class="tracking-wider uppercase">Archivo Central Oficial</span>
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md min-w-0">
+              <span class="${c.accentClass} font-headline-sm text-headline-sm shrink-0">${c.code}</span>
+              <span aria-hidden="true">·</span>
+              <span class="tracking-wider uppercase truncate">${isNoCanon ? ui.communityArchive : ui.officialArchive}</span>
             </div>
-            <button aria-label="Marcar como favorito" class="h-10 px-3 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center gap-1.5 text-secondary-container active:scale-95 transition-all" id="fav-toggle-btn" type="button">
+            <button aria-label="${ui.favorite}" class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center gap-1.5 text-secondary-container active:scale-95 transition-all shrink-0" id="fav-toggle-btn" type="button">
               <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' ${isFav ? 1 : 0};">favorite</span>
-              <span class="font-label-sm text-label-sm uppercase">${isFav ? 'Guardado' : 'Favorito'}</span>
+              <span class="font-label-sm text-label-sm uppercase">${isFav ? ui.saved : ui.favorite}</span>
             </button>
           </div>
 
-          <!-- Hero Profile Banner with Name + Main Image -->
-          <section class="relative w-full rounded-2xl bg-surface-container-high border ${c.borderClass}/30 overflow-hidden shadow-xl">
-            <div class="p-4 sm:p-5 flex flex-col gap-3">
-              <div class="flex flex-wrap items-center gap-1.5">
-                <span class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-fixed font-label-sm text-label-sm uppercase">${c.canonBadge}</span>
-                <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-secondary-container font-label-sm text-label-sm">${c.eraBadge}</span>
-                <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">${c.debut}</span>
+          <!-- Hero Profile Banner with Name + Main 2D Fan-Art Image -->
+          <section class="relative w-full rounded-2xl bg-surface-container-high border ${c.borderClass}/35 overflow-hidden shadow-xl">
+            <div class="p-4 sm:p-5 flex flex-col gap-3.5">
+              <div class="flex flex-wrap items-center gap-2 text-xs font-label-md text-on-surface-variant">
+                <span class="${isNoCanon ? 'text-error' : 'text-primary-container'} font-bold">${isNoCanon ? ui.noCanonBadge : ui.canonBadge}</span>
+                <span aria-hidden="true">·</span>
+                <span>${eraBadge}</span>
+                <span aria-hidden="true">·</span>
+                <span class="tabular-nums">${c.debut}</span>
               </div>
 
               <div>
                 <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">${c.name}</h2>
-                <p class="font-label-md text-label-md ${c.accentClass} mt-0.5">${c.jpName} <span class="text-outline">•</span> ${c.alias}</p>
+                <p class="font-label-md text-label-md ${c.accentClass} mt-0.5">${c.jpName} <span class="text-outline">·</span> ${alias}</p>
               </div>
 
-              <!-- Main Portrait Image WITH Character Name Badge -->
+              <!-- Main Portrait Image WITH Character Name -->
               <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/25">
                 <img alt="${c.name}" class="w-full h-full object-cover" referrerpolicy="no-referrer" src="${c.heroImage}"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/85 via-transparent to-transparent"></div>
-                <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 ${c.accentClass}">
-                  <span class="material-symbols-outlined text-[14px]">${c.pillMetricIcon}</span>
-                  <span class="font-label-sm text-label-sm font-bold">${c.pillMetricText}</span>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+                <div class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 ${c.accentClass}">
+                  <span class="material-symbols-outlined text-[14px]">${c.metricIcon}</span>
+                  <span class="font-label-sm text-label-sm font-bold">${c.metricText}</span>
                 </div>
                 <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-end justify-between gap-2">
-                  <div class="px-3 py-1 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md border border-outline-variant/30">
+                  <div class="px-3 py-1.5 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md border border-outline-variant/30">
                     <span class="font-headline-sm text-headline-sm text-white block leading-tight">${c.name}</span>
-                    <span class="font-body-sm text-body-sm text-primary/90 block leading-tight">${c.artCredit}</span>
+                    <span class="font-body-sm text-body-sm text-primary/90 block leading-tight">${artCredit}</span>
                   </div>
-                  <div class="px-2.5 py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 text-secondary-container">
+                  <div class="px-2.5 py-1 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md flex items-center gap-1 text-secondary-container">
                     <span class="material-symbols-outlined text-[15px]">${c.bottomTagIcon}</span>
                     <span class="font-label-sm text-label-sm font-bold">${c.bottomTagText}</span>
                   </div>
                 </div>
               </div>
 
-              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${c.bioHtml}</p>
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${bio}</p>
+              ${c.hasTailsSecrets ? buildTailsSecretsHtml(ui) : ''}
+              ${c.dedicatedUrl ? `
+                <div class="pt-1">
+                  <a href="${c.dedicatedUrl}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-error/15 hover:bg-error/25 border border-error/45 text-error font-label-md text-label-md font-bold transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">folder_open</span>
+                    <span>${ui.openFullArchive}: ${c.shortName}</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </a>
+                </div>
+              ` : ''}
             </div>
           </section>
 
-          <!-- Galería de Imágenes Fan-Art del Personaje (con sus nombres) -->
+          <!-- Historia Completa (Translated in 5 Languages) -->
+          <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-3.5">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined ${c.accentClass} text-[21px]">menu_book</span>
+              <h3 class="font-headline-md text-headline-md text-on-surface">${ui.historyTitle} ${c.shortName}</h3>
+            </div>
+            <div class="flex flex-col gap-3">
+              ${historyArr.map((chapter) => {
+                const colonIdx = chapter.indexOf(':');
+                const heading = colonIdx > 0 ? chapter.slice(0, colonIdx) : '';
+                const body = colonIdx > 0 ? chapter.slice(colonIdx + 1).trim() : chapter;
+                return `
+                  <div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+                    ${heading ? `<div class="font-label-lg text-label-lg ${c.accentClass} mb-1">${heading}</div>` : ''}
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${body}</p>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </section>
+
+          <!-- Estadísticas (Translated Stat Labels + tabular-nums) -->
+          <section class="rounded-2xl bg-surface-container-high border border-outline-variant/20 p-4 sm:p-5 flex flex-col gap-4 shadow-md">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined ${c.accentClass} text-[20px]">equalizer</span>
+                ${ui.statsTitle} ${c.shortName}
+              </h3>
+              <span class="font-label-sm text-label-sm px-2.5 py-1 rounded-md bg-surface-container-highest text-secondary-container tabular-nums">${c.rank}</span>
+            </div>
+            <div class="flex flex-col gap-3 tabular-nums">
+              ${c.stats.map((s) => `
+                <div class="flex flex-col gap-1">
+                  <div class="flex justify-between items-center font-label-md text-label-md gap-2">
+                    <span class="text-on-surface-variant flex items-center gap-1.5 min-w-0">
+                      <span class="material-symbols-outlined text-[16px] ${c.accentClass} shrink-0">${s.icon}</span>
+                      <span class="truncate">${DATA.statLabel(s.statKey, lang)}</span>
+                    </span>
+                    <span class="text-on-surface font-bold shrink-0">${s.suffix}</span>
+                  </div>
+                  <div class="w-full h-3 rounded-full bg-surface-container-lowest overflow-hidden">
+                    <div class="h-full rounded-full ${s.bar}" style="width: ${s.pct}%"></div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="bg-surface-container-low p-3 rounded-xl">
+              <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2">${ui.movesTitle} ${c.shortName}</span>
+              <div class="flex flex-wrap gap-1.5">
+                ${c.moves.map((m) => `<span class="px-2.5 py-1 rounded-lg bg-surface-variant text-on-surface font-label-md text-label-md">${m}</span>`).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- Galería Fan-Art -->
           <section class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-3">
             <div class="flex items-center justify-between">
               <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
                 <span class="material-symbols-outlined ${c.accentClass} text-[20px]">palette</span>
-                Galería Fan-Art de ${c.shortName}
+                ${ui.galleryTitle} ${c.shortName}
               </h3>
-              <span class="font-label-sm text-label-sm text-outline uppercase">${c.gallery.length} Ilustraciones</span>
+              <span class="font-label-sm text-label-sm text-outline uppercase tabular-nums">${c.gallery.length} ${ui.illustrations}</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               ${c.gallery.map((g) => `
@@ -585,71 +532,38 @@
             </div>
           </section>
 
-          <!-- Estadísticas / Parámetros de Rendimiento -->
-          <section class="rounded-2xl bg-surface-container-high border border-outline-variant/20 p-4 sm:p-5 flex flex-col gap-4 shadow-md">
-            <div class="flex items-center justify-between">
-              <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
-                <span class="material-symbols-outlined ${c.accentClass} text-[20px]">equalizer</span>
-                Estadísticas de ${c.shortName}
-              </h3>
-              <span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-secondary-container">${c.rank}</span>
-            </div>
-            <div class="flex flex-col gap-3">
-              ${c.stats.map((s) => `
-                <div class="flex flex-col gap-1">
-                  <div class="flex justify-between items-center font-label-md text-label-md gap-2">
-                    <span class="text-on-surface-variant flex items-center gap-1.5">
-                      <span class="material-symbols-outlined text-[16px] ${c.accentClass}">${s.icon}</span>
-                      ${s.label}
-                    </span>
-                    <span class="text-on-surface font-bold shrink-0">${s.valueText}</span>
-                  </div>
-                  <div class="w-full h-3 rounded-full bg-surface-container-lowest overflow-hidden">
-                    <div class="h-full rounded-full ${s.bar}" style="width: ${s.pct}%"></div>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-            <div class="bg-surface-container-low p-3 rounded-xl">
-              <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2">Técnicas Insignia de ${c.shortName}</span>
-              <div class="flex flex-wrap gap-1.5">
-                ${c.moves.map((m) => `<span class="px-2.5 py-1 rounded-lg bg-surface-variant text-on-surface font-label-md text-label-md">${m}</span>`).join('')}
-              </div>
-            </div>
-          </section>
-
-          <!-- Ficha Técnica Oficial -->
+          <!-- Ficha Técnica -->
           <section class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-3">
             <div class="flex items-center justify-between bg-surface-container-high/60 px-3 py-2 rounded-lg">
               <div class="flex items-center gap-2 text-primary-fixed">
-                <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                <span class="font-headline-sm text-headline-sm">Ficha Técnica Oficial</span>
+                <span class="material-symbols-outlined text-[18px]">badge</span>
+                <span class="font-headline-sm text-headline-sm">${ui.techSheetTitle}</span>
               </div>
-              <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">SEGA Archive</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">${isNoCanon ? ui.filterNoCanon : 'SEGA Archive'}</span>
             </div>
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
-                <span class="font-label-sm text-label-sm text-outline uppercase">Especie</span>
-                <span class="font-headline-sm text-headline-sm text-on-surface">${c.specs.species}</span>
-              </div>
-              <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
-                <span class="font-label-sm text-label-sm text-outline uppercase">Edad / Género</span>
-                <span class="font-headline-sm text-headline-sm text-on-surface">${c.specs.ageGender}</span>
+                <span class="font-label-sm text-label-sm text-outline uppercase">${ui.species}</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface">${DATA.pick(c.specs.species, lang)}</span>
               </div>
               <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
-                <span class="font-label-sm text-label-sm text-outline uppercase">Altura &amp; Peso</span>
-                <span class="font-body-md text-body-md font-semibold text-on-surface">${c.specs.size}</span>
+                <span class="font-label-sm text-label-sm text-outline uppercase">${ui.ageGender}</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface">${DATA.pick(c.specs.ageGender, lang)}</span>
               </div>
               <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
-                <span class="font-label-sm text-label-sm text-outline uppercase">Alineación</span>
-                <span class="font-body-md text-body-md font-semibold text-secondary-fixed">${c.specs.alignment}</span>
+                <span class="font-label-sm text-label-sm text-outline uppercase">${ui.size}</span>
+                <span class="font-body-md text-body-md font-semibold text-on-surface tabular-nums">${c.specs.size}</span>
               </div>
-              <div class="col-span-2 bg-surface-container-low p-2.5 rounded-lg flex flex-col">
-                <span class="font-label-sm text-label-sm text-outline uppercase">Habilidad Principal</span>
-                <span class="font-body-md text-body-md ${c.accentClass}">${c.specs.ability}</span>
+              <div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">${ui.alignment}</span>
+                <span class="font-body-md text-body-md font-semibold text-secondary-fixed">${DATA.pick(c.specs.alignment, lang)}</span>
               </div>
-              <div class="col-span-2 bg-surface-container-low p-2.5 rounded-lg flex flex-col">
-                <span class="font-label-sm text-label-sm text-outline uppercase">Creadores Originales</span>
+              <div class="sm:col-span-2 bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">${ui.ability}</span>
+                <span class="font-body-md text-body-md ${c.accentClass}">${DATA.pick(c.specs.ability, lang)}</span>
+              </div>
+              <div class="sm:col-span-2 bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+                <span class="font-label-sm text-label-sm text-outline uppercase">${ui.creators}</span>
                 <span class="font-body-md text-body-md text-on-surface">${c.specs.creators}</span>
               </div>
             </div>
@@ -660,7 +574,7 @@
             <div class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-2.5">
               <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-primary-container text-[18px]">sports_esports</span>
-                Juegos Clave
+                ${ui.keyGames}
               </h3>
               ${c.games.map((g) => `
                 <div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between gap-2">
@@ -676,9 +590,9 @@
             <div class="rounded-2xl bg-surface-container border border-outline-variant/20 p-4 flex flex-col gap-2.5">
               <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-secondary-container text-[18px]">record_voice_over</span>
-                Actores de Doblaje
+                ${ui.voiceActors}
               </h3>
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 ${c.voices.map((v) => `
                   <div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col">
                     <span class="font-label-sm text-label-sm text-outline">${v.lang}</span>
@@ -695,16 +609,16 @@
             <div class="flex items-center justify-between">
               <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-secondary-container text-[20px]">auto_awesome</span>
-                Transformaciones de ${c.shortName}
+                ${ui.transformsTitle} ${c.shortName}
               </h3>
               <span class="font-label-sm text-label-sm text-outline uppercase">Chaos Energy</span>
             </div>
-            <div class="grid grid-cols-3 gap-2">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
               ${c.transforms.map((t) => `
                 <div class="p-3 rounded-xl bg-surface-container-high flex flex-col items-center text-center gap-1">
                   <span class="material-symbols-outlined text-[24px] ${t.tone}">${t.icon}</span>
-                  <span class="font-label-lg text-label-lg ${t.tone}">${t.name}</span>
-                  <span class="font-label-sm text-label-sm text-on-surface-variant">${t.req}</span>
+                  <span class="font-label-lg text-label-lg text-on-surface">${t.name}</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">${t.req}</span>
                 </div>
               `).join('')}
             </div>
@@ -721,13 +635,18 @@
         }
       }
 
-      rosterButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          renderCharacter(btn.getAttribute('data-char'), true);
-        });
+      function renderAll() {
+        const lang = getLang();
+        renderFilterBar(lang);
+        renderRoster(lang);
+        renderCharacter(currentKey, false);
+      }
+
+      window.addEventListener('wikispeed:langchange', () => {
+        renderAll();
       });
 
-      renderCharacter(currentKey, false);
+      renderAll();
     })();
   </script>
 </body>

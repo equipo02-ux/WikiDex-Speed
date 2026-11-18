@@ -136,10 +136,8 @@
           <circle cx="20" cy="10" r="1.2" fill="#ffffff"/>
         </svg>
         <div class="flex flex-col gap-0.5">
-          <span class="font-label-md text-label-md text-purple-300">Expediente Secreto Desbloqueado · Ojo Morado</span>
-          <p class="font-body-sm text-body-sm text-purple-100/90 leading-relaxed">
-            Accediste desde el Ojo Morado oculto en el Archivo Central de Tails. "El Primas" es un personaje paródico y meme viral 100% creado por la comunidad hispana de Sonic y sus fandubs (no oficial de SEGA ni Netflix).
-          </p>
+          <span class="font-label-md text-label-md text-purple-300" id="ep-notice-title">Ojo Morado · Expediente Secreto</span>
+          <p class="font-body-sm text-body-sm text-purple-100/90 leading-relaxed" id="ep-notice-body"></p>
         </div>
       </div>
 
@@ -149,13 +147,11 @@
           <div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-variant font-label-md">
             <span class="text-purple-300 font-bold">Expediente #PR-FANDUB</span>
             <span aria-hidden="true">·</span>
-            <span>No Canon (Comunidad)</span>
-            <span aria-hidden="true">·</span>
-            <span>Fenómeno Fandub Latino</span>
+            <span id="ep-era-badge">No Canon · Fandub</span>
           </div>
           <div>
-            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" style="text-wrap: balance;">El Primas (Variante Paródica de Tails)</h1>
-            <p class="font-label-md text-label-md text-purple-300 mt-0.5">Secret History Tails / Meme Hispano · "Yo soy El Primas"</p>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" style="text-wrap: balance;">El Primas</h1>
+            <p class="font-label-md text-label-md text-purple-300 mt-0.5" id="ep-alias">Secret History Tails / Fandub</p>
           </div>
           <div class="relative w-full aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-purple-400/35">
             <img alt="El Primas — Ilustración fan-art 2D con ojos morados hipnóticos" class="w-full h-full object-cover" referrerpolicy="no-referrer" src="/src/assets/images/fanart_el_primas_2d_1795018769993.jpg"/>
@@ -163,149 +159,83 @@
             <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-end justify-between gap-2">
               <div class="flex flex-col">
                 <span class="font-headline-md text-headline-md text-white drop-shadow">El Primas</span>
-                <span class="font-body-sm text-body-sm text-purple-200">Ilustración estilo Fan-Art 2D · Ojo Morado Activo</span>
+                <span class="font-body-sm text-body-sm text-purple-200" id="ep-art-credit">Arte Fan 2D</span>
               </div>
-              <span class="font-label-md text-label-md text-purple-200 bg-black/65 px-2.5 py-1 rounded-lg border border-purple-400/40">100% Comunidad</span>
+              <span class="font-label-md text-label-md text-purple-200 bg-black/65 px-2.5 py-1 rounded-lg border border-purple-400/40">100% Fandub</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Historia Completa -->
+      <!-- Historia Completa (Translated in 5 Languages) -->
       <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-4">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-purple-300 text-[22px]">menu_book</span>
-          <h2 class="font-headline-md text-headline-md text-on-surface">Historia Completa de "El Primas"</h2>
+          <h2 class="font-headline-md text-headline-md text-on-surface" id="ep-history-heading">Historia Completa de El Primas</h2>
         </div>
-
-        <div class="space-y-4 font-body-md text-body-md text-on-surface-variant leading-relaxed">
-          <p>
-            <strong class="text-on-surface">01. El Origen Animado (Mashed):</strong> Visualmente, el fenómeno nace a partir de los cortos animados de parodia creados por el canal británico <strong class="text-primary-container">Mashed</strong> (especialmente <em>Secret History of Sonic &amp; Tails</em>), donde se presenta una versión caricaturescamente desquiciada, histérica y obsesiva de Tails (<em>Crazy Tails</em>) con miradas intensas, sonrisas exageradas y aura caótica.
-          </p>
-          <p>
-            <strong class="text-on-surface">02. El Salto a los Fandubs y el Apodo "El Primas":</strong> Cuando creadores de contenido en Latinoamérica comenzaron a realizar <em>fandubs</em> (doblajes humorísticos de fans) al español sobre estos cortos y cómics de Sonic, la voz chillona, al borde del colapso y deliberadamente exagerada dio vida a un meme masivo en YouTube y TikTok. El nombre <strong class="text-purple-300">"El Primas"</strong> se popularizó por bromas fonéticas con el <em>Prisma Paradoja</em> de <em>Sonic Prime</em> y por diálogos tropicalizados llenos de frases virales e improbables.
-          </p>
-          <p>
-            <strong class="text-on-surface">03. Identidad en el Fandom Hispano:</strong> Aunque no aparece en ningún videojuego oficial de SEGA ni en la serie de Netflix, "El Primas" se ganó su propio rincón en la cultura de memes de Sonic como la contraparte cómica y descontrolada del dulce e inteligente Miles "Tails" Prower.
-          </p>
-        </div>
+        <div class="flex flex-col gap-3" id="ep-history-list"></div>
       </section>
 
-      <!-- Doblaje y Voz de El Primas (Sección Dedicada) -->
+      <!-- Doblaje y Voz de El Primas (Translated in 5 Languages) -->
       <section class="rounded-2xl bg-surface-container-high border border-purple-400/40 p-4 sm:p-5 flex flex-col gap-4 shadow-md">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-purple-300 text-[22px]">record_voice_over</span>
-          <h2 class="font-headline-md text-headline-md text-on-surface">¿Quién le hizo doblaje a "El Primas"?</h2>
+          <h2 class="font-headline-md text-headline-md text-on-surface" id="ep-dubbing-heading">¿Quién le hizo doblaje a "El Primas"?</h2>
         </div>
-        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-          Al ser un fenómeno de internet y parodia de la comunidad, <strong class="text-on-surface">no tiene un actor oficial contratado por SEGA</strong>; su inconfundible voz aguda, gritona y caótica proviene de destacados creadores de <strong>fandub en español latino</strong>:
-        </p>
+        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" id="ep-dubbing-intro"></p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div class="p-3.5 rounded-xl bg-surface-container border border-purple-400/35 flex flex-col gap-1">
-            <span class="font-label-sm text-label-sm text-purple-300">Voz Viral Principal (Fandub)</span>
+            <span class="font-label-sm text-label-sm text-purple-300">Fandub Viral Principal</span>
             <span class="font-headline-sm text-headline-sm text-on-surface">Lipotras</span>
-            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Uno de los fandubers más reconocidos por darle a "El Primas" su icónica voz aguda, frenética y cómica en parodias, cómics doblados y clips virales de YouTube y TikTok.
-            </p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">YouTube &amp; TikTok Fandub · Español Latino</p>
           </div>
           <div class="p-3.5 rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col gap-1">
-            <span class="font-label-sm text-label-sm text-primary-container">Otros Fandubers de la Comunidad</span>
-            <span class="font-headline-sm text-headline-sm text-on-surface">TheGraberFD, NerionDubs y Comunidad</span>
-            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Múltiples canales de doblaje fan latino adaptaron los cortos de Mashed con voces alteradas y loops humorísticos que multiplicaron la fama del personaje.
-            </p>
+            <span class="font-label-sm text-label-sm text-primary-container">Comunidad Fandub</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface">TheGraberFD, NerionDubs &amp; Fan Dubs</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Mashed · Secret History Tails (Parodia)</p>
           </div>
         </div>
         <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/25 flex flex-col gap-1">
-          <span class="font-label-sm text-label-sm text-secondary-container">Aclaración frente al Doblaje Oficial de Tails</span>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">
-            Para evitar confusiones con el canon: la voz oficial en español latino del Tails canónico en películas y <em>Sonic Prime</em> pertenece a <strong class="text-on-surface">Marisol Romero</strong> (y la de Sonic a <strong class="text-on-surface">Marc Winslow</strong> en <em>Sonic Prime</em>).
-          </p>
+          <span class="font-label-sm text-label-sm text-secondary-container" id="ep-official-note-title">Aclaración frente al Doblaje Oficial de Tails</span>
+          <p class="font-body-sm text-body-sm text-on-surface-variant" id="ep-official-note-body"></p>
         </div>
       </section>
 
-      <!-- Estadísticas de El Primas -->
+      <!-- Estadísticas de El Primas (Translated in 5 Languages) -->
       <section class="rounded-2xl bg-surface-container-high border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-4">
         <div class="flex items-center justify-between gap-2">
           <h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
             <span class="material-symbols-outlined text-purple-300 text-[20px]">equalizer</span>
-            Estadísticas de "El Primas"
+            <span id="ep-stats-heading">Estadísticas de El Primas</span>
           </h2>
-          <span class="font-label-md text-label-md text-purple-300 tabular-nums">Clase Caos / Meme</span>
+          <span class="font-label-md text-label-md text-purple-300 tabular-nums">CAOS / MEME</span>
         </div>
-
-        <div class="flex flex-col gap-3 tabular-nums">
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Nivel de Caos &amp; Humor Meme</span>
-              <span class="text-purple-300 font-bold">100 / MAX</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-gradient-to-r from-purple-700 to-fuchsia-400" style="width: 100%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Intensidad Vocal Fandub</span>
-              <span class="text-secondary-container font-bold">98 / 100</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-secondary-container" style="width: 98%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Hipnosis de Ojo Morado</span>
-              <span class="text-purple-300 font-bold">94 / 100</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-purple-400" style="width: 94%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Obsesión por Sonic</span>
-              <span class="text-primary-container font-bold">100 / MAX</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-primary-container" style="width: 100%"></div>
-            </div>
-          </div>
-          <div>
-            <div class="flex justify-between font-label-md text-label-md mb-1">
-              <span class="text-on-surface-variant">Estabilidad Mental / Canon Oficial</span>
-              <span class="text-error font-bold">5 / 100 (No Canon)</span>
-            </div>
-            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
-              <div class="h-full rounded-full bg-error" style="width: 5%"></div>
-            </div>
-          </div>
-        </div>
+        <div class="flex flex-col gap-3 tabular-nums" id="ep-stats-list"></div>
       </section>
 
       <!-- Archivos Relacionados -->
       <section class="rounded-2xl bg-surface-container border border-outline-variant/25 p-4 sm:p-5 flex flex-col gap-3">
-        <h2 class="font-headline-sm text-headline-sm text-on-surface">Archivos Relacionados</h2>
+        <h2 class="font-headline-sm text-headline-sm text-on-surface" id="ep-related-heading">Archivos Relacionados</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-outline-variant/25 flex items-center gap-3 transition-colors" href="/personajes/tails">
             <img alt="Tails" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_2d_1795018769917.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-secondary-container truncate">Tails</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Archivo Central</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate" data-official-sheet-label>Ficha Oficial</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-red-500/30 flex items-center gap-3 transition-colors" href="/archivo-tails-doll">
             <img alt="Tails Doll" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_tails_doll_2d_1795018770221.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-red-400 truncate">Tails Doll</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Anillo Rojo · Sonic R</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Sonic R</div>
             </div>
           </a>
           <a class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container-high border border-error/30 flex items-center gap-3 transition-colors" href="/archivo-exe">
             <img alt="Sonic.exe" class="w-12 h-12 rounded-lg object-cover shrink-0" referrerpolicy="no-referrer" src="/src/assets/images/fanart_sonic_exe_2d_1795018769799.jpg"/>
             <div class="min-w-0">
               <div class="font-label-lg text-label-lg text-error truncate">Sonic.exe</div>
-              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">Archivo Central</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant truncate">No Canon</div>
             </div>
           </a>
         </div>
@@ -313,10 +243,8 @@
 
       <!-- Créditos Oficiales y Comunitarios -->
       <section class="rounded-2xl bg-surface-container-low border border-secondary-container/25 p-4 sm:p-5 flex flex-col gap-2">
-        <h2 class="font-headline-sm text-headline-sm text-secondary-container">Créditos a los Creadores, Ilustradores y Fandubers</h2>
-        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Miles "Tails" Prower y Sonic pertenecen oficialmente a <strong class="text-primary-container">SEGA Corporation</strong> y <strong class="text-primary-container">Sonic Team</strong>, dibujados originalmente por <strong class="text-on-surface">Yasushi Yamaguchi, Naoto Ohshima, Yuji Uekawa y Tyson Hesse</strong>. La parodia animada original proviene del equipo de <strong class="text-purple-300">Mashed</strong>, y la identidad humorística de "El Primas" pertenece a la comunidad hispana de fandub (<strong class="text-on-surface">Lipotras, TheGraberFD, NerionDubs</strong> y artistas fan-art).
-        </p>
+        <h2 class="font-headline-sm text-headline-sm text-secondary-container" id="ep-credits-heading">Créditos a los Creadores, Ilustradores y Fandubers</h2>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="ep-credits-body"></p>
       </section>
     </div>
   </main>
@@ -341,5 +269,62 @@
       </a>
     </div>
   </nav>
+  <script>
+    (function () {
+      const DATA = window.WIKISPEED_DATA;
+      if (!DATA) return;
+      const c = DATA.CHARACTERS['el-primas'];
+
+      function hydrate() {
+        const lang = DATA.getLang();
+        const ui = DATA.UI[lang] || DATA.UI['es-LA'];
+        document.getElementById('ep-notice-title').textContent = `${ui.purpleEyeLabel} · ${ui.communityArchive}`;
+        document.getElementById('ep-notice-body').textContent = DATA.pick(c.bio, lang);
+        document.getElementById('ep-era-badge').textContent = DATA.pick(c.eraBadge, lang);
+        document.getElementById('ep-alias').textContent = `${c.jpName} · ${DATA.pick(c.alias, lang)}`;
+        document.getElementById('ep-art-credit').textContent = DATA.pick(c.artCredit, lang);
+        document.getElementById('ep-history-heading').textContent = `${ui.historyTitle} ${c.shortName}`;
+        document.getElementById('ep-dubbing-heading').textContent = ui.dubbingHeading;
+        document.getElementById('ep-dubbing-intro').textContent = ui.dubbingIntro;
+        document.getElementById('ep-official-note-title').textContent = ui.dubbingOfficialNoteTitle;
+        document.getElementById('ep-official-note-body').textContent = ui.dubbingOfficialNoteBody;
+        document.getElementById('ep-stats-heading').textContent = `${ui.statsTitle} ${c.shortName}`;
+        document.getElementById('ep-related-heading').textContent = ui.relatedArchives;
+        document.getElementById('ep-credits-heading').textContent = ui.creditsHeading;
+        document.getElementById('ep-credits-body').textContent = ui.creditsBody;
+        document.querySelectorAll('[data-official-sheet-label]').forEach((el) => {
+          el.textContent = ui.officialSheet;
+        });
+
+        const historyArr = DATA.pick(c.history, lang) || [];
+        document.getElementById('ep-history-list').innerHTML = historyArr.map((chapter) => {
+          const idx = chapter.indexOf(':');
+          const head = idx > 0 ? chapter.slice(0, idx) : '';
+          const body = idx > 0 ? chapter.slice(idx + 1).trim() : chapter;
+          return `
+            <div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+              ${head ? `<div class="font-label-lg text-label-lg text-purple-300 mb-1">${head}</div>` : ''}
+              <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">${body}</p>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('ep-stats-list').innerHTML = c.stats.map((s) => `
+          <div>
+            <div class="flex justify-between font-label-md text-label-md mb-1 gap-2">
+              <span class="text-on-surface-variant">${DATA.statLabel(s.statKey, lang)}</span>
+              <span class="text-purple-300 font-bold shrink-0">${s.suffix}</span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden">
+              <div class="h-full rounded-full ${s.bar}" style="width: ${s.pct}%"></div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.addEventListener('wikispeed:langchange', hydrate);
+      hydrate();
+    })();
+  </script>
 </body>
 </html>

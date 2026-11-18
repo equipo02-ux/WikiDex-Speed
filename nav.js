@@ -42,6 +42,13 @@
       welcomeBtn: 'Entrar a WikiSpeed',
       welcomeArtCredit: 'Arte Fan 2D tributo · Créditos a SEGA, Sonic Team y artistas de Sonic',
       langChanged: 'Idioma cambiado a Español (Latinoamérica)',
+      viewRoster: 'Ver Todos (16)',
+      featuredHeadline: 'Sonic Frontiers: El Ciberespacio y las Islas Starfall',
+      featuredDesc: 'Análisis completo de la tecnología de los Ancestros, las memorias digitales de Green Hill y el despertar de The End en la cronología contemporánea.',
+      randomBtn: 'Aleatorio',
+      replayWelcome: 'Ver aviso de bienvenida',
+      creditsTitle: 'Créditos a los Creadores e Ilustradores',
+      langCount: '5 idiomas',
     },
     'es-ES': {
       menuTitle: 'Idioma de WikiSpeed',
@@ -63,6 +70,13 @@
       welcomeBtn: 'Entrar en WikiSpeed',
       welcomeArtCredit: 'Arte Fan 2D tributo · Créditos a SEGA, Sonic Team e ilustradores de Sonic',
       langChanged: 'Idioma cambiado a Español (España)',
+      viewRoster: 'Ver Todos (16)',
+      featuredHeadline: 'Sonic Frontiers: El Ciberespacio y las Islas Starfall',
+      featuredDesc: 'Análisis completo de la tecnología de los Ancestros, los recuerdos digitales de Green Hill y el despertar de The End en la cronología actual.',
+      randomBtn: 'Aleatorio',
+      replayWelcome: 'Ver aviso de bienvenida',
+      creditsTitle: 'Créditos a los Creadores e Ilustradores',
+      langCount: '5 idiomas',
     },
     fr: {
       menuTitle: 'Langue de WikiSpeed',
@@ -84,6 +98,13 @@
       welcomeBtn: 'Entrer dans WikiSpeed',
       welcomeArtCredit: 'Fan-Art 2D hommage · Crédits à SEGA, Sonic Team et artistes Sonic',
       langChanged: 'Langue changée en Français',
+      viewRoster: 'Voir Tous (16)',
+      featuredHeadline: 'Sonic Frontiers : Le Cyberespace et les Îles Starfall',
+      featuredDesc: "Analyse complète de la technologie des Anciens, des souvenirs numériques de Green Hill et de l'éveil de The End dans la chronologie moderne.",
+      randomBtn: 'Aléatoire',
+      replayWelcome: "Revoir l'avis de bienvenue",
+      creditsTitle: 'Crédits aux Créateurs et Illustrateurs',
+      langCount: '5 langues',
     },
     'ja-zh': {
       menuTitle: '言語 / 语言 (WikiSpeed)',
@@ -105,6 +126,13 @@
       welcomeBtn: 'WikiSpeedへ入る / 进入',
       welcomeArtCredit: '2Dファンアート · SEGA / Sonic Team・歴代公式イラストレーターに敬意を表して',
       langChanged: '日本語 / 中文 に切り替えました',
+      viewRoster: '全キャラ (16)',
+      featuredHeadline: 'ソニックフロンティア：電脳空間とスターフォール諸島',
+      featuredDesc: '古代人の技術、グリーンヒルのデジタル記憶、そしてジ・エンドの覚醒を徹底解説。(深度解析古代遗迹、赛博空间与星坠群岛故事。)',
+      randomBtn: 'ランダム / 随机',
+      replayWelcome: '案内を再表示 / 查看欢迎提示',
+      creditsTitle: '公式クリエイター＆絵師クレジット / 创作者致谢',
+      langCount: '5言語',
     },
     'en-US': {
       menuTitle: 'WikiSpeed Language',
@@ -126,6 +154,13 @@
       welcomeBtn: 'Enter WikiSpeed',
       welcomeArtCredit: '2D Fan-Art Tribute · Credits to SEGA, Sonic Team & Sonic illustrators',
       langChanged: 'Language switched to English (US)',
+      viewRoster: 'View All (16)',
+      featuredHeadline: 'Sonic Frontiers: Cyberspace & The Starfall Islands',
+      featuredDesc: 'Full analysis of the Ancients’ technology, digital memories of Green Hill, and the awakening of The End in the modern Sonic timeline.',
+      randomBtn: 'Random',
+      replayWelcome: 'Replay welcome notice',
+      creditsTitle: 'Credits to Creators & Illustrators',
+      langCount: '5 languages',
     },
   };
 
@@ -313,6 +348,37 @@
           sp.textContent = dict.readCard;
         }
       });
+
+      const featuredH3 = document.querySelector('main article h3');
+      if (featuredH3) featuredH3.textContent = dict.featuredHeadline;
+      const featuredP = document.querySelector('main article p');
+      if (featuredP) featuredP.textContent = dict.featuredDesc;
+
+      const viewRosterLink = document.getElementById('home-view-roster-label');
+      if (viewRosterLink) viewRosterLink.textContent = dict.viewRoster;
+
+      const randomBtnLabel = document.querySelector('#random-article-btn span:last-child');
+      if (randomBtnLabel) randomBtnLabel.textContent = dict.randomBtn;
+
+      const replayBtn = document.getElementById('replay-welcome-btn');
+      if (replayBtn) replayBtn.textContent = dict.replayWelcome;
+
+      const creditsTitleEl = document.getElementById('home-credits-title');
+      if (creditsTitleEl) creditsTitleEl.textContent = dict.creditsTitle;
+
+      const creditsBodyEl = document.getElementById('home-credits-body');
+      if (creditsBodyEl && window.WIKISPEED_DATA && window.WIKISPEED_DATA.UI[code]) {
+        creditsBodyEl.textContent = window.WIKISPEED_DATA.UI[code].creditsBody;
+      }
+
+      // Translate Home character card subtitles from WIKISPEED_DATA
+      if (window.WIKISPEED_DATA) {
+        document.querySelectorAll('[data-home-char-sub]').forEach((el) => {
+          const key = el.getAttribute('data-home-char-sub');
+          const c = window.WIKISPEED_DATA.CHARACTERS[key];
+          if (c) el.textContent = window.WIKISPEED_DATA.pick(c.alias, code);
+        });
+      }
     }
 
     // Update translate button tooltips
@@ -334,6 +400,9 @@
     if (wNoticeB) wNoticeB.textContent = dict.welcomeNoticeBody;
     if (wBtn) wBtn.textContent = dict.welcomeBtn;
     if (wCredit) wCredit.textContent = dict.welcomeArtCredit;
+
+    // Notify page-level scripts (character sheets, secret archives, search) to re-render localized texts, stats & histories
+    window.dispatchEvent(new CustomEvent('wikispeed:langchange', { detail: { lang: code } }));
   }
 
   function setupLanguageSwitcher() {
@@ -372,7 +441,7 @@
       pop.innerHTML = `
         <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 10px 8px;border-bottom:1px solid rgba(136,146,153,0.22);margin-bottom:4px;">
           <span style="font-family:Outfit,sans-serif;font-size:12px;font-weight:700;color:#69cfff;letter-spacing:0.04em;">${dict.menuTitle}</span>
-          <span style="font-size:11px;color:#bec8cf;">5 idiomas</span>
+          <span style="font-size:11px;color:#bec8cf;">${dict.langCount}</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:3px;">
           ${LANGUAGES.map((lang) => {
@@ -692,17 +761,32 @@
         }
       });
 
-      // Popular character cards -> individual Sonic / Tails / Shadow pages
+      // Popular character cards -> individual Canon & No-Canon character pages
       document.querySelectorAll('main .snap-start').forEach((card) => {
         card.style.cursor = 'pointer';
+        const directHref = card.getAttribute('data-char-href');
         const text = (card.textContent || '').toLowerCase();
         card.addEventListener('click', () => {
+          if (directHref) {
+            navigateTo(directHref);
+            return;
+          }
           if (text.includes('tails')) {
             navigateTo('/personajes/tails');
           } else if (text.includes('shadow')) {
             navigateTo('/personajes/shadow');
           } else if (text.includes('knuckles')) {
-            navigateTo('/buscar?q=Knuckles');
+            navigateTo('/personajes/knuckles');
+          } else if (text.includes('amy')) {
+            navigateTo('/personajes/amy');
+          } else if (text.includes('eggman')) {
+            navigateTo('/personajes/eggman');
+          } else if (text.includes('metal')) {
+            navigateTo('/personajes/metal-sonic');
+          } else if (text.includes('silver')) {
+            navigateTo('/personajes/silver');
+          } else if (text.includes('blaze')) {
+            navigateTo('/personajes/blaze');
           } else {
             navigateTo('/personajes/sonic');
           }
